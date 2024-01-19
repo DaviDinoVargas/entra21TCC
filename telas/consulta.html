@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Equosoft</title>
+<link rel="stylesheet" href="estilos/consulta.css">
+</head>
+<body>
+	<nav>
+	   <%@include file="barra.html" %>	
+	</nav>
+   <div class="instituticao">
+        <p>Instituição: XXXXX</p>
+    </div>
+   <div class="divtb">
+	   <h1 class="title">Pacientes</h1>
+	   	<table>
+	        <tbody>
+	        <!--<%
+             ArrayList<Paciente> pacientes = PacienteDAO.consultar();
+	        if (pacientes != null){
+	        for(Paciente pc : pacientes){
+            	 out.print("<tr>");
+            	 out.print("<td>"+ pc.getNome()+"</td>");
+            	 out.print("<td ><a class='acoes' href='./formEditarPaciente.jsp?id="+pc.getIdCadastro()+"'>editar</a></td>");
+            	 out.print("</tr>");
+             }	
+	        } else { out.print("Nenhum paciente encontrado"); }
+           %>-->
+	        </tbody>
+	   </table>
+   </div>
+   
+</body>
+</html>

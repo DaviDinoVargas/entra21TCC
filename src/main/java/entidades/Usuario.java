@@ -22,6 +22,8 @@ public class Usuario {
     private String Empresa;
 	@OneToMany
     private Local local; 
+	private String Password;
+	@Column( length = 30)
 
     
     public int getIdUsuario() {
@@ -63,4 +65,14 @@ public class Usuario {
 	public void setEmpresa(String empresa) {
 		Empresa = empresa;
 	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+	
 }

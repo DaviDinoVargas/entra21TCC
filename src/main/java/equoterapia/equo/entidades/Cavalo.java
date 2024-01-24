@@ -1,4 +1,4 @@
-package equoterapia.entidades;
+package equoterapia.equo.entidades;
 
 import java.util.Collection;
 

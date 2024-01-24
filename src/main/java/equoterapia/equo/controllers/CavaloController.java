@@ -1,5 +1,8 @@
 package equoterapia.equo.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,47 +15,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import equoterapia.entidades.Cavalo;
+import equoterapia.equo.entidades.Cavalo;
 import equoterapia.equo.repositories.CavaloRepository;
+import equoterapia.equo.services.CavaloService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/cavalo")
 public class CavaloController {
-
+	List<Cavalo> cavalos = new ArrayList<>();
+	
 	@Autowired
 	CavaloRepository repository;
+	
+	@Autowired
+	CavaloService service;
 
 	@GetMapping("/cavalos")
-	public ResponseEntity<?> getAllProducts() {
+	public ResponseEntity<Object> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	@PostMapping("/registro")
-	public ResponseEntity<?> registro(@RequestBody Cavalo cavalo) {
+	public ResponseEntity<Object> registro(@RequestBody Cavalo cavalo) {
 
-		if (this.repository.findByName(cavalo.getNome()) != null) {
-			return ResponseEntity.badRequest().build();
-		}
-		Cavalo novoCavalo = repository.save(cavalo);
-		return ResponseEntity.status(HttpStatus.CREATED).body(novoCavalo);
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(cavalo));
 	}
-	@PutMapping("/cavalos/{id}")
-	public ResponseEntity<?> alterar(@PathVariable("id") Long id, @RequestBody Cavalo cavalo){
-		Cavalo oldHorse = repository.findById(id).get();
-		oldHorse.setNome(cavalo.getNome());
-		oldHorse.setIdade(cavalo.getIdade());
-		oldHorse.setRaca(cavalo.getRaca());
+
+	@PutMapping("/cavalos/{idCavalo}")
+	public ResponseEntity<Object> alterar(@PathVariable("idCavalo") Long idCavalo, @RequestBody Cavalo cavalo) {
 		
-		Cavalo horseAlterado = repository.save(oldHorse);
-		
-		return ResponseEntity.status(HttpStatus.CREATED).body(horseAlterado);
+		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idCavalo, cavalo));
 	}
+
 	@DeleteMapping("/cavalos/{id}")
-	public ResponseEntity<?> deleteCavalo(@PathVariable("id") Long id){
-		Cavalo oldHorse = repository.findById(id).get();
-		repository.delete(oldHorse);
-		
+	public ResponseEntity<Object> deleteCavalo(@PathVariable("id") Long id) {
+		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-	}
+}
 }

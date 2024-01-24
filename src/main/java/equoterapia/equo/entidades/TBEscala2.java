@@ -1,4 +1,4 @@
-package equoterapia.entidades;
+package equoterapia.equo.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

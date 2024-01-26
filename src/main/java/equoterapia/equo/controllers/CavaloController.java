@@ -23,10 +23,10 @@ import equoterapia.equo.services.CavaloService;
 @RequestMapping("/cavalo")
 public class CavaloController {
 	List<Cavalo> cavalos = new ArrayList<>();
-	
+
 	@Autowired
 	CavaloRepository repository;
-	
+
 	@Autowired
 	CavaloService service;
 
@@ -43,7 +43,7 @@ public class CavaloController {
 
 	@PutMapping("/cavalos/{idCavalo}")
 	public ResponseEntity<Object> alterar(@PathVariable("idCavalo") Long idCavalo, @RequestBody Cavalo cavalo) {
-		
+
 		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idCavalo, cavalo));
 	}
 
@@ -51,5 +51,5 @@ public class CavaloController {
 	public ResponseEntity<Object> deleteCavalo(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-}
+	}
 }

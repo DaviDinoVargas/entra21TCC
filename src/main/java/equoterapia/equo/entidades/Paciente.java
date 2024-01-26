@@ -33,7 +33,7 @@ public class Paciente {
 	    //private Date dataNascimento;
 	    @OneToOne
 	    private ArrayList<Endereco> enderecos;
-	    @ManyToOne
+	    @OneToOne
 	    private Usuario usuario;
 	    
 	    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

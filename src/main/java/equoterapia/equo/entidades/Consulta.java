@@ -35,6 +35,8 @@ public class Consulta {
     private String encilhamento;
     @ManyToOne
     private Local local;
+    @ManyToOne
+    private Cavalo cavalo;
     @OneToOne
     private Usuario usuario;
     
@@ -107,6 +109,22 @@ public class Consulta {
 
 	public Usuario getUsuario() {
 		return usuario;
+	}
+	
+	public Time getHora() {
+		return hora;
+	}
+
+	public void setHora(Time hora) {
+		this.hora = hora;
+	}
+
+	public Cavalo getCavalo() {
+		return cavalo;
+	}
+
+	public void setCavalo(Cavalo cavalo) {
+		this.cavalo = cavalo;
 	}
 
 	public void setUsuario(Usuario usuario) {

@@ -1,19 +1,14 @@
 package equoterapia.equo.services;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.aula.entidades.Contato;
-import com.example.aula.exceptions.RecursoJaExistente;
-import com.example.aula.exceptions.ValidaDadosException;
-
-import java.util.Optional;
-
-
 import equoterapia.equo.entidades.Cavalo;
+import equoterapia.equo.exceptions.RecursoJaExistente;
 import equoterapia.equo.exceptions.RecursoNaoEncontrado;
+import equoterapia.equo.exceptions.ValidaDadosException;
 import equoterapia.equo.repositories.CavaloRepository;
 
 @Service
@@ -23,9 +18,9 @@ public class CavaloService {
 	
 	public Cavalo salvar(Cavalo cavalo) {
 		validaCampos(cavalo);	
-		/*if (repo.findById(cavalo.getId()) != null) {
+		if (repo.findById((long) cavalo.getId()) != null) {
 			throw new RecursoJaExistente("Contato já cadastrado para esse email");
-		}	*/
+		}	
 		return repo.save(cavalo);
 	}
 	
@@ -55,13 +50,8 @@ public class CavaloService {
 			throw new ValidaDadosException("O email deve ser informado");
 		}
 		
-		if(cavalo.getIdade( == null ) {
-			throw new ValidaDadosException("O fone deve ser informado");
-		}
-		else {
-			if(contato.getFone().equals("")) {
-				throw new ValidaDadosException("O fone deve ser informado");
-			}
+		if(cavalo.getIdade() <= 0) {
+		    throw new ValidaDadosException("A idade deve ser informada e maior que zero");
 		}
 	}
 }

@@ -10,7 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,9 +25,7 @@ public class Cavalo implements UserDetails{
 	private int idade;
 	@Column( length = 50)
 	private String raca;
-	@OneToMany
-	private Consulta consulta;
-	@OneToMany
+	@OneToOne
 	private Usuario usuario;
 	
 	
@@ -59,13 +57,6 @@ public class Cavalo implements UserDetails{
 		public String toString() {
 			return id + nome + idade + raca;
 		}
-		public Consulta getConsulta() {
-		        return consulta;
-		    }
-
-		public void setConsulta(Consulta consulta) {
-		        this.consulta = consulta;
-		    }
 
 		public Usuario getUsuario() {
 			return usuario;

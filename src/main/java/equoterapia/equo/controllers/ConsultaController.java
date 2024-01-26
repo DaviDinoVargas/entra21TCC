@@ -15,40 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import equoterapia.equo.entidades.Cavalo;
-import equoterapia.equo.repositories.CavaloRepository;
-import equoterapia.equo.services.CavaloService;
+import equoterapia.equo.entidades.Consulta;
+import equoterapia.equo.repositories.ConsultaRepository;
+import equoterapia.equo.services.ConsultaService;
 
 @RestController
 @RequestMapping("/auth")
-public class CavaloController {
-	List<Cavalo> cavalos = new ArrayList<>();
+public class ConsultaController {
+	List<Consulta> consultas = new ArrayList<>();
 
 	@Autowired
-	CavaloRepository repository;
+	ConsultaRepository repository;
 
 	@Autowired
-	CavaloService service;
+	ConsultaService service;
 
-	@GetMapping("/cavalos")
+	@GetMapping("/consultas")
 	public ResponseEntity<Object> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
-	@PostMapping("/registroCavalo")
-	public ResponseEntity<Object> registro(@RequestBody Cavalo cavalo) {
+	@PostMapping("/registroConsultas")
+	public ResponseEntity<Object> registro(@RequestBody Consulta consulta) {
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(cavalo));
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(consulta));
 	}
 
-	@PutMapping("/cavalos/{idCavalo}")
-	public ResponseEntity<Object> alterar(@PathVariable("idCavalo") Long idCavalo, @RequestBody Cavalo cavalo) {
+	@PutMapping("/consultas/{idConsulta}")
+	public ResponseEntity<Object> alterar(@PathVariable("idConsulta") Long idConsulta, @RequestBody Consulta consulta) {
 
-		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idCavalo, cavalo));
+		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idConsulta, consulta));
 	}
 
-	@DeleteMapping("/cavalos/{id}")
-	public ResponseEntity<Object> deleteCavalo(@PathVariable("id") Long id) {
+	@DeleteMapping("/consultas/{id}")
+	public ResponseEntity<Object> deleteConsulta(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}

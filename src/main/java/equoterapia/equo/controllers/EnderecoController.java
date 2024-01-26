@@ -20,7 +20,7 @@ import equoterapia.equo.repositories.EnderecoRepository;
 import equoterapia.equo.services.EnderecoService;
 
 @RestController
-@RequestMapping("/endereco")
+@RequestMapping("/auth")
 public class EnderecoController {
 	List<Endereco> enderecos = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class EnderecoController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
-	@PostMapping("/registro")
+	@PostMapping("/registroEnderecos")
 	public ResponseEntity<Object> registro(@RequestBody Endereco endereco) {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(endereco));

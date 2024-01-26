@@ -21,7 +21,7 @@ import equoterapia.equo.services.PacienteService;
 
 
 @RestController
-@RequestMapping("/paciente")
+@RequestMapping("/auth")
 public class PacienteController {
 	List<Paciente> paciente = new ArrayList<>();
 	
@@ -36,7 +36,7 @@ public class PacienteController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
-	@PostMapping("/registro")
+	@PostMapping("/registroPaciente")
 	public ResponseEntity<Object> registro(@RequestBody Paciente paciente) {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(paciente));

@@ -15,40 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import equoterapia.equo.entidades.Cavalo;
-import equoterapia.equo.repositories.CavaloRepository;
-import equoterapia.equo.services.CavaloService;
+import equoterapia.equo.entidades.Local;
+import equoterapia.equo.repositories.LocalRepository;
+import equoterapia.equo.services.LocalService;
 
 @RestController
 @RequestMapping("/auth")
-public class CavaloController {
-	List<Cavalo> cavalos = new ArrayList<>();
+public class LocalController {
+	List<Local> locais = new ArrayList<>();
 
 	@Autowired
-	CavaloRepository repository;
+	LocalRepository repository;
 
 	@Autowired
-	CavaloService service;
+	LocalService service;
 
-	@GetMapping("/cavalos")
+	@GetMapping("/locais")
 	public ResponseEntity<Object> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
-	@PostMapping("/registroCavalo")
-	public ResponseEntity<Object> registro(@RequestBody Cavalo cavalo) {
+	@PostMapping("/registroLocais")
+	public ResponseEntity<Object> registro(@RequestBody Local local) {
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(cavalo));
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(local));
 	}
 
-	@PutMapping("/cavalos/{idCavalo}")
-	public ResponseEntity<Object> alterar(@PathVariable("idCavalo") Long idCavalo, @RequestBody Cavalo cavalo) {
+	@PutMapping("/locais/{idLocal}")
+	public ResponseEntity<Object> alterar(@PathVariable("idLocal") Long idLocal, @RequestBody Local local) {
 
-		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idCavalo, cavalo));
+		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idLocal, local));
 	}
 
-	@DeleteMapping("/cavalos/{id}")
-	public ResponseEntity<Object> deleteCavalo(@PathVariable("id") Long id) {
+	@DeleteMapping("/locais/{id}")
+	public ResponseEntity<Object> deleteLocal(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}

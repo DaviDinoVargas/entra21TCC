@@ -1,8 +1,8 @@
 package entidades;
 
 import java.sql.Date;
-import java.sql.Time;
-import java.util.ArrayList;
+import java.time.LocalTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -18,99 +18,116 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "tb_consulta")
 public class Consulta {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idConsulta;
-	@Temporal(TemporalType.DATE)
+
+    @Temporal(TemporalType.DATE)
     private Date dataAvaliacao;
-	@Temporal(TemporalType.TIME)
-	private Time hora;
-    @Column( length = 70)
+
+    @Temporal(TemporalType.TIME)
+    private LocalTime hora;
+
+    @Column(length = 70)
     private String condicaoSaude;
-    @Column( length = 50)
+
+    @Column(length = 50)
     private String mediador;
-    @Column( length = 50)
+
+    @Column(length = 50)
     private String guia;
-    @Column( length = 50)
+
+    @Column(length = 50)
     private String encilhamento;
+
     @ManyToOne
     private Local local;
-    @OneToOne
+
+    @ManyToOne
     private Usuario usuario;
-    
-    private ArrayList<EscalaAvaliacao> escalasAvaliacao;  
 
-    
-	public int getIdConsulta() {
-		return idConsulta;
-	}
+    @OneToMany(mappedBy = "consulta")
+    private List<EscalaAvaliacao> escalasAvaliacao;
 
-	public void setIdConsulta(int idConsulta) {
-		this.idConsulta = idConsulta;
-	}
 
-	public Date getDataAvaliacao() {
-		return dataAvaliacao;
-	}
+    public int getIdConsulta() {
+        return idConsulta;
+    }
 
-	public void setDataAvaliacao(Date dataAvaliacao) {
-		this.dataAvaliacao = dataAvaliacao;
-	}
+    public void setIdConsulta(int idConsulta) {
+        this.idConsulta = idConsulta;
+    }
 
-	public String getCondicaoSaude() {
-		return condicaoSaude;
-	}
+    public Date getDataAvaliacao() {
+        return dataAvaliacao;
+    }
 
-	public void setCondicaoSaude(String condicaoSaude) {
-		this.condicaoSaude = condicaoSaude;
-	}
+    public void setDataAvaliacao(Date dataAvaliacao) {
+        this.dataAvaliacao = dataAvaliacao;
+    }
 
-	public String getMediador() {
-		return mediador;
-	}
+    public LocalTime getHora() {
+        return hora;
+    }
 
-	public void setMediador(String mediador) {
-		this.mediador = mediador;
-	}
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
 
-	public String getGuia() {
-		return guia;
-	}
+    public String getCondicaoSaude() {
+        return condicaoSaude;
+    }
 
-	public void setGuia(String guia) {
-		this.guia = guia;
-	}
+    public void setCondicaoSaude(String condicaoSaude) {
+        this.condicaoSaude = condicaoSaude;
+    }
 
-	public String getEncilhamento() {
-		return encilhamento;
-	}
+    public String getMediador() {
+        return mediador;
+    }
 
-	public void setEncilhamento(String encilhamento) {
-		this.encilhamento = encilhamento;
-	}
+    public void setMediador(String mediador) {
+        this.mediador = mediador;
+    }
 
-	public Local getLocal() {
-		return local;
-	}
+    public String getGuia() {
+        return guia;
+    }
 
-	public void setLocal(Local local) {
-		this.local = local;
-	}
+    public void setGuia(String guia) {
+        this.guia = guia;
+    }
 
-	public ArrayList<EscalaAvaliacao> getEscalasAvaliacao() {
-		return escalasAvaliacao;
-	}
+    public String getEncilhamento() {
+        return encilhamento;
+    }
 
-	public void setEscalasAvaliacao(ArrayList<EscalaAvaliacao> escalasAvaliacao) {
-		this.escalasAvaliacao = escalasAvaliacao;
-	}
+    public void setEncilhamento(String encilhamento) {
+        this.encilhamento = encilhamento;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public Local getLocal() {
+        return local;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setLocal(Local local) {
+        this.local = local;
+    }
 
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<EscalaAvaliacao> getEscalasAvaliacao() {
+        return escalasAvaliacao;
+    }
+
+    public void setEscalasAvaliacao(List<EscalaAvaliacao> escalasAvaliacao) {
+        this.escalasAvaliacao = escalasAvaliacao;
+    }
+}

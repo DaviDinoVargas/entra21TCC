@@ -1,5 +1,7 @@
 package entidades;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,19 +13,25 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idUsuario;
-	@Column( length = 30)
-    private String usuario;
-	@Column( length = 20)
-    private String senha;
-	@Column( length = 30)
-    private String Empresa;
-	@OneToMany
-    private Local local; 
-
     
+    @Column(length = 30)
+    private String usuario;
+    
+    @Column(length = 20)
+    private String senha;
+    
+    @Column(length = 30)
+    private String empresa;
+    
+    @Column(length = 18)
+    private String cnpj;
+    
+    @OneToMany(mappedBy = "usuario")
+    private List<Local> locais;
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -48,19 +56,27 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Local getLocal() {
-        return local;
+    public String getEmpresa() {
+        return empresa;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
-	public String getEmpresa() {
-		return Empresa;
-	}
+    public String getCnpj() {
+        return cnpj;
+    }
 
-	public void setEmpresa(String empresa) {
-		Empresa = empresa;
-	}
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public List<Local> getLocais() {
+        return locais;
+    }
+
+    public void setLocais(List<Local> locais) {
+        this.locais = locais;
+    }
 }

@@ -1,110 +1,92 @@
 package entidades;
 
-import java.util.ArrayList;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_endereco")
 public class Endereco {
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		private int idtb_endereco;
-		@Column( length = 10)
-		private int numero;
-		@Column( length = 9)
-		private int cep;
-		@Column( length = 50)
-		private String cidade;
-		@Column( length = 2)
-		private String uf;
-		@Column( length = 70)
-	    private String rua;
-	   /* private Usuario usuario;
-	    private ArrayList<Paciente> pacientes;*/
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idtb_endereco;
 
-		public int getIdtb_endereco() {
-			return idtb_endereco;
-		}
+    @Column(length = 10)
+    private Integer numero;
 
-		public void setIdtb_endereco(int idtb_endereco) {
-			this.idtb_endereco = idtb_endereco;
-		}
+    @Column(length = 9)
+    private Integer cep;
 
-		public int getNumero() {
-			return numero;
-		}
+    @Column(length = 50)
+    private String cidade;
 
-		public void setNumero(int numero) {
-			this.numero = numero;
-		}
+    @Column(length = 2)
+    private String uf;
 
-		public int getCep() {
-			return cep;
-		}
+    @Column(length = 70)
+    private String rua;
 
-		public void setCep(int cep) {
-			this.cep = cep;
-		}
+    @ManyToOne
+    private Usuario usuario;
 
-		public String getCidade() {
-			return cidade;
-		}
+    public int getIdtb_endereco() {
+        return idtb_endereco;
+    }
 
-		public void setCidade(String cidade) {
-			this.cidade = cidade;
-		}
+    public void setIdtb_endereco(int idtb_endereco) {
+        this.idtb_endereco = idtb_endereco;
+    }
 
-		public String getUf() {
-			return uf;
-		}
+    public Integer getNumero() {
+        return numero;
+    }
 
-		public void setUf(String uf) {
-			this.uf = uf;
-		}
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
 
-		public String getRua() {
-			return rua;
-		}
+    public Integer getCep() {
+        return cep;
+    }
 
-		public void setRua(String rua) {
-			this.rua = rua;
-		}
-/*
-		public void setPacientes(ArrayList<Paciente> pacientes) {
-			this.pacientes = pacientes;
-		}
+    public void setCep(Integer cep) {
+        this.cep = cep;
+    }
 
-		public void adicionarPaciente(Paciente paciente) {
-	        this.pacientes.add(paciente);
-	    }
+    public String getCidade() {
+        return cidade;
+    }
 
-	    public ArrayList<Paciente> getPacientes() {
-	        return pacientes;
-	    }
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-		public Usuario getUsuario() {
-			return usuario;
-		}
+    public String getUf() {
+        return uf;
+    }
 
-		public void setUsuario(Usuario usuario) {
-			this.usuario = usuario;
-		}*/
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
 
-		public String getCnpj() {
-			
-			return null;
-		}
+    public String getRua() {
+        return rua;
+    }
 
-		public int getIdEndereco() {
-			
-			return 0;
-		}
-	    
-	}
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+}

@@ -11,7 +11,7 @@ import equoterapia.equo.exceptions.ValidaDadosException;
 import equoterapia.equo.repositories.TBEscala1Repository;
 
 @Service
-public class TBEscalaService {
+public class TBEscala1Service {
 	@Autowired
 	TBEscala1Repository repo;
 	
@@ -43,17 +43,17 @@ public class TBEscalaService {
 		repo.delete(end);
 	}
 	private void validaCampos(TBEscala1 tBEscala) {
-		if(tBEscala.getOp1_1() < 0 || tBEscala.getOp1_1() > 10) {
-			throw new ValidaDadosException("A Avaliação é somente de 0 a 10");
+		if(tBEscala.getOp1_1() < 0 || tBEscala.getOp1_1() > 4) {
+			throw new ValidaDadosException("A Avaliação é somente de 0 a 4");
 		}
-		if(tBEscala.getOp1_2() < 0 || tBEscala.getOp1_2() > 10) {
-			throw new ValidaDadosException("A Avaliação é somente de 0 a 10");
+		if(tBEscala.getOp1_2() < 0 || tBEscala.getOp1_2() > 4) {
+			throw new ValidaDadosException("A Avaliação é somente de 0 a 4");
 		}
-		if(tBEscala.getOp1_3() < 0 || tBEscala.getOp1_3() > 10) {
-			throw new ValidaDadosException("A Avaliação é somente de 0 a 10");
+		if(tBEscala.getOp1_3() < 0 || tBEscala.getOp1_3() > 4) {
+			throw new ValidaDadosException("A Avaliação é somente de 0 a 4");
 		}
 		if(tBEscala.getComentarioDM1().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
+			throw new ValidaDadosException("Você deve descrever algum comentário");
 		}/* 
 		if(tBEscala.getSomaDM1() <= DADOS DA SOMA(VALOR MAX E MIN) {
 			throw new ValidaDadosException("O UF deve ser informado");

@@ -1,7 +1,5 @@
 package entidades;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,13 +9,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idUsuario;
+    private int id_usuario;
     
-    @Column(length = 30)
+    @Column(length = 45)
     private String usuario;
     
     @Column(length = 20)
@@ -29,54 +27,56 @@ public class Usuario {
     @Column(length = 18)
     private String cnpj;
     
-    @OneToMany(mappedBy = "usuario")
-    private List<Local> locais;
+    @OneToMany
+    private Endereco endereco_usuario_id;
 
-    public int getIdUsuario() {
-        return idUsuario;
-    }
+	public int getId_usuario() {
+		return id_usuario;
+	}
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 
-    public String getUsuario() {
-        return usuario;
-    }
+	public String getUsuario() {
+		return usuario;
+	}
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public String getEmpresa() {
-        return empresa;
-    }
+	public String getEmpresa() {
+		return empresa;
+	}
 
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
 
-    public String getCnpj() {
-        return cnpj;
-    }
+	public String getCnpj() {
+		return cnpj;
+	}
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
 
-    public List<Local> getLocais() {
-        return locais;
-    }
+	public Endereco getEndereco_usuario_id() {
+		return endereco_usuario_id;
+	}
 
-    public void setLocais(List<Local> locais) {
-        this.locais = locais;
-    }
+	public void setEndereco_usuario_id(Endereco endereco_usuario_id) {
+		this.endereco_usuario_id = endereco_usuario_id;
+	}
+    
+    
 }

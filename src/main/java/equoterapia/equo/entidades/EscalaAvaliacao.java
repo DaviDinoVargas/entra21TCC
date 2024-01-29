@@ -5,23 +5,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_escalaavaliacao")
 public class EscalaAvaliacao {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idEscalaAvaliacao;
-	@Column( length = 20)
-    private int somaTotal;
-	@OneToOne
-    private Usuario usuario;
-    
-    private int idConsulta;
 
-    
+    @Column(length = 20)
+    private int somaTotal;
+
+    @ManyToOne
+    private Usuario usuario;
+
+    @ManyToOne
+    private Consulta consulta;
+
     public int getIdEscalaAvaliacao() {
         return idEscalaAvaliacao;
     }
@@ -38,19 +41,19 @@ public class EscalaAvaliacao {
         this.somaTotal = somaTotal;
     }
 
-    public int getIdConsulta() {
-        return idConsulta;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdConsulta(int idConsulta) {
-        this.idConsulta = idConsulta;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public Consulta getConsulta() {
+        return consulta;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
 }

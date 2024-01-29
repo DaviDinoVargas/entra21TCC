@@ -1,9 +1,6 @@
 package equoterapia.equo.entidades;
 
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,124 +9,107 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_paciente")
 public class Paciente {
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-	    private int idCadastro;
-	
-	    private int idade;
-	    @Column( length = 50)
-	    private String nome;
-	    private String sexo;
-	    @Column( length = 14)
-	    private String cpf;
-	    @Column( length = 50)
-	    private String email;
-	    //private Date dataNascimento;
-	    @OneToOne
-	    private ArrayList<Endereco> enderecos;
-	    @OneToOne
-	    private Usuario usuario;
-	    
-	    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	    @OneToMany
-		private Consulta consulta;
 
-		
-		public int getIdCadastro() {
-			return idCadastro;
-		}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idCadastro;
 
-		public void setIdCadastro(int idCadastro) {
-			this.idCadastro = idCadastro;
-		}
+    private int idade;
 
-		public int getIdade() {
-			return idade;
-		}
+    @Column(length = 50)
+    private String nome;
 
-		public void setIdade(int idade) {
-			this.idade = idade;
-		}
+    private String sexo;
 
-		
+    @Column(length = 14)
+    private String cpf;
 
-		public String getSexo() {
-			return sexo;
-		}
+    @Column(length = 50)
+    private String email;
 
-		public void setSexo(String sexo) {
-			this.sexo = sexo;
-		}
+    @OneToMany(mappedBy = "paciente")
+    private List<Endereco> enderecos;
 
-		public String getCpf() {
-			return cpf;
-		}
+    @ManyToOne
+    private Usuario usuario;
 
-		public void setCpf(String cpf) {
-			this.cpf = cpf;
-		}
+    @OneToMany(mappedBy = "paciente")
+    private List<Consulta> consultas;
 
-		public String getEmail() {
-			return email;
-		}
+    public int getIdCadastro() {
+        return idCadastro;
+    }
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+    public void setIdCadastro(int idCadastro) {
+        this.idCadastro = idCadastro;
+    }
 
-		/*public Date getDataNascimento() {
-			return dataNascimento;
-		}
+    public int getIdade() {
+        return idade;
+    }
 
-		public void setDataNascimento(Date dataNascimento) {
-			this.dataNascimento = dataNascimento;
-		}*/
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 
-		public void setEnderecos(ArrayList<Endereco> enderecos) {
-			this.enderecos = enderecos;
-		}
+    public String getNome() {
+        return nome;
+    }
 
-		/*public void adicionarEndereco(Endereco endereco) {
-	        this.enderecos.add(endereco);
-	        endereco.adicionarPaciente(this);
-	    }*/
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	    public ArrayList<Endereco> getEnderecos() {
-	        return enderecos;
-	    }
-	    
-	    /*public String getDataNascimentoFormatted() {
-	        return dateFormat.format(dataNascimento);
-	    }*/
-	    
-	    public Consulta getConsulta() {
-	        return consulta;
-	    }
+    public String getSexo() {
+        return sexo;
+    }
 
-	    public void setConsulta(Consulta consulta) {
-	        this.consulta = consulta;
-	    }
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 
-		public Usuario getUsuario() {
-			return usuario;
-		}
+    public String getCpf() {
+        return cpf;
+    }
 
-		public void setUsuario(Usuario usuario) {
-			this.usuario = usuario;
-		}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-		public String getNome() {
-			// TODO Auto-generated method stub
-			return nome;
-		}
+    public String getEmail() {
+        return email;
+    }
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
+
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+}

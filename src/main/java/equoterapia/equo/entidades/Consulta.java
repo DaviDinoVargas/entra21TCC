@@ -1,8 +1,8 @@
 package equoterapia.equo.entidades;
 
 import java.sql.Date;
-import java.sql.Time;
-import java.util.ArrayList;
+import java.time.LocalTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -18,108 +18,127 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "tb_consulta")
 public class Consulta {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idConsulta;
-	@Temporal(TemporalType.DATE)
+
+    @Temporal(TemporalType.DATE)
     private Date dataAvaliacao;
-	@Temporal(TemporalType.TIME)
-	private Time hora;
-    @Column( length = 70)
+
+    @Temporal(TemporalType.TIME)
+    private LocalTime hora;
+
+    @Column(length = 70)
     private String condicaoSaude;
-    @Column( length = 50)
+
+    @Column(length = 50)
     private String mediador;
-    @Column( length = 50)
+
+    @Column(length = 50)
     private String guia;
-    @Column( length = 50)
+
+    @Column(length = 50)
     private String encilhamento;
+
     @ManyToOne
     private Local local;
+
     @ManyToOne
-    private Cavalo cavalo;
-    @OneToOne
     private Usuario usuario;
     
-    private ArrayList<EscalaAvaliacao> escalasAvaliacao;  
-
+    @ManyToOne
+    private Paciente paciente;
     
+    @ManyToOne
+    private Cavalo cavalo;
+
+    @OneToMany(mappedBy = "consulta")
+    private List<EscalaAvaliacao> escalasAvaliacao;
+
+
+    public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPacientes(Paciente pacientes) {
+		this.paciente = pacientes;
+	}
+
 	public int getIdConsulta() {
-		return idConsulta;
-	}
+        return idConsulta;
+    }
 
-	public void setIdConsulta(int idConsulta) {
-		this.idConsulta = idConsulta;
-	}
+    public void setIdConsulta(int idConsulta) {
+        this.idConsulta = idConsulta;
+    }
 
-	public Date getDataAvaliacao() {
-		return dataAvaliacao;
-	}
+    public Date getDataAvaliacao() {
+        return dataAvaliacao;
+    }
 
-	public void setDataAvaliacao(Date dataAvaliacao) {
-		this.dataAvaliacao = dataAvaliacao;
-	}
+    public void setDataAvaliacao(Date dataAvaliacao) {
+        this.dataAvaliacao = dataAvaliacao;
+    }
 
-	public String getCondicaoSaude() {
-		return condicaoSaude;
-	}
+    public LocalTime getHora() {
+        return hora;
+    }
 
-	public void setCondicaoSaude(String condicaoSaude) {
-		this.condicaoSaude = condicaoSaude;
-	}
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
 
-	public String getMediador() {
-		return mediador;
-	}
+    public String getCondicaoSaude() {
+        return condicaoSaude;
+    }
 
-	public void setMediador(String mediador) {
-		this.mediador = mediador;
-	}
+    public void setCondicaoSaude(String condicaoSaude) {
+        this.condicaoSaude = condicaoSaude;
+    }
 
-	public String getGuia() {
-		return guia;
-	}
+    public String getMediador() {
+        return mediador;
+    }
 
-	public void setGuia(String guia) {
-		this.guia = guia;
-	}
+    public void setMediador(String mediador) {
+        this.mediador = mediador;
+    }
 
-	public String getEncilhamento() {
-		return encilhamento;
-	}
+    public String getGuia() {
+        return guia;
+    }
 
-	public void setEncilhamento(String encilhamento) {
-		this.encilhamento = encilhamento;
-	}
+    public void setGuia(String guia) {
+        this.guia = guia;
+    }
 
-	public Local getLocal() {
-		return local;
-	}
+    public String getEncilhamento() {
+        return encilhamento;
+    }
 
-	public void setLocal(Local local) {
-		this.local = local;
-	}
+    public void setEncilhamento(String encilhamento) {
+        this.encilhamento = encilhamento;
+    }
 
-	public ArrayList<EscalaAvaliacao> getEscalasAvaliacao() {
-		return escalasAvaliacao;
-	}
+    public Local getLocal() {
+        return local;
+    }
 
-	public void setEscalasAvaliacao(ArrayList<EscalaAvaliacao> escalasAvaliacao) {
-		this.escalasAvaliacao = escalasAvaliacao;
-	}
+    public void setLocal(Local local) {
+        this.local = local;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	
-	public Time getHora() {
-		return hora;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-	public void setHora(Time hora) {
-		this.hora = hora;
-	}
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
 
-	public Cavalo getCavalo() {
+    public Cavalo getCavalo() {
 		return cavalo;
 	}
 
@@ -127,8 +146,11 @@ public class Consulta {
 		this.cavalo = cavalo;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	public List<EscalaAvaliacao> getEscalasAvaliacao() {
+        return escalasAvaliacao;
+    }
 
-	}
+    public void setEscalasAvaliacao(List<EscalaAvaliacao> escalasAvaliacao) {
+        this.escalasAvaliacao = escalasAvaliacao;
+    }
+}	

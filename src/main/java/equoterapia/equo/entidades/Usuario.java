@@ -1,4 +1,6 @@
 package equoterapia.equo.entidades;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,10 +21,9 @@ public class Usuario {
     private String senha;
 	@Column( length = 30)
     private String Empresa;
-	@OneToMany
-    private Local local; 
+	@OneToMany(mappedBy = "usuario")
+    private List<Local> locais;
 	private String Password;
-	@Column( length = 30)
 
     
     public int getIdUsuario() {
@@ -48,14 +49,14 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public Local getLocal() {
-        return local;
+    public List<Local> getLocais() {
+        return locais;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
+    public void setLocais(List<Local> locais) {
+        this.locais = locais;
     }
+   
 
 	public String getEmpresa() {
 		return Empresa;

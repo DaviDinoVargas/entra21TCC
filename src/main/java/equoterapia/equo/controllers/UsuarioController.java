@@ -43,7 +43,7 @@ public class UsuarioController {
 	
 	@PostMapping("/register")
 	public ResponseEntity<?> register(@RequestBody Usuario user){
-		if(this.repository.findByEmpresa(user.getEmpresa()) != null) {
+		if(this.repository.findById(user.getIdUsuario()) != null) {
 		  return ResponseEntity.badRequest().build();
 		}
 		

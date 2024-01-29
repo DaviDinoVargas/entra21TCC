@@ -20,7 +20,7 @@ public class Usuario {
 	@Column( length = 20)
     private String senha;
 	@Column( length = 30)
-    private String Empresa;
+    private String empresa;
 	@OneToMany(mappedBy = "usuario")
     private List<Local> locais;
 	private String Password;
@@ -59,11 +59,11 @@ public class Usuario {
    
 
 	public String getEmpresa() {
-		return Empresa;
+		return empresa;
 	}
 
 	public void setEmpresa(String empresa) {
-		Empresa = empresa;
+		this.empresa = empresa;
 	}
 
 	public String getPassword() {

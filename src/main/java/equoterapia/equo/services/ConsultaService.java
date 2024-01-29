@@ -47,19 +47,19 @@ public class ConsultaService {
 	}
 	private void validaCampos(Consulta consulta) {
 		if(consulta.getCondicaoSaude().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
+			throw new ValidaDadosException("A condição de saúde deve ser informado");
 		}
 		if(consulta.getHora() == null) {
-			throw new ValidaDadosException("O CEP deve ser informado");
+			throw new ValidaDadosException("A hora deve ser informado");
 		}
 		if(consulta.getDataAvaliacao().equals("")) {
-			throw new ValidaDadosException("A CIDADE deve ser informado");
+			throw new ValidaDadosException("A data de avaliação deve ser informado");
 		}
 		if(consulta.getEncilhamento().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
+			throw new ValidaDadosException("O encilhamento deve ser informado");
 		}
 		if(consulta.getGuia().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
+			throw new ValidaDadosException("O guia deve ser informado");
 		}
 	}
 }

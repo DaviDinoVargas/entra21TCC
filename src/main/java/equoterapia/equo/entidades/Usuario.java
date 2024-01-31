@@ -1,5 +1,4 @@
 package equoterapia.equo.entidades;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,53 +9,48 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(name = "usuario")
 public class Usuario {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    private int idUsuario;
-	@Column( length = 30)
-    private String usuario;
-	@Column( length = 20)
-    private String senha;
-	@Column( length = 30)
-    private String empresa;
-	@OneToMany(mappedBy = "usuario")
-    private List<Local> locais;
-	private String Password;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id_usuario;
     
-    public int getIdUsuario() {
-        return idUsuario;
-    }
+    @Column(length = 45)
+    private String usuario;
+    
+    @Column(length = 20)
+    private String senha;
+    
+    @Column(length = 30)
+    private String empresa;
+    
+    @Column(length = 18)
+    private String cnpj;
+    
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+	public int getId_usuario() {
+		return id_usuario;
+	}
 
-    public String getUsuario() {
-        return usuario;
-    }
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+	public String getUsuario() {
+		return usuario;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    public List<Local> getLocais() {
-        return locais;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public void setLocais(List<Local> locais) {
-        this.locais = locais;
-    }
-   
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public String getEmpresa() {
 		return empresa;
@@ -66,13 +60,13 @@ public class Usuario {
 		this.empresa = empresa;
 	}
 
-	public String getPassword() {
-		return Password;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setPassword(String password) {
-		Password = password;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
-
-	
+    
+    
 }

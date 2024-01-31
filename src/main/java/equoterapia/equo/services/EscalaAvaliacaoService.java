@@ -30,7 +30,7 @@ public class EscalaAvaliacaoService {
 	public EscalaAvaliacao alterar(Long idEscalaAvaliacao, EscalaAvaliacao escalaAvaliacao) {
 		EscalaAvaliacao escAv = consultar(idEscalaAvaliacao);
 		validaCampos(escalaAvaliacao);
-		escAv.setSomaTotal(escalaAvaliacao.getSomaTotal());
+		escAv.setSoma_total(escalaAvaliacao.getSoma_total());
 		
 		return repo.save(escAv);
 	}
@@ -39,7 +39,7 @@ public class EscalaAvaliacaoService {
 		repo.delete(end);
 	}
 	private void validaCampos(EscalaAvaliacao escalaAvaliacao) {
-		if(escalaAvaliacao.getSomaTotal() <= 0) {
+		if(escalaAvaliacao.getSoma_total() <= 0) {
 			throw new ValidaDadosException("A SOMA TOTAL deve ser informado");
 		}
 	}

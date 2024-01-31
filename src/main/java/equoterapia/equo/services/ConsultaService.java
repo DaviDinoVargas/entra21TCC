@@ -18,7 +18,7 @@ public class ConsultaService {
 	
 	public Consulta salvar(Consulta consulta) {
 		validaCampos(consulta);	
-		if (repo.findById((long) consulta.getIdConsulta()) != null) {
+		if (repo.findById((long) consulta.getId_consulta()) != null) {
 			throw new RecursoJaExistente("Consulta já cadastrada");
 		}
 		return repo.save(consulta);
@@ -33,9 +33,10 @@ public class ConsultaService {
 	public Consulta alterar(Long idConsulta, Consulta consulta) {
 		Consulta cons = consultar(idConsulta);
 		validaCampos(consulta);
-		cons.setCondicaoSaude(consulta.getCondicaoSaude());
-		cons.setDataAvaliacao(consulta.getDataAvaliacao());
+		cons.setCondicao_saude(consulta.getCondicao_saude());
+		cons.setData_avaliacao(consulta.getData_avaliacao());
 		cons.setEncilhamento(consulta.getEncilhamento());
+		cons.setMediador(consulta.getMediador());
 		cons.setGuia(consulta.getGuia());
 		cons.setHora(consulta.getHora());
 
@@ -46,13 +47,13 @@ public class ConsultaService {
 		repo.delete(end);
 	}
 	private void validaCampos(Consulta consulta) {
-		if(consulta.getCondicaoSaude().equals("")) {
+		if(consulta.getCondicao_saude().equals("")) {
 			throw new ValidaDadosException("A condição de saúde deve ser informado");
 		}
 		if(consulta.getHora() == null) {
 			throw new ValidaDadosException("A hora deve ser informado");
 		}
-		if(consulta.getDataAvaliacao().equals("")) {
+		if(consulta.getData_avaliacao().equals("")) {
 			throw new ValidaDadosException("A data de avaliação deve ser informado");
 		}
 		if(consulta.getEncilhamento().equals("")) {

@@ -1,5 +1,4 @@
 package equoterapia.equo.entidades;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,51 +8,42 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_escalaavaliacao")
+@Table(name = "escalaavaliacao")
 public class EscalaAvaliacao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idEscalaAvaliacao;
+    private int id_escala_avaliacao;
 
     @Column(length = 20)
-    private int somaTotal;
+    private int soma_total;
 
     @ManyToOne
-    private Usuario usuario;
+    private Usuario usuario_id;
 
-    @ManyToOne
-    private Consulta consulta;
 
-    public int getIdEscalaAvaliacao() {
-        return idEscalaAvaliacao;
-    }
+	public int getId_escala_avaliacao() {
+		return id_escala_avaliacao;
+	}
 
-    public void setIdEscalaAvaliacao(int idEscalaAvaliacao) {
-        this.idEscalaAvaliacao = idEscalaAvaliacao;
-    }
+	public void setId_escala_avaliacao(int id_escala_avaliacao) {
+		this.id_escala_avaliacao = id_escala_avaliacao;
+	}
 
-    public int getSomaTotal() {
-        return somaTotal;
-    }
+	public int getSoma_total() {
+		return soma_total;
+	}
 
-    public void setSomaTotal(int somaTotal) {
-        this.somaTotal = somaTotal;
-    }
+	public void setSoma_total(int soma_total) {
+		this.soma_total = soma_total;
+	}
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+	public Usuario getUsuario_id() {
+		return usuario_id;
+	}
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Consulta getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
-    }
+	public void setUsuario_id(Usuario usuario_id) {
+		this.usuario_id = usuario_id;
+	}
+    
 }

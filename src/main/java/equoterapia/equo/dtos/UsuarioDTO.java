@@ -14,7 +14,7 @@ public class UsuarioDTO {
 	}
 	
 	public UsuarioDTO(Usuario usuario) {
-		this.idUsuario = usuario.getIdUsuario();
+		this.idUsuario = usuario.getId_usuario();
 		this.Usuario = usuario.getUsuario();
 		this.Empresa = usuario.getEmpresa();
 	}

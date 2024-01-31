@@ -1,63 +1,58 @@
 package equoterapia.equo.entidades;
 
-import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_cavalo")
+@Table(name = "cavalo")
 public class Cavalo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_cavalo;
 
     @Column(length = 50)
-    private String nome;
+    private String nome_cavalo;
 
     @Column
-    private Integer idade; 
+    private Integer idade_cavalo; 
 
     @Column(length = 50)
     private String raca;
 
-    @OneToMany(mappedBy = "cavalo")
-    private List<Consulta> consultas; 
-
     @ManyToOne
-    private Usuario usuario;
+    private Usuario usuario_id;
 
     public Cavalo() {
     }
 
     public int getId() {
-        return id;
+        return id_cavalo;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_cavalo = id;
     }
 
     public String getNome() {
-        return nome;
+        return nome_cavalo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome_cavalo) {
+        this.nome_cavalo = nome_cavalo;
     }
 
     public Integer getIdade() {
-        return idade;
+        return idade_cavalo;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setIdade(Integer idade_cavalo) {
+        this.idade_cavalo = idade_cavalo;
     }
 
     public String getRaca() {
@@ -68,20 +63,12 @@ public class Cavalo {
         this.raca = raca;
     }
 
-    public List<Consulta> getConsultas() {
-        return consultas;
-    }
-
-    public void setConsultas(List<Consulta> consultas) {
-        this.consultas = consultas;
-    }
-
     public Usuario getUsuario() {
-        return usuario;
+        return usuario_id;
     }
 
     public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+        this.usuario_id = usuario;
     }
 
 }

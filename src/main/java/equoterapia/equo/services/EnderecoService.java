@@ -16,7 +16,7 @@ public class EnderecoService {
 	EnderecoRepository repo;
 	
 	public Endereco salvar(Endereco endereco) {
-		validaCampos(endereco);	
+		//validaCampos(endereco);	
 		
 		return repo.save(endereco);
 	}

@@ -3,43 +3,33 @@ package equoterapia.equo.dtos;
 import equoterapia.equo.entidades.Usuario;
 
 public class UsuarioDTO {
-	private int idUsuario;
-	private String Usuario;
-	private String Empresa;
-	
-	public UsuarioDTO(int id, String nome, String email) {
-		this.idUsuario = id;
-		this.Usuario = nome;
-		this.Empresa = email;
-	}
-	
-	public UsuarioDTO(Usuario usuario) {
-		this.idUsuario = usuario.getId_usuario();
-		this.Usuario = usuario.getUsuario();
-		this.Empresa = usuario.getEmpresa();
-	}
+    private Long id;  
+    private String email;
 
-	public int getIdUsuario() {
-		return idUsuario;
-	}
+    public UsuarioDTO(Long id, String email) {
+        this.id = id;
+        this.email = email;
+    }
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    public UsuarioDTO(Usuario usuario) {
+        this.id = usuario.getId();
+        this.email = usuario.getEmail();
+    }
 
-	public String getUsuario() {
-		return Usuario;
-	}
 
-	public void setUsuario(String usuario) {
-		Usuario = usuario;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getEmpresa() {
-		return Empresa;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setEmpresa(String empresa) {
-		Empresa = empresa;
-	}
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

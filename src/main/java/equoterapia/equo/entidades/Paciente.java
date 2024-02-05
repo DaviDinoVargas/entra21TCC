@@ -1,10 +1,13 @@
 package equoterapia.equo.entidades;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,7 +16,7 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_paciente;
+    private Long id_paciente;
 
     @Column(length = 2)
     private int idade_paciente;
@@ -33,14 +36,15 @@ public class Paciente {
     @ManyToOne
     private Usuario usuario_id;
     
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_paciente_id", referencedColumnName = "id_endereco")
     private Endereco endereco_paciente_id;
 
-	public int getId_paciente() {
+	public Long getId_paciente() {
 		return id_paciente;
 	}
 
-	public void setId_paciente(int id_paciente) {
+	public void setId_paciente(Long id_paciente) {
 		this.id_paciente = id_paciente;
 	}
 

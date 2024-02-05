@@ -16,7 +16,7 @@ public class PacienteService {
 	PacienteRepository repo;
 	
 	public Paciente salvar(Paciente paciente) {
-		validaCampos(paciente);	
+		//validaCampos(paciente);	
 		/*if (repo.findByCpf(paciente.getCpf()) != null) {
 			throw new RecursoJaExistente("Paciente já cadastrado para esse cpf");
 		}	*/
@@ -31,7 +31,7 @@ public class PacienteService {
 	
 	public Paciente alterar(Long idPaciente, Paciente paciente) {
 		Paciente pc = consultar(idPaciente);
-		validaCampos(paciente);
+		//validaCampos(paciente);
 		pc.setNome_paciente(paciente.getNome_paciente());
 		pc.setIdade_paciente(paciente.getIdade_paciente());
 		pc.setCpf(paciente.getCpf());

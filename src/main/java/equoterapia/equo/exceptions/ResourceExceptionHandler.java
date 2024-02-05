@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -28,14 +29,15 @@ public class ResourceExceptionHandler {
 	}
 	
 	@ExceptionHandler(ValidaDadosException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseEntity<StandardError> validaDadosException(ValidaDadosException e, HttpServletRequest req) {
 		StandardError err = new StandardError();
 		err.setTimestamp(Instant.now());
-		err.setStatus(HttpStatus.BAD_REQUEST.value());
+		err.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
 		err.setError("Campo inválido");
 		err.setMessage(e.getMessage());
 		err.setPath(req.getRequestURI());
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(err);
 	}
 	
 	@ExceptionHandler(RecursoJaExistente.class)

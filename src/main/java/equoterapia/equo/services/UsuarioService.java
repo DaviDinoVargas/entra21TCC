@@ -8,16 +8,14 @@ import org.springframework.stereotype.Service;
 
 import equoterapia.equo.repositories.UsuarioRepository;
 
-
 @Service
-public class UsuarioService implements UserDetailsService{
-	
-	@Autowired
+public class UsuarioService implements UserDetailsService {
+    @Autowired
 	private UsuarioRepository repo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return repo.findByEmpresa(username);
+		return repo.findByEmail(username);
 	}
 
 }

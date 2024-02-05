@@ -1,17 +1,10 @@
 
-body{
-	color: white;
-	margin: 0 auto;
-}
-
-header{
-	flex-direction: row;
+.ul1{
+	margin-top: 2%;
+	display: flex;
 	justify-content: center;
-	align-items: center;
-	align-content: space-around;
-	margin-left: 20%;
+	gap: 3%;
 }
-
 
 a:hover{
 	color: black;
@@ -20,7 +13,6 @@ a:hover{
 
 li{
 	display: inline;
-    padding: 2%;
     text-decoration: none;
 	color: white;
 	font-size: 18px;

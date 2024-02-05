@@ -2,13 +2,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>EquoSoft</title>
+<link rel="shortcut icon" href="./img/equo_LOGO.png">
 <link rel="stylesheet" href="estilos/stile.css">
+<link rel="stylesheet" href="estilos/menuH.css">
 
 </head>
 <body>
+	<script src="./scripts/headerH.js"></script>
 
-    <iframe src="headerH.html" frameborder="0" width="100%"></iframe>
 	<section class="title"> 	
 		<div>
 			<h1><a href="index.html" style="	color: white">EquoSoft</a></h1>
@@ -17,15 +19,17 @@
 	<section class="area-login">
         <div class="login">      
             <div class="texto">Login</div>
-            <form method="post">
-                <input type="text" name="nome" placeholder="Nome Usuário" autofocus>
-                <input type="password" name="senha" placeholder="Sua senha">
+            <form method="">
+                <input type="text" name="nome" id="email" placeholder="Nome Usuário" autofocus>
+                <input type="password" id="password" name="password" placeholder="Sua senha">
             	<div class="n-btn">
             		<p>Não tem uma conta?<a href="cadastro.html">Criar conta</a></p>
-                	<button class="btn"><a href="indexL.html">Entrar</a></button>
+                    <button onclick="logar()" id="logarbutton">Logar</button>
             	</div>
             </form>
         </div>
     </section>
+	<script src="./scripts/login.js"></script>
 </body>
+
 </html>

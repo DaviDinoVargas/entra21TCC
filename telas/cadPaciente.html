@@ -2,75 +2,77 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>EquoSoft</title>
+<link rel="shortcut icon" href="./img/equo_LOGO.png">
 <link rel="stylesheet" href="estilos/cadPac.css">
+<link rel="stylesheet" href="estilos/menu.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
 </head>
 <body>
-	<nav>
-        <iframe src="barra.html" frameborder="0" width="100%" ></iframe>
-	</nav>
+	<script src="./scripts/header.js"></script>
+	
     <div class="instituticao">
         <p>Instituição: XXXXX</p>
     </div>
 	<section class="area-cad">
 		<div class="cad">
 			<h1>Cadastro de Pacientes</h1>
-		<form action="gravarPaciente.jsp" method="POST">
-		  <label for="nome">Nome:</label>
-		  <input type="text" id="nome" name="nome" required>
+		<form method="">
+		 <label for="nome">Nome:</label>
+		  <input type="text" value="teste" class="nome" name="nome" required>
 		
 		  <label for="nome_responsavel">Nome do Responsável:</label>
-		  <input type="text" id="nome_responsavel" name="nome_responsavel"><br><br>
+		  <input type="text" value="teste"  name="nome_responsavel"><br><br>
 		   
 		   <div class="dados">
 		  		<label for="sexo">Sexo:</label><label for="idade" class="idade">Idade:</label><label for="data_nascimento" class="data">Data de Nascimento:</label>
 		  		<br>
-		<select class="sexo" name="sexo">	
+			<select class="sexo" name="sexo">	
 					<option ></option>
 					<option value="masculino">Masculino</option>
 					<option value="feminino">Feminino</option>		
-			</select>
-		  <input type="number" id="idade" name="idade" required class="iidade">
-		  <input type="date" id="data_nascimento" name="data_nascimento" class="idata">
+				</select>
+		  <input type="number" name="idade" value="" required class="iidade">
+		  <input type="date" name="data_nascimento" class="idata">
 		
 		   </div>
-		
+		   
 		  <label for="cpf">CPF:</label>
-		  <input type="text" id="cpf" name="cpf" placeholder="Ex: 123.456.789-00" required>
+		  <input class="cpf"  type="text" name="cpf" placeholder="Ex: 123.456.789-00" required>
 			
 		  <label for="email">E-mail:</label>
-		  <input type="text" id="email" name="email" required>
+		  <input class="email" value="teste" type="text" name="email" required>
 		
 		  <label for="cep">CEP:</label>
-		  <input type="number" id="cep" name="cep" required>
+		  <input class="cep"  type="number" name="cep" required>
 		
 		  <label for="rua">Rua:</label>
-		  <input type="text" id="rua" name="rua" required>
+		  <input class="rua" value="teste" type="text" name="rua" required>
 		
 		  <label for="bairro">Bairro:</label>
-		  <input type="text" id="bairro" name="bairro" required>
+		  <input class="bairro" value="teste" type="text" name="bairro" required>
 		  <div class="cidade">	
                	<label for="cidade">Cidade:</label><label style="margin-left: 80%" for="uf">UF:</label>
                 	<br>
-                	<input type="text" id="cidade" name="cidade" required style="width: 85%">
-                	<input type="text" id="uf" name="uf" maxlength="2" required style="width: 11%">
+                	<input class="cidade" value="teste"  type="text" name="cidade" required style="width: 85%">
+                	<input class="uf" type="text"  name="uf" maxlength="2" required style="width: 11%">
            </div>
             <div class="cidade">	
                	<label for="complemento">Complemento:</label><label style="margin-left: 75%" for="numero">Numero:</label>
                 	<br>
-                	<input type="text" id="complemento" name="complemento" required style="width: 85%">
-                	<input type="number" id="numero" name="numero" required style="width: 11%">
+                	<input class="complemento" value="teste" type="text" required style="width: 85%">
+                	<input class="numero" type="number" name="numero" required style="width: 11%">
            </div>
 			<div class="btns">
-			  <a href="indexL.html"><input type="submit" value="Cancelar" class="cancelar"></a>
-			 <a href=""><input type="submit" value="Cadastrar" class="cadastrar"></a> 
+				<button class="cancelar" onclick="limpar()">Cancelar</button> 
+				<button class="cadastrar">Cadastrar</button> 
 			</div>
 		</form>
 		</div>
 		
 	</section>
-
 	
+	<script src="./scripts/cadPac.js" defer></script>
 </body>
 </html>

@@ -10,5 +10,5 @@ import equoterapia.equo.entidades.Usuario;
 
 @Repository
 public interface UserRepository extends JpaRepository<Usuario, Integer> {
-    UserDetails findByEmpresa(String empresa);
+    UserDetails findByEmail(String Email);
 }

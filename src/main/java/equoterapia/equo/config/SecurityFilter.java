@@ -1,4 +1,4 @@
-package config;
+package equoterapia.equo.config;
 
 import java.io.IOException;
 
@@ -31,7 +31,7 @@ public class SecurityFilter extends OncePerRequestFilter{
 		
 		if(token != null) {
 		   var login = tokenService.validateToken(token);
-		   UserDetails user = userRepository.findByEmpresa(login);
+		   UserDetails user = userRepository.findByEmail(login);
 		   
 		   var authentication = new UsernamePasswordAuthenticationToken(user,null,user.getAuthorities());
 		   SecurityContextHolder.getContext().setAuthentication(authentication);

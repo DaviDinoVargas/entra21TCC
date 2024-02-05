@@ -1,4 +1,4 @@
-package config;
+package equoterapia.equo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,8 +30,8 @@ public class SecurityConfiguration {
 					  .requestMatchers(HttpMethod.GET,"/consultas", "/paciente", "/Enderecos", "/TBEscala1", "/TBEscala2", "/TBEscala3").permitAll()
 					  .requestMatchers(HttpMethod.GET,"/Usuario").hasRole("ADMIN")
 					  .requestMatchers(HttpMethod.POST,"/auth/register").permitAll()
-					  .requestMatchers(HttpMethod.POST,"/auth/login").permitAll()
-					  .anyRequest().authenticated()
+					  
+					  .anyRequest().permitAll()
 					 )
 			  .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 			  .build();

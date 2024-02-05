@@ -1,4 +1,4 @@
-package config;
+package equoterapia.equo.config;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -24,7 +24,7 @@ public class TokenService {
 	public String generateToken(Usuario user) {
 		try {
 			Algorithm algorithm = Algorithm.HMAC256(segredo);
-			String token = JWT.create().withIssuer(issuer).withSubject(user.getEmpresa())
+			String token = JWT.create().withIssuer(issuer).withSubject(user.getEmail())
 					.withExpiresAt(genExpirationDate()).sign(algorithm);
 
 			return token;

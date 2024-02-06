@@ -41,6 +41,9 @@ tr{
 	border-radius: 30px;
 }
 td{
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
 	background-color: white;
 	border-radius: 20px;
 	width: 100%;
@@ -48,12 +51,17 @@ td{
 }
 .tdeditar{
 	background-color: #11B189;
-	width: 10%;
+	width: 13%;
+	height: 4vh;
+	border-radius: 23px;
+	border: none;
 }
 .tdexcluir{
 	background-color: red;
-	width: 10%;
-
+	width: 13%;
+	height: 4vh;
+	border-radius: 23px;
+	border: none;
 }
 #pacientes-list{
 	background-color: #00564D;

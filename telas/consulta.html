@@ -32,16 +32,19 @@
 
         function deletarPaciente(id) {
             // Implemente a lógica de exclusão conforme necessário
-            fetch(`http://localhost:8080/auth/pacientes/${id}`, {
-                method: 'DELETE'
-            })
-            .then(response => {
-                if (response.status === 204) {
-                    window.location.replace("consulta.html");
-                } else {
-                    console.error('Erro ao excluir paciente.');
-                }
-            });
+			let confirma = confirm("Deseja Excluir este paciente?")
+			if(confirma){
+				fetch(`http://localhost:8080/auth/pacientes/${id}`, {
+					method: 'DELETE'
+				})
+				.then(response => {
+					if (response.status === 204) {
+						window.location.replace("consulta.html");
+					} else {
+						console.error('Erro ao excluir paciente.');
+					}
+				});
+			}
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -62,7 +65,7 @@
                     pacienteItem.classList.add("paciente-item");
 
                     pacienteItem.innerHTML = `
-                        ${paciente.nome}
+                        <p>${paciente.nome_paciente}</p>
                         <button class="tdeditar" onclick="editarPaciente(${paciente.id_paciente})">Editar</button>
                         <button class="tdexcluir" onclick="deletarPaciente(${paciente.id_paciente})">Deletar</button>
                     `;

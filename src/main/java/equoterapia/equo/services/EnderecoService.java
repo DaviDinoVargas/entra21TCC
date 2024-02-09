@@ -29,7 +29,7 @@ public class EnderecoService {
 	
 	public Endereco alterar(Long idEndereco, Endereco endereco) {
 		Endereco end = consultar(idEndereco);
-		validaCampos(endereco);
+		//validaCampos(endereco);
 		end.setUf(endereco.getUf());
 		end.setCep(endereco.getCep());
 		end.setCidade(endereco.getCidade());

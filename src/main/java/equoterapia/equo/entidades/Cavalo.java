@@ -28,8 +28,6 @@ public class Cavalo {
     @ManyToOne
     private Usuario usuario_id;
 
-    public Cavalo() {
-    }
 
     public int getId() {
         return id_cavalo;

@@ -2,6 +2,7 @@ package equoterapia.equo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,10 +34,20 @@ public class PacienteController {
 	PacienteService service;
 
 	@GetMapping("/pacientes")
-	public ResponseEntity<Object> getAll() {
+	public ResponseEntity<?> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
+	@GetMapping("/pacientes/{id}")
+	public ResponseEntity<Object> consultar(@PathVariable("id") Long id) {
 
+		Optional<Paciente> opt = repository.findById(id);
+		try {
+			Paciente comp = opt.get();
+			return ResponseEntity.status(HttpStatus.OK).body(comp);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Compromisso não encontrado");
+		}
+	}
 	@PostMapping("/registroPaciente")
 	public ResponseEntity<?> registro(@RequestBody Paciente paciente) {
 
@@ -50,7 +61,7 @@ public class PacienteController {
 	}
 
 	@DeleteMapping("/pacientes/{id}")
-	public ResponseEntity<Object> deletePaciente(@PathVariable("id") Long id) {
+	public ResponseEntity<?> deletePaciente(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 }

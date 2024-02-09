@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import equoterapia.equo.entidades.Cavalo;
 import equoterapia.equo.repositories.CavaloRepository;
 import equoterapia.equo.services.CavaloService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")
 public class CavaloController {
@@ -36,7 +38,7 @@ public class CavaloController {
 	}
 
 	@PostMapping("/registroCavalo")
-	public ResponseEntity<Object> registro(@RequestBody Cavalo cavalo) {
+	public ResponseEntity<?> registro(@RequestBody Cavalo cavalo) {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(cavalo));
 	}

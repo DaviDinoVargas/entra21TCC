@@ -1,121 +1,136 @@
-
 body {
-    background-color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    margin-left: 5%;
-    padding: 0;
-  }
-  
-  .instituticao {
-	background-color:  #00564D;
-    color: white;
-    text-align: right;
-    padding: 10px;
-    height: 10vh;
-  }
-  
-  h1 {
-	background-color:  #00564D;
-    color: white;
-    padding: 20px;
-    margin-top: 0;
-    font-size: 40px;
-  }
-  
-  .area-cad{
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-  }
-  .cad{
-    margin-bottom: 3%;
-	margin-top: 4%;
-    border-radius: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #00564D;
-    width: 90%;
-    padding: 35px;
-    box-shadow: 0px 6px rgb(127, 127, 127);
-  }
-  .cad form{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+  background-color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  margin-left: 5%;
+  padding: 0;
 }
-  label {
-    color: white;
-	margin-top: 2%;
-	margin-left: 3%;
-	font-size: 17px;  
-	}
-  select{
-	  background-color: white;
-	  height: 50px;
-	  width: 30%;
-	  border-radius: 55px;
-	  margin-right: 3%;
 
-  }
-  .idade{
-	  margin-left: 33%;
-  }
-  .data{
-	  margin-left: 25%;
-
-  }
-  .iidade{
-	  width: 30%;
-	 margin-right: 3%;
-
-  }
-  .idata{
-	  width: 30%;
-  }
-.cad input {
-    margin-top: 10px;
-    padding-left: 10px;
-    margin-bottom: 2%;
-	font-size: 17px;
-    border: none;
-    height: 50px;
-    outline: none;
-    border-radius: 55px;
-  }
-.cidade{
-	flex-direction: row;
+.instituticao {
+  background-color: #00564D;
+  color: white;
+  text-align: right;
+  padding: 10px;
+  height: 10vh;
 }
-.btns{
-	text-align: right;
+
+h1 {
+  background-color: #00564D;
+  color: white;
+  padding: 20px;
+  margin-top: 0;
+  font-size: 40px;
 }
-.cancelar{
-	height: 50px;
-	width: 15%;
+
+.area-cad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.cad {
+  margin-bottom: 3%;
+  margin-top: 4%;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00564D;
+  width: 90%;
+  padding: 35px;
+  box-shadow: 0px 6px rgb(127, 127, 127);
+}
+
+.cad form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+label {
+  color: white;
+  margin-top: 2%;
+  margin-left: 3%;
+  font-size: 17px;
+}
+
+select {
+  background-color: white;
+  height: 50px;
+  width: 30%;
   border-radius: 55px;
-	background-color:  rgb(255, 0, 0);
+  margin-right: 3%;
+
+}
+
+.sexo {
+  width: 47%;
+}
+
+.data {
+  margin-left: 46%;
+
+}
+
+.idata {
+  width: 50%;
+  margin-left: -1%;
+}
+
+.cad input {
+  margin-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 2%;
+  font-size: 17px;
+  border: none;
+  height: 50px;
+  outline: none;
+  border-radius: 55px;
+}
+
+.uf-cidade {
+  flex-direction: row;
+}
+
+.UF {
+  width: 11.6%;
+  font-size: 16px;
+}
+.UF > option:hover{
+  background-color:  #11b189;
+}
+.btns {
+  text-align: right;
+}
+
+.cancelar {
+  height: 50px;
+  width: 15%;
+  border-radius: 55px;
+  background-color: rgb(255, 0, 0);
   color: white;
   cursor: pointer;
   border: none;
-	}
-  
-.cancelar:hover{
-  transition: .3s;
-	background-color:  rgb(198, 34, 34);
 }
-.cadastrar{
+
+.cancelar:hover {
+  transition: .3s;
+  background-color: rgb(198, 34, 34);
+}
+
+.cadastrar {
   height: 50px;
-	width: 15%;
+  width: 15%;
   border-radius: 55px;
-	background-color:  #11B189;
-    color: white;
-    cursor: pointer;
-    border: none;
-} 
+  background-color: #11B189;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
 .cadastrar:hover {
-   background-color:  rgb(0, 134, 120);
-   transition: .3s;
+  background-color: rgb(0, 134, 120);
+  transition: .3s;
 }

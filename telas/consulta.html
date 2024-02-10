@@ -11,7 +11,7 @@
 <body>
 	<script src="./scripts/header.js"></script>
 
-    <div class="instituicao">
+     <div class="instituticao">
         <p>Instituição: XXXXX</p>
     </div>
     <div class="divtb">
@@ -26,8 +26,8 @@
     <script>
         // Move as funções para o escopo global
         function editarPaciente(idPaciente) {
-            // Implemente a lógica de edição conforme necessário
-            console.log(`Editar paciente com ID: ${idPaciente}`);
+			window.location.href=`formEditarPaciente.html?id=${idPaciente}`;
+			console.log(`Editar paciente com ID: ${idPaciente}`);
         }
 
         function deletarPaciente(id) {
@@ -65,6 +65,7 @@
                     pacienteItem.classList.add("paciente-item");
 
                     pacienteItem.innerHTML = `
+                        <p>${paciente.id_paciente}</p>
                         <p>${paciente.nome_paciente}</p>
                         <button class="tdeditar" onclick="editarPaciente(${paciente.id_paciente})">Editar</button>
                         <button class="tdexcluir" onclick="deletarPaciente(${paciente.id_paciente})">Deletar</button>

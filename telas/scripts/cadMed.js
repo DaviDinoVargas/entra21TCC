@@ -15,12 +15,12 @@ const pais ="brasil";
 
 function cadastrar(){
     const dados = {
-        nome_paciente: Inome.value,
+        nome_medico: Inome.value,
         sexo: Isexo.value,
-        data: Iidata.value,
+        data_nascimento_med: Iidata.value,
         cpf: Icpf.value,
-        email_paciente: Iemail.value,
-        endereco_paciente_id:{
+        email_medico: Iemail.value,
+        endereco_Medico_id:{
             cep: Icep.value,
             rua: Irua.value,
             bairro: Ibairro.value,
@@ -31,7 +31,7 @@ function cadastrar(){
             pais: pais
         }
     }
-    fetch("http://localhost:8080/auth/registroPaciente", {
+    fetch("http://localhost:8080/auth/registromedico", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -42,9 +42,9 @@ function cadastrar(){
     .then(function (res) { console.log(res) })
     .catch(function (res) { console.log(res.data) })
     console.log(dados)
-
+    alert("Novo Cadastrado feito com Sucesso!")
+    
 };
-
 formulario.addEventListener('submit', function (event){
     event.preventDefault();
 
@@ -52,7 +52,6 @@ formulario.addEventListener('submit', function (event){
 })
 function limpar(){
     Isexo.value = "";
-    Iiidade.value = "";
     Iidata.value = "";
     Icpf.value = "";
     Iemail.value = "";

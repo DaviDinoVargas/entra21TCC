@@ -12,7 +12,20 @@ const Icelular = document.querySelector(".celular");
 const Icomentario = document.querySelector(".comentario");
 
 function cadastrar(){
-    fetch("http://localhost:8080/auth/registroUsuario", {
+    const dados = {
+        instituicao: Iinst.value,
+        cnpj: Icnpj.value,
+        cep: Icep.value,
+        endereco: Iendereco.value,
+        bairro: Ibairro.value,
+        cidade: Icidade.value,
+        uf: Iuf.value,
+        email: Iemail.value,
+        ddd: Iddd.value,
+        celular: Icelular.value,
+        comentario: Icomentario.value
+    }
+    fetch("http://localhost:8080/auth/register", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -26,19 +39,6 @@ function cadastrar(){
 
 };
 
-const dados = {
-    instituicao: Iinst.value,
-    cnpj: Icnpj.value,
-    cep: Icep.value,
-    endereco: Iendereco.value,
-    bairro: Ibairro.value,
-    cidade: Icidade.value,
-    uf: Iuf.value,
-    email: Iemail.value,
-    ddd: Iddd.value,
-    celular: Icelular.value,
-    comentario: Icomentario.value
-}
 
 formulario.addEventListener('submit', function (event){
     event.preventDefault();

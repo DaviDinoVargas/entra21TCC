@@ -3,7 +3,7 @@ body{
 	overflow-y: hidden;
 }
 section{
-	margin-left: 7.5%;
+	margin-left: 10.5%;
 	margin-top: 2%;
     display: flex;
     height: 100vh;
@@ -19,60 +19,60 @@ section{
     height: 10vh;
  }
 .cards{
+	color: white;
+	font-size: 18px;
 	border: none;
 	background-color: #00564D;
 	border-radius: 45px;
-	width: 250px;
+	width: 49%;
     height: 180px;
     padding: 35px;
     box-shadow: 0px 6px rgb(127, 127, 127);
+}
+button{
+	cursor: pointer;
+
 }
 .allCards{
 	display: flex;
     flex-direction: column;
 }
 .teste{
-	margin-right: 4.5%;
+	margin-right: 10.5%;
 	display: flex;
     flex-direction: column;
 }
 .view{
+	color: white;
+	font-size: 18px;
 	border: none;
 	background-color: #11B189;
 	border-radius: 45px;
-	width: 410px;
-    height: 282px;
-    padding: 35px;
+	width: 110%;
+    height: 40%;
     box-shadow: 0px 6px rgb(127, 127, 127);
 
 }
 .view2{
+	color: white;
+	font-size: 18px;
 	margin-top: 6%;
 	border: none;
 	background-color: #00564D;
 	border-radius: 45px;
-	width: 410px;
-    height: 282px;
-    padding: 35px;
+	width: 110%;
+    height: 40%;
     box-shadow: 0px 6px rgb(127, 127, 127);
 
 }
 .txt1{
 	font-size: 19px;
 }
-buttom{
-	margin-right: 40px;
-}
+
 .card{
-	margin-bottom: 4%;
+	margin-bottom: 5%;
 }
-a{
-	color: white;
-	text-decoration: none;
-	font-size: 18px;
-}
- a .icon > i {
-	 margin-top: 5.5%;
-    font-size: 25px;
-    margin-left: 10px;
+
+.icon > i {
+    font-size: 30px;
 }

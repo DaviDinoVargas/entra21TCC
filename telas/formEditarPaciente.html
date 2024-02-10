@@ -17,34 +17,32 @@
 	<section class="area-cad">
 		<div class="cad">
 			<h1>Editar Paciente</h1>
-		<form action="editarPaciente.jsp" method="POST">
-		  <input readonly="readonly" type="text" name="id"
-			value="<%out.print(idPaciente);%>">
+		<form action="" >
+		  <input type="text" id="id" name="id" onblur="preencherDados()" placeholder="Digite o ID que deseja Editar os dados:">
 			
 		  <label for="nome">Nome:</label>
-		  <input type="text" id="nome" name="nome" value="<%out.print(paciente.getNome());%>">
+		  <input type="text" id="nome" name="nome">
 		
 		  <label for="nome_responsavel">Nome do Responsável:</label>
 		  <input type="text" id="nome_responsavel" name="nome_responsavel" ><br><br>
 		   
 		   <div class="dados">
-		  		<label for="sexo">Sexo:</label><label for="idade" class="idade">Idade:</label><label for="data_nascimento" class="data">Data de Nascimento:</label>
+		  		<label for="sexo">Sexo:</label><label for="data_nascimento" class="data">Data de Nascimento:</label>
 		  		<br>
-		<select class="sexo" name="sexo">	
-					<option value="<%out.print(paciente.getSexo());%>"></option>
+		<select class="Isexo" name="sexo">	
+					<option value=""></option>
 					<option value="masculino">Masculino</option>
 					<option value="feminino">Feminino</option>		
 			</select>
-		  <input type="number" id="idade" name="idade" required class="iidade" value="<%out.print(paciente.getIdade());%>">
 		  <input type="date" id="data_nascimento" name="data_nascimento" class="idata">
 		
 		   </div>
 		
 		  <label for="cpf">CPF:</label>
-		  <input type="text" id="cpf" name="cpf" placeholder="Ex: 123.456.789-00" required value="<%out.print(paciente.getCpf());%>">
+		  <input type="text" id="cpf" name="cpf" placeholder="Ex: 123.456.789-00" required>
 			
 		  <label for="email">E-mail:</label>
-		  <input type="text" id="email" name="email" required value="<%out.print(paciente.getEmail());%>">
+		  <input type="text" id="email" name="email" required >
 		
 		  <label for="cep">CEP:</label>
 		  <input type="number" id="cep" name="cep" required >
@@ -67,10 +65,61 @@
                 	<input type="number" id="numero" name="numero" required style="width: 11%">
            </div>
 			<div class="btns">
-			 <a href=""><input type="submit" value="Editar" class="cadastrar"></a> 
+			 <button class="cadastrar">Editar</button>
 			</div>
 		</form>
 		</div>
 	</section>
+	<script>
+
+
+// 		document.addEventListener("DOMContentLoaded", function () {
+    
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const idPaciente = urlParams.get('id_paciente');
+
+
+//     if (idPaciente) {
+
+//         fetch(`http://localhost:8080/auth/pacientes/${idPaciente}`)
+//             .then(response => response.json())
+//             .then(data => preencherFormulario(data))
+//             .catch(error => console.error("Error fetching patient data:", error));
+//     }
+
+//     function preencherFormulario(data) {
+        
+//         document.querySelector('.nome').value = data.nome_paciente;
+//         document.querySelector('input[name="nome_responsavel"]').value = data.nome_responsavel;
+//         document.querySelector('select[name="sexo"]').value = data.sexo;
+//   
+//     }
+// });
+
+	// document.addEventListener("onclick", function () {
+    //         carregarPacientes();
+
+    //         function carregarPacientes() {
+    //             fetch("http://localhost:8080/auth/pacientes")
+    //                 .then(response => response.json())
+    //                 .then(data => exibirPacientes(data));
+    //         }
+
+    //         function exibirPacientes(pacientes) {
+    //             pacientes.forEach(paciente => {
+
+    //                alert(`
+    //                     ${paciente.nome_paciente}
+	// 					${paciente.id_paciente}
+    //                     `)
+
+    //                 pacientesList.appendChild(pacienteItem);
+    //             });
+    //         }
+	// 	})
+
+	</script>
+	<script src="./scripts/editaPac.js"></script>
+
 </body>
 </html>

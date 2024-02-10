@@ -34,12 +34,21 @@ public class Instrutor {
     @Column(length = 14)
     private String cpf;
     
-    @Column(length = 15)
-    private String numero_instrutor;
+    @Column(length = 50)
+    private String email_instrutor;
+    
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_instrutor_id", referencedColumnName = "id_endereco")
     private Endereco endereco_instrutor_id;
+
+	public String getEmail_instrutor() {
+		return email_instrutor;
+	}
+
+	public void setEmail_instrutor(String email_instrutor) {
+		this.email_instrutor = email_instrutor;
+	}
 
 	public int getId_instrutor() {
 		return id_instrutor;
@@ -79,14 +88,6 @@ public class Instrutor {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getNumero_instrutor() {
-		return numero_instrutor;
-	}
-
-	public void setNumero_instrutor(String numero_instrutor) {
-		this.numero_instrutor = numero_instrutor;
 	}
 
 	public Endereco getEndereco_instrutor_id() {

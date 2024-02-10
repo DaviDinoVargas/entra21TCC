@@ -35,11 +35,11 @@ public class Medico {
     @Column(length = 14)
     private String cpf;
     
-    @Column(length = 15)
-    private String numero_medico;
+    @Column(length = 50)
+    private String email_medico;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_Paciente_id", referencedColumnName = "id_endereco")
+    @JoinColumn(name = "endereco_medico_id", referencedColumnName = "id_endereco")
     private Endereco endereco_Medico_id;
     
     @ManyToOne
@@ -85,12 +85,13 @@ public class Medico {
 		this.cpf = cpf;
 	}
 
-	public String getNumero_medico() {
-		return numero_medico;
+
+	public String getEmail_medico() {
+		return email_medico;
 	}
 
-	public void setNumero_medico(String numero_medico) {
-		this.numero_medico = numero_medico;
+	public void setEmail_medico(String email_medico) {
+		this.email_medico = email_medico;
 	}
 
 	public Date getData_nascimento_med() {

@@ -33,7 +33,7 @@ public class PacienteService {
 		Paciente pc = consultar(idPaciente);
 		//validaCampos(paciente);
 		pc.setNome_paciente(paciente.getNome_paciente());
-		pc.setIdade_paciente(paciente.getIdade_paciente());
+		pc.setData_nascimento(paciente.getData_nascimento());
 		pc.setCpf(paciente.getCpf());
 		pc.setEmail_paciente(paciente.getEmail_paciente());
 		pc.setSexo(paciente.getSexo());
@@ -56,8 +56,8 @@ public class PacienteService {
 		if(paciente.getSexo().equals("")) {
 			throw new ValidaDadosException("O sexo deve ser informado");
 		}
-		if(paciente.getIdade_paciente() <= 0) {
+		/*if(paciente.getIdade_paciente() <= 0) {
 		    throw new ValidaDadosException("A idade deve ser informada e maior que zero");
-		}
+		}*/
 	}
 }

@@ -1,4 +1,6 @@
 package equoterapia.equo.entidades;
+import java.sql.Date;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "paciente")
@@ -18,8 +22,8 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_paciente;
 
-    @Column(length = 2)
-    private int idade_paciente;
+    @Temporal(TemporalType.DATE)
+    private Date data_nascimento;
 
     @Column(length = 50)
     private String nome_paciente;
@@ -48,12 +52,12 @@ public class Paciente {
 		this.id_paciente = id_paciente;
 	}
 
-	public int getIdade_paciente() {
-		return idade_paciente;
+	public Date getData_nascimento() {
+		return data_nascimento;
 	}
 
-	public void setIdade_paciente(int idade_paciente) {
-		this.idade_paciente = idade_paciente;
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
 	}
 
 	public String getNome_paciente() {

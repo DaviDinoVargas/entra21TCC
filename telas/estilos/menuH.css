@@ -17,3 +17,12 @@ li{
 	color: white;
 	font-size: 18px;
 }
+.logg{
+	background-color:#00564D;
+	width: 5%;
+	border-radius: 15px;
+	height: 3vh;
+}
+.logg li{
+	margin-left: 20%;
+}

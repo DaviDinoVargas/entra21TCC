@@ -1,74 +1,82 @@
-
 .instituticao {
-	background-color:  #00564D;
+    background-color:  #00564D;
     color: white;
     text-align: right;
     padding: 10px;
     height: 10vh;
   }
 .divtb{
-	background-color:  #00564D;
-	margin-left: 5%;
-	margin-top: 5%;
-	height: 100%;
-	border-radius: 45px 45px 0px 0px;
- 	box-shadow: 0px 6px rgb(127, 127, 127);
+    background-color:  #00564D;
+    margin-left: 4%;
+    margin-top: 5%;
+    height: 100%;
+    border-radius: 45px 45px 0px 0px;
+     box-shadow: 0px 6px rgb(127, 127, 127);
 
 }
 .title{
-	font-size: 50px;
-	padding-top:5%;
-	padding-left: 40%;
-	color: white;
+    font-size: 50px;
+    padding-top:5%;
+    text-align: center;
+    color: white;
 }
 table{
-	padding: 6%;
-	font-size: 23px;
+    padding: 6%;
+    font-size: 23px;
+
+
 }
 
 
 tr{
-	padding-top: 6px;
-	height: 7vh;
-	width: 175vh;
-	background-color: white;
-	border: none;
-	display: flex;
-	justify-content: space-around;
-	flex-direction: column;
-	text-align: center;
-	border-radius: 30px;
+    width: 160vh;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
 }
 td{
-	display: fixed;
-	justify-content: space-around;
-	text-align: center;
-	background-color: white;
-	border-radius: 20px;
-	width: 100%;
-	height: 120%;
+    margin-right: 10%;
+    height: 6vh;
+    border-radius: 60px;
+    background-color: white;
+
+
+
 }
+
+
 .tdeditar{
-	background-color: #11B189;
-	width: 13%;
-	height: 4vh;
-	border-radius: 23px;
-	border: none;
-	margin-left: 7%;
+    position: absolute;
+    background-color: #11B189;
+    width: 12%;
+    height: 4vh;
+    border-radius: 23px;
+    border: none;
+    left: 60%;
+    color:white;
+
 }
 .tdexcluir{
-	background-color: red;
-	width: 13%;
-	height: 4vh;
-	border-radius: 23px;
-	border: none;
-	margin-left: 7%;
+    position: absolute;
+    background-color: red;
+    width: 12%;
+    height: 4vh;
+    border-radius: 23px;
+    border: none;
+    left: 75%;
+    color:white;
+
+
 }
 #pacientes-list{
-	background-color: #00564D;
+    color:#4e4e4e;
+
 }
 .paciente-item {
-    border: 1px solid #ccc;
+
+    border: 1px solid #ffffff;
     padding: 10px;
     margin-bottom: 2%;
+
 }

@@ -1,6 +1,8 @@
 
 body{
 	overflow-y: hidden;
+	margin-left: 5%;
+
 }
 section{
 	margin-left: 10.5%;
@@ -17,6 +19,7 @@ section{
     text-align: right;
     padding: 10px;
     height: 10vh;
+	margin-left: -2%;
  }
 .cards{
 	color: white;

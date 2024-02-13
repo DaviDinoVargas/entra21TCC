@@ -11,6 +11,7 @@ body{
 	font-size: 100%;
     background-size: 100% 100%;
     background-attachment: fixed;
+	user-select:none;
 }
 section{
 	display: flex;

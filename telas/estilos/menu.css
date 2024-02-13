@@ -46,7 +46,8 @@ ul {
 }
 
 ul li.item-menu {
-    transition: .5s;
+    margin-top:15%;
+    transition: .35s;
 }
 
 .item-menu {

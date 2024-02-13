@@ -5,27 +5,27 @@ document.addEventListener("DOMContentLoaded", ()=> {
     preencherDados();
 })
 async function preencherDados(){
-    let url = await fetch(`http://localhost:8080/auth/pacientes/${id}`)
-   
+    try {
+        let url = await fetch(`http://localhost:8080/auth/pacientes/${id}`);
+        let response = await url.json();
 
-    let response = await url.json()
-                
-    document.getElementById('nome').value = response.nome_paciente
-    document.getElementById('cpf').value = response.cpf
-    document.getElementById('email').value = response.email_paciente
-    document.getElementById('sexo').value = response.sexo
-    document.getElementById('data_nascimento').value = response.data_nascimento
+        document.getElementById('nome').value = response.nome_paciente;
+        document.getElementById('cpf').value = response.cpf;
+        document.getElementById('email').value = response.email_paciente;
+        document.getElementById('sexo').value = response.sexo;
+        document.getElementById('data_nascimento').value = response.data_nascimento;
 
-    document.getElementById('cep').value = response.cep
-    document.getElementById('rua').value = response.rua
-    document.getElementById('bairro').value = response.bairro
-    document.getElementById('cidade').value = response.cidade
-    document.getElementById('uf').value = response.uf
-    document.getElementById('numero').value = response.numero
-
-
+        // Corrigir aqui: usar response.endereco_paciente_id ao invés de response.endereco_paciente
+        document.getElementById('cep').value = response.endereco_paciente_id.cep;
+        document.getElementById('rua').value = response.endereco_paciente_id.rua;
+        document.getElementById('bairro').value = response.endereco_paciente_id.bairro;
+        document.getElementById('cidade').value = response.endereco_paciente_id.cidade;
+        document.getElementById('uf').value = response.endereco_paciente_id.uf;
+        document.getElementById('numero').value = response.endereco_paciente_id.numero;
+    } catch (error) {
+        console.error("Erro ao preencher dados:", error);
+    }
 }
-
 const formulario = document.querySelector("form");
 function atualizar(){
     const Inome = document.querySelector("#nome");

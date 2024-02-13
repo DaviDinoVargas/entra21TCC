@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="ISO-8859-1">
     <title>EquoSoft</title>
@@ -8,10 +9,11 @@
     <link rel="stylesheet" href="estilos/menu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
-<body>
-	<script src="./scripts/header.js"></script>
 
-     <div class="instituticao">
+<body>
+    <script src="./scripts/header.js"></script>
+
+    <div class="instituticao">
         <p>Instituição: XXXXX</p>
     </div>
     <div class="divtb">
@@ -24,27 +26,28 @@
     </div>
 
     <script>
-        // Move as funções para o escopo global
         function editarPaciente(idPaciente) {
-			window.location.href=`formEditarPaciente.html?id=${idPaciente}`;
-			console.log(`Editar paciente com ID: ${idPaciente}`);
+            const url = `formEditarPaciente.html?id=${encodeURIComponent(idPaciente)}`;
+            window.location.href = url;
+
+            //console.log(`Editar paciente com ID: ${idPaciente}`);
         }
 
         function deletarPaciente(id) {
             // Implemente a lógica de exclusão conforme necessário
-			let confirma = confirm("Deseja Excluir este paciente?")
-			if(confirma){
-				fetch(`http://localhost:8080/auth/pacientes/${id}`, {
-					method: 'DELETE'
-				})
-				.then(response => {
-					if (response.status === 204) {
-						window.location.replace("consulta.html");
-					} else {
-						console.error('Erro ao excluir paciente.');
-					}
-				});
-			}
+            let confirma = confirm("Deseja Excluir este paciente?")
+            if (confirma) {
+                fetch(`http://localhost:8080/auth/pacientes/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => {
+                        if (response.status === 204) {
+                            window.location.replace("consulta.html");
+                        } else {
+                            console.error('Erro ao excluir paciente.');
+                        }
+                    });
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -64,17 +67,18 @@
                     const pacienteItem = document.createElement("td");
                     pacienteItem.classList.add("paciente-item");
 
-                    pacienteItem.innerHTML = `
-                        <p>${paciente.id_paciente}</p>
-                        <p>${paciente.nome_paciente}</p>
-                        <button class="tdeditar" onclick="editarPaciente(${paciente.id_paciente})">Editar</button>
-                        <button class="tdexcluir" onclick="deletarPaciente(${paciente.id_paciente})">Deletar</button>
+                    pacienteItem.innerHTML =` 
+                        <td>${paciente.id_paciente}</td>
+                        <td>${paciente.nome_paciente}</td>
+                        <td><button class="tdeditar" onclick="editarPaciente(${paciente.id_paciente})">Editar</button></td>
+                        <td><button class="tdexcluir" onclick="deletarPaciente(${paciente.id_paciente})">Deletar</button></td>
                     `;
 
                     pacientesList.appendChild(pacienteItem);
                 });
             }
         });
-    </script>   
+    </script>
 </body>
+
 </html>

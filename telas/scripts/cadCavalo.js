@@ -1,5 +1,5 @@
 const formulario = document.querySelector("form");
-const Inome = document.getElementById("nome");
+const Inome = document.getElementById("nomeCavalo");
 const Iidade = document.getElementById("idade");
 const Iraca = document.getElementById("raca");
 

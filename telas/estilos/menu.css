@@ -1,13 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     height: 100vh;
 }
-nav.menu-lateral{
-    width: 70px;
+
+nav.menu-lateral {
+    width: 5%;
     height: 100%;
     background-color: #11b189;
     padding: 40px 0 40px 1%;
@@ -16,33 +18,48 @@ nav.menu-lateral{
     top: 0;
     left: 0;
     overflow: hidden;
-    transition: .3s;
+    transition: .45s;
+    border-top-right-radius: 10px;
+
 }
-nav.menu-lateral:hover{
-    width: 300px;
+
+nav.menu-lateral:hover {
+    width: 13%;
     overflow: hidden;
 }
-.btn-expandir{
+
+.btn-expandir {
     width: 100%;
     padding-left: 10px;
 }
-.btn-expandir > i{
+
+.btn-expandir>i {
     color: white;
     font-size: 25px;
     cursor: pointer;
 }
-ul{
+
+ul {
     height: 100%;
     list-style-type: none;
 
 }
-ul li.item-menu{
+
+ul li.item-menu {
     transition: .5s;
 }
-ul li.item-menu:hover{
+
+.item-menu {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+
+ul li.item-menu:hover {
     background-color: rgb(140, 228, 9);
 }
-ul li.item-menu a{
+
+ul li.item-menu a {
     color: white;
     text-decoration: none;
     font-size: 20px;
@@ -50,13 +67,16 @@ ul li.item-menu a{
     display: flex;
     line-height: 25px;
 }
-ul li.item-menu a .txt-link{
+
+ul li.item-menu a .txt-link {
     margin-left: 25px;
 }
-ul li.item-menu a .icon > i {
+
+ul li.item-menu a .icon>i {
     font-size: 25px;
     margin-left: 10px;
 }
-.home{
-	overflow: hidden;
+
+.home {
+    overflow: hidden;
 }

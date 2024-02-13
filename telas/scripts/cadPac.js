@@ -17,7 +17,7 @@ function cadastrar(){
     const dados = {
         nome_paciente: Inome.value,
         sexo: Isexo.value,
-        data: Iidata.value,
+        data_nascimento: Iidata.value,
         cpf: Icpf.value,
         email_paciente: Iemail.value,
         endereco_paciente_id:{

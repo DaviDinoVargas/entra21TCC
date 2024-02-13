@@ -22,13 +22,12 @@
 	color: white;
 }
 table{
-	margin-top: 5%;
-	padding-left: 6%;
+	padding: 6%;
 	font-size: 23px;
 }
 
+
 tr{
-	padding-left: 20px;
 	padding-top: 6px;
 	height: 7vh;
 	width: 175vh;
@@ -41,7 +40,7 @@ tr{
 	border-radius: 30px;
 }
 td{
-	display: flex;
+	display: fixed;
 	justify-content: space-around;
 	text-align: center;
 	background-color: white;
@@ -55,6 +54,7 @@ td{
 	height: 4vh;
 	border-radius: 23px;
 	border: none;
+	margin-left: 7%;
 }
 .tdexcluir{
 	background-color: red;
@@ -62,6 +62,7 @@ td{
 	height: 4vh;
 	border-radius: 23px;
 	border: none;
+	margin-left: 7%;
 }
 #pacientes-list{
 	background-color: #00564D;

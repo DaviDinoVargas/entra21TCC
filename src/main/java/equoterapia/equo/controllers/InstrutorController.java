@@ -2,6 +2,7 @@ package equoterapia.equo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import equoterapia.equo.entidades.Instrutor;
+import equoterapia.equo.entidades.Paciente;
 import equoterapia.equo.repositories.InstrutorRepository;
 import equoterapia.equo.services.InstrutorService;
 
@@ -41,7 +43,17 @@ public class InstrutorController {
 	public ResponseEntity<Object> registro(@RequestBody Instrutor instrutor) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(instrutor));
 	}
+	@GetMapping("/instrutores/{id}")
+	public ResponseEntity<Object> consultar(@PathVariable("id") Long id) {
 
+		Optional<Instrutor> opt = repository.findById(id);
+		try {
+			Instrutor comp = opt.get();
+			return ResponseEntity.status(HttpStatus.OK).body(comp);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Instrutor não encontrado");
+		}
+	}
 	@PutMapping("/instrutor/{idInstrutor}")
 	public ResponseEntity<Object> alterar(@PathVariable("idInstrutor") Long idInstrutor, @RequestBody Instrutor instrutor) {
 		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idInstrutor, instrutor));

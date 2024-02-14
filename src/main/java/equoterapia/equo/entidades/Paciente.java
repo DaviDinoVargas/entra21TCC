@@ -37,7 +37,11 @@ public class Paciente {
     @Column(length = 50)
     private String email_paciente;
     
-    @ManyToOne
+    @Column(length = 50)
+    private String nome_responsavel;
+    
+
+	@ManyToOne
     private Usuario usuario_id;
     
     @OneToOne(cascade = CascadeType.ALL)
@@ -90,6 +94,13 @@ public class Paciente {
 
 	public void setEmail_paciente(String email_paciente) {
 		this.email_paciente = email_paciente;
+	}
+	public String getNome_responsavel() {
+		return nome_responsavel;
+	}
+	
+	public void setNome_responsavel(String nome_responsavel) {
+		this.nome_responsavel = nome_responsavel;
 	}
 
 	public Usuario getUsuario_id() {

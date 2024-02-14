@@ -37,6 +37,8 @@ public class PacienteService {
 		pc.setCpf(paciente.getCpf());
 		pc.setEmail_paciente(paciente.getEmail_paciente());
 		pc.setSexo(paciente.getSexo());
+		pc.setNome_responsavel(paciente.getNome_responsavel());
+		pc.setEndereco_paciente_id(paciente.getEndereco_paciente_id());
 		return repo.save(pc);
 	}
 	public void excluir(Long id) {

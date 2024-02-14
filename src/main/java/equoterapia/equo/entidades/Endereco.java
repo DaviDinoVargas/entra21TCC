@@ -32,6 +32,12 @@ public class Endereco {
 
     @Column(length = 70)
     private String rua;
+    
+    @Column(length = 70)
+    private String bairro;
+    
+    @Column(length = 70)
+    private String complemento;
 
     @ManyToOne
     private Usuario usuario_id;
@@ -90,6 +96,22 @@ public class Endereco {
 
 	public void setRua(String rua) {
 		this.rua = rua;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	public Usuario getUsuario_id() {

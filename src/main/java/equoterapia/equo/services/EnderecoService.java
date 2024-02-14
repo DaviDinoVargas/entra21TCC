@@ -35,6 +35,8 @@ public class EnderecoService {
 		end.setCidade(endereco.getCidade());
 		end.setRua(endereco.getRua());
 		end.setNumero(endereco.getNumero());
+		end.setBairro(endereco.getBairro());
+		end.setComplemento(endereco.getComplemento());
 		return repo.save(end);
 	}
 	public void excluir(Long id) {

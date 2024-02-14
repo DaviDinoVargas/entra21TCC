@@ -18,12 +18,12 @@ const header = `
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="consultaInstrutor.html">
                 <span class="icon"><i class="bi bi-person-badge-fill"></i></span>
-                <span class="txt-link">Instrutor</span>
+                <span class="txt-link">Instrutores</span>
             </a>
         <li class="item-menu">
-            <a href="#">
+            <a href="consultaMed.html">
                 <span class="icon"><i class="bi bi-bandaid"></i></span>
                 <span class="txt-link">M&eacute;dicos</span>
             </a>
@@ -36,8 +36,8 @@ const header = `
         </li>
         <li class="item-menu">
             <a href="#">
-                <span class="icon"><i class="bi bi-cash"></i></span>
-                <span class="txt-link">Pagamentos</span>
+            <span class="icon"><i class="bi bi-backpack4-fill"></i></span>
+                <span class="txt-link">Cavalos</span>
             </a>
         </li>
         <li class="item-menu">

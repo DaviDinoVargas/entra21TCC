@@ -1,39 +1,37 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", ()=> {
     preencherDados();
 })
-async function preencherDados() {
+async function preencherDados(){
     try {
-        let url = await fetch(`http://localhost:8080/auth/pacientes/${id}`);
+        let url = await fetch(`http://localhost:8080/auth/instrutores/${id}`);
         let response = await url.json();
 
-        document.getElementById('nome').value = response.nome_paciente;
-        document.getElementById('nome_responsavel').value = response.nome_responsavel;
+        document.getElementById('nome').value = response.nome_instrutor;
         document.getElementById('cpf').value = response.cpf;
-        document.getElementById('email').value = response.email_paciente;
+        document.getElementById('email').value = response.email_instrutor;
         document.getElementById('sexo').value = response.sexo;
-        document.getElementById('data_nascimento').value = response.data_nascimento;
+        document.getElementById('idata').value = response.data_nascimentoins;
 
         // Corrigir aqui: usar response.endereco_paciente_id ao invés de response.endereco_paciente
-        document.getElementById('cep').value = response.endereco_paciente_id.cep;
-        document.getElementById('rua').value = response.endereco_paciente_id.rua;
-        document.getElementById('bairro').value = response.endereco_paciente_id.bairro;
-        document.getElementById('complemento').value = response.endereco_paciente_id.complemento;
-        document.getElementById('cidade').value = response.endereco_paciente_id.cidade;
-        document.getElementById('uf').value = response.endereco_paciente_id.uf;
-        document.getElementById('numero').value = response.endereco_paciente_id.numero;
+        document.getElementById('cep').value = response.endereco_instrutor_id.cep;
+        document.getElementById('rua').value = response.endereco_instrutor_id.rua;
+        document.getElementById('bairro').value = response.endereco_instrutor_id.bairro;
+        document.getElementById('complemento').value = response.endereco_instrutor_id.complemento;
+        document.getElementById('cidade').value = response.endereco_instrutor_id.cidade;
+        document.getElementById('uf').value = response.endereco_instrutor_id.uf;
+        document.getElementById('numero').value = response.endereco_instrutor_id.numero;
     } catch (error) {
         console.error("Erro ao preencher dados:", error);
     }
 }
 const formulario = document.querySelector("form");
-function atualizar() {
+function atualizar(){
     const Inome = document.querySelector("#nome");
-    const Irespo = document.querySelector("#nome_responsavel");
     const Isexo = document.querySelector("#sexo");
-    const Iidata = document.querySelector("#data_nascimento");
+    const Iidata = document.querySelector("#idata");
     const Icpf = document.querySelector("#cpf");
     const Iemail = document.querySelector("#email");
     const Icep = document.querySelector("#cep");
@@ -43,17 +41,16 @@ function atualizar() {
     const Iuf = document.querySelector("#uf");
     const Inumero = document.querySelector("#numero");
     const Icomp = document.querySelector("#complemento")
-    const pais = "brasil";
+    const pais ="brasil";
     console.log("entrei aqui")
 
     const dados = {
-        nome_paciente: Inome.value,
-        nome_responsavel: Irespo.value,
+        nome_medico: Inome.value,
         sexo: Isexo.value,
-        data_nascimento: Iidata.value,
+        data_nascimento_med: Iidata.value,
         cpf: Icpf.value,
-        email_paciente: Iemail.value,
-        endereco_paciente_id: {
+        email_medico: Iemail.value,
+        endereco_medico_id:{
             cep: Icep.value,
             rua: Irua.value,
             bairro: Ibairro.value,
@@ -64,7 +61,7 @@ function atualizar() {
             pais: pais
         }
     }
-    fetch(`http://localhost:8080/auth/pacientes/${id}`, {
+    fetch(`http://localhost:8080/auth/medicos/${id}`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -83,4 +80,5 @@ formulario.addEventListener('submit', function (event){
     event.preventDefault();
 
     atualizar();
+    window.location.href= 'consultaInstrutor.html'
 })

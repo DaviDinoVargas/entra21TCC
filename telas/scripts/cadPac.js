@@ -1,5 +1,6 @@
 const formulario = document.querySelector("form");
 const Inome = document.querySelector(".nome");
+const Ires = document.querySelector(".nome_responsavel")
 const Isexo = document.querySelector(".sexo");
 const Iidata = document.querySelector(".idata");
 const Icpf = document.querySelector(".cpf");
@@ -16,6 +17,7 @@ const pais ="brasil";
 function cadastrar(){
     const dados = {
         nome_paciente: Inome.value,
+        nome_responsavel: Ires.value,
         sexo: Isexo.value,
         data_nascimento: Iidata.value,
         cpf: Icpf.value,
@@ -52,7 +54,7 @@ formulario.addEventListener('submit', function (event){
 })
 function limpar(){
     Isexo.value = "";
-    Iiidade.value = "";
+    Ires.value = "";
     Iidata.value = "";
     Icpf.value = "";
     Iemail.value = "";

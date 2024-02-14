@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>EquoSoft</title>
+    <link rel="shortcut icon" href="./img/equo_LOGO.png">
+    <link rel="stylesheet" href="estilos/consulta.css">
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <script src="./scripts/header.js"></script>
+
+    <div class="instituticao">
+        <p>Instituição: XXXXX</p>
+    </div>
+    <div class="divtb">
+        <h1 class="title">Médicos</h1>
+        <table>
+            <tbody>
+                <tr id="pacientes-list"></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function editarMedico(idMed) {
+            const url = `formEditarMedico.html?id=${encodeURIComponent(idMed)}`;
+            window.location.href = url;
+
+            //console.log(`Editar paciente com ID: ${idPaciente}`);
+        }
+
+        function deletarMedico(id) {
+            // Implemente a lógica de exclusão conforme necessário
+            let confirma = confirm("Deseja Excluir este Médico?")
+            if (confirma) {
+                fetch(`http://localhost:8080/auth/medico/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => {
+                        if (response.status === 204) {
+                            window.location.replace("consultaMed.html");
+                        } else {
+                            console.error('Erro ao excluir Médico.');
+                        }
+                    });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            carregarMedicos();
+
+            function carregarMedicos() {
+                fetch("http://localhost:8080/auth/medicos")
+                    .then(response => response.json())
+                    .then(data => exibirMedicos(data));
+            }
+
+            function exibirMedicos(medicos) {
+                const medicosList = document.getElementById("pacientes-list");
+                medicosList.innerHTML = "";
+
+                medicos.forEach(medico => {
+                    const medicoItem = document.createElement("td");
+                    medicoItem.classList.add("medico-item");
+
+                    medicoItem.innerHTML =` 
+                        
+                        <td>${medico.nome_medico}</td>
+                        <td><button class="tdeditar" onclick="editarMedico(${medico.id_medico})">Editar</button></td>
+                        <td><button class="tdexcluir" onclick="deletarMedico(${medico.id_medico})">Deletar</button></td>
+                    `;
+
+                    medicosList.appendChild(medicoItem);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

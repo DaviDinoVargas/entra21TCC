@@ -36,8 +36,6 @@ public class ConsultaService {
 		cons.setCondicao_saude(consulta.getCondicao_saude());
 		cons.setData_avaliacao(consulta.getData_avaliacao());
 		cons.setEncilhamento(consulta.getEncilhamento());
-		cons.setMediador(consulta.getMediador());
-		cons.setGuia(consulta.getGuia());
 		cons.setHora(consulta.getHora());
 
 		return repo.save(cons);
@@ -58,9 +56,6 @@ public class ConsultaService {
 		}
 		if(consulta.getEncilhamento().equals("")) {
 			throw new ValidaDadosException("O encilhamento deve ser informado");
-		}
-		if(consulta.getGuia().equals("")) {
-			throw new ValidaDadosException("O guia deve ser informado");
 		}
 	}
 }

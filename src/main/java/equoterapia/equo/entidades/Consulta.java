@@ -8,8 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -33,12 +33,6 @@ public class Consulta {
     private String condicao_saude;
 
     @Column(length = 50)
-    private String mediador;
-
-    @Column(length = 50)
-    private String guia;
-
-    @Column(length = 50)
     private String encilhamento;
     
     @ManyToOne
@@ -52,9 +46,29 @@ public class Consulta {
 
 	@ManyToOne
     private Usuario usuario_id;
+    
+    @ManyToMany
+    private List<Medico> medico;
+    
+    @ManyToMany
+    private List<Instrutor> intrutor;
 
-    @OneToOne
-    private EscalaAvaliacao escala_avaliacao_id;
+
+	public List<Medico> getMedico() {
+		return medico;
+	}
+
+	public void setMedico(List<Medico> medico) {
+		this.medico = medico;
+	}
+
+	public List<Instrutor> getIntrutor() {
+		return intrutor;
+	}
+
+	public void setIntrutor(List<Instrutor> intrutor) {
+		this.intrutor = intrutor;
+	}
 
 	public int getId_consulta() {
 		return id_consulta;
@@ -86,22 +100,6 @@ public class Consulta {
 
 	public void setCondicao_saude(String condicao_saude) {
 		this.condicao_saude = condicao_saude;
-	}
-
-	public String getMediador() {
-		return mediador;
-	}
-
-	public void setMediador(String mediador) {
-		this.mediador = mediador;
-	}
-
-	public String getGuia() {
-		return guia;
-	}
-
-	public void setGuia(String guia) {
-		this.guia = guia;
 	}
 
 	public String getEncilhamento() {
@@ -142,14 +140,6 @@ public class Consulta {
 
 	public void setUsuario_id(Usuario usuario_id) {
 		this.usuario_id = usuario_id;
-	}
-
-	public EscalaAvaliacao getEscala_avaliacao_id() {
-		return escala_avaliacao_id;
-	}
-
-	public void setEscala_avaliacao_id(EscalaAvaliacao escala_avaliacao_id) {
-		this.escala_avaliacao_id = escala_avaliacao_id;
 	}
 
 	

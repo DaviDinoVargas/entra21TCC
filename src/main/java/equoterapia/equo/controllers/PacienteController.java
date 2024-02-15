@@ -26,10 +26,10 @@ import equoterapia.equo.services.PacienteService;
 @RequestMapping("/auth")
 public class PacienteController {
 	List<Paciente> paciente = new ArrayList<>();
-	
+
 	@Autowired
 	PacienteRepository repository;
-	
+
 	@Autowired
 	PacienteService service;
 
@@ -37,6 +37,7 @@ public class PacienteController {
 	public ResponseEntity<?> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
+
 	@GetMapping("/pacientes/{id}")
 	public ResponseEntity<Object> consultar(@PathVariable("id") Long id) {
 
@@ -48,6 +49,20 @@ public class PacienteController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Compromisso não encontrado");
 		}
 	}
+
+	@GetMapping("/pacientes/cpf/{cpf}")
+	public ResponseEntity<?> consultarC(@PathVariable("cpf") String cpf) {
+	    Optional<Paciente> opt = repository.findByCpf(cpf);
+	    try {
+			Paciente comp = opt.get();
+			return ResponseEntity.status(HttpStatus.OK).body(comp);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CPF não encontrado");
+		}
+
+
+	}
+
 	@PostMapping("/registroPaciente")
 	public ResponseEntity<?> registro(@RequestBody Paciente paciente) {
 
@@ -56,7 +71,7 @@ public class PacienteController {
 
 	@PutMapping("/pacientes/{idPaciente}")
 	public ResponseEntity<Object> alterar(@PathVariable("idPaciente") Long idPaciente, @RequestBody Paciente paciente) {
-		
+
 		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idPaciente, paciente));
 	}
 
@@ -64,5 +79,5 @@ public class PacienteController {
 	public ResponseEntity<?> deletePaciente(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-}
+	}
 }

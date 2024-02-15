@@ -28,6 +28,18 @@ async function preencherDados() {
         console.error("Erro ao preencher dados:", error);
     }
 }
+async function preencherEndereco(){
+         
+            let Ncep = cep.value
+            let url = await fetch(`https://viacep.com.br/ws/${Ncep}/json/`)               
+                
+            let response = await url.json()
+                
+            document.getElementById('rua').value = response.logradouro
+            document.getElementById('complemento').value = response.complemento
+            document.getElementById('bairro').value = response.bairro
+            document.getElementById('uf').value = response.uf
+        }
 const formulario = document.querySelector("form");
 function atualizar() {
     const Inome = document.querySelector("#nome");

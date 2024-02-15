@@ -37,6 +37,9 @@ public class TBEscala3 {
 
     @Column(length = 10)
     private int op3_7;
+    
+    @Column(length = 10)
+    private int op3_8;
 
     @Column(length = 100)
     private String comentarioDM3;
@@ -157,4 +160,12 @@ public class TBEscala3 {
     public void setEscalaAvaliacao(EscalaAvaliacao escalaAvaliacao) {
         this.escalaAvaliacao = escalaAvaliacao;
     }
+
+	public int getOp3_8() {
+		return op3_8;
+	}
+
+	public void setOp3_8(int op3_8) {
+		this.op3_8 = op3_8;
+	}
 }

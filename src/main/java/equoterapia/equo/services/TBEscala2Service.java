@@ -17,7 +17,7 @@ public class TBEscala2Service {
 	TBEscala2Repository repo;
 	
 	public TBEscala2 salvar(TBEscala2 tBEscala) {
-		validaCampos(tBEscala);	
+		//validaCampos(tBEscala);	
 		
 		return repo.save(tBEscala);
 	}
@@ -34,6 +34,11 @@ public class TBEscala2Service {
 		escala.setOp2_1(tBEscala.getOp2_1());
 		escala.setOp2_2(tBEscala.getOp2_2());
 		escala.setOp2_3(tBEscala.getOp2_3());
+		escala.setOp2_3(tBEscala.getOp2_4());
+		escala.setOp2_3(tBEscala.getOp2_5());
+		escala.setOp2_3(tBEscala.getOp2_6());
+		escala.setOp2_3(tBEscala.getOp2_7());
+		escala.setOp2_3(tBEscala.getOp2_8());
 		escala.setComentarioDM2(tBEscala.getComentarioDM2());
 		escala.setSomaDM2(tBEscala.getSomaDM2());
 

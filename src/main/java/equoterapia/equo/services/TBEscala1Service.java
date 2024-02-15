@@ -32,7 +32,7 @@ public class TBEscala1Service {
 		validaCampos(tBEscala);
 		escala.setOp1_1(tBEscala.getOp1_1());
 		escala.setOp1_2(tBEscala.getOp1_2());
-		escala.setOp1_3(tBEscala.getOp1_3());
+		escala.setOp1_3(tBEscala.getOp1_2());
 		escala.setComentarioDM1(tBEscala.getComentarioDM1());
 		escala.setSomaDM1(tBEscala.getSomaDM1());
 

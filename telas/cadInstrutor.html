@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>EquoSoft</title>
+<link rel="shortcut icon" href="./img/equo_LOGO.png">
+<link rel="stylesheet" href="estilos/cadPac.css">
+<link rel="stylesheet" href="estilos/menu.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+	<script src="./scripts/header.js"></script>
+	
+    <div class="instituticao">
+        <p>Instituição: XXXXX</p>
+    </div>
+	<section class="area-cad">
+		<div class="cad">
+			<h1>Cadastro de Instrutor</h1>
+		<form method="">
+		 <label for="nome">Nome:</label>
+		  <input type="text" value="teste" class="nome" name="nome" required>
+		
+		   <div class="dados">
+		  		<label for="sexo">Sexo:</label><label for="data_nascimento" class="data">Data de Nascimento:</label>
+		  		<br>
+				  <select class="sexo" name="sexo">
+					<option value="" selected disabled>Selecione o Sexo</option>
+					<option value="masculino">Masculino</option>
+					<option value="feminino">Feminino</option>
+				</select>
+		  <input type="date" name="data_nascimento" class="idata">
+		
+		   </div>
+		   
+		  <label for="cpf">CPF:</label>
+		  <input class="cpf"  type="text" name="cpf" placeholder="Ex: 123.456.789-00" required>
+			
+		  <label for="email">E-mail:</label>
+		  <input class="email" value="teste" type="email" name="email" required>
+		
+		  <label for="cep">CEP:</label>
+		  <input class="cep" onblur="preencherEndereco()" type="number" name="cep" required>
+		
+		  <label for="rua">Rua:</label>
+		  <input class="rua" value="teste" type="text" name="rua" required>
+		
+		  <label for="bairro">Bairro:</label>
+		  <input class="bairro" value="teste" type="text" name="bairro" required>
+		  <div class="cidade">	
+               	<label for="cidade">Cidade:</label><label style="margin-left: 80%" for="uf">UF:</label>
+                	<br>
+                	<input class="cidade" value="teste"  type="text" name="cidade" required style="width: 85%">
+					<input class="uf" value="SC" type="text" required style="width: 10% "/>
+					<!-- <select class="UF" name="UF">
+						<option value="" selected disabled>Selecione</option>
+						<option value="AC">AC</option>
+						<option value="AL">AL</option>
+						<option value="AP">AP</option>
+						<option value="AM">AM</option>
+						<option value="BA">BA</option>
+						<option value="CE">CE</option>
+						<option value="DF">DF</option>
+						<option value="ES">ES</option>
+						<option value="GO">GO</option>
+						<option value="MA">MA</option>
+						<option value="MS">MS</option>
+						<option value="MT">MT</option>
+						<option value="MG">MG</option>
+						<option value="PA">PA</option>
+						<option value="PB">PB</option>
+						<option value="PR">PR</option>
+						<option value="PE">PE</option>
+						<option value="PI">PI</option>
+						<option value="RJ">RJ</option>
+						<option value="RN">RN</option>
+						<option value="RS">RS</option>
+						<option value="RO">RO</option>
+						<option value="RR">RR</option>
+						<option value="SC">SC</option>
+						<option value="SP">SP</option>
+						<option value="SE">SE</option>
+						<option value="TO">TO</option>
+					</select>      -->      </div>
+            <div class="cidade">	
+               	<label for="complemento">Complemento:</label><label style="margin-left: 75%" for="numero">Numero:</label>
+                	<br>
+                	<input class="complemento" value="teste" type="text" required style="width: 85%">
+                	<input class="numero" type="number" name="numero" required style="width: 11%">
+           </div>
+			<div class="btns">
+				<button class="cancelar" onclick="limpar()">Cancelar</button> 
+				<button class="cadastrar">Cadastrar</button> 
+			</div>
+		</form>
+		</div>
+		
+	</section>
+	<script src="./scripts/preencherEnd.js"></script>
+	<script src="./scripts/cadInstMed.js" defer></script>
+</body>
+</html>

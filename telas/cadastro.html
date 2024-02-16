@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>EquoSoft</title>
+<link rel="shortcut icon" href="./img/equo_LOGO.png">
+<link rel="stylesheet" href="estilos/cadEmp.css">
+<script src="./scripts/cadUser.js" defer></script>
+<link rel="stylesheet" href="estilos/menuH.css">
+
+</head>
+<body>
+	<script src="./scripts/headerH.js"></script>
+	<section class="title"> 	
+		<div>
+			<h1><a href="index.html" style="	color: white">EquoSoft</a></h1>
+		</div>
+	</section>
+	<section class="area-login">
+        <div class="login">      
+            <div class="texto">Peça a Sua Conta</div>
+            <form method="">
+            	<label>Instituição</label>
+                <input type="text" class="instituicao" name="nome"  autofocus>
+                <label>CNPJ/CPF</label> 
+                <input type="text" class="cnpj" name="cnpj">
+                <label>CEP</label>
+                <input type="text" class="cep" name="cep" >
+                <label>Endereço</label> 
+                <input type="text" class="endereco" name="endereco">
+                <label>Bairro</label>
+                <input type="text" class="bairro" name="bairro" >
+                <div class="city">	
+                	<label>Cidade</label><label  style="margin-left: 80%">UF</label>
+                	<br>
+                	<input type="text" class="cidade" name="cidade">
+                	<input type="text" class="uf" name="uf">
+                </div>
+                <label>Email</label>
+                <input type="email" class="email" name="email" x-moz-errormessage="Por favor, especifique um endereço de e-mail.">
+                <div class="city">	
+                	<label>DDD</label><label style="margin-left: 8%">Celular</label>
+                	<br>
+                	<input type="number" class="ddd" name="ddd" style="width: 11%">
+                	<input type="number" class="celular" name="celular" style="width: 85%">
+                </div>
+                <label>Comentário</label> 
+                <input type="text" class="comentario" name="comentario" style="height: 80px">
+            	<div class="n-btn">
+                    <button class="btn">Enviar</button>
+                    <a href="login.html">Enviar</a>
+            	</div>
+            </form>
+        </div>
+    </section>
+    <script src="./scripts/preencherEnd.js"></script>
+
+</body>
+</html>

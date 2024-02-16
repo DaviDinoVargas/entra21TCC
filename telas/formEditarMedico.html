@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>EquoSoft</title>
+    <link rel="shortcut icon" href="./img/equo_LOGO.png">
+    <link rel="stylesheet" href="estilos/cadPac.css">
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <script src="./scripts/header.js"></script>
+
+    <div class="instituticao">
+        <p>Instituição: XXXXX</p>
+    </div>
+    <section class="area-cad">
+        <div class="cad">
+            <h1>Editar medico</h1>
+            <form method="">
+                <label for="nome">Nome:</label>
+                <input type="text" class="nome" id="nome" name="nome" required>
+
+                <div class="dados">
+                    <label for="sexo">Sexo:</label><label for="data_nascimento" class="data">Data de Nascimento:</label>
+                    <br>
+                    <select id="sexo" class="sexo" name="sexo">
+                        <option value="" selected disabled>Selecione o Sexo</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                    <input type="date" name="data_nascimento" id="idata" class="idata">
+
+                </div>
+
+                <label for="cpf">CPF:</label>
+                <input id="cpf" class="cpf" type="text" name="cpf" placeholder="Ex: 123.456.789-00" required>
+
+                <label for="email">E-mail:</label>
+                <input id="email" class="email" type="email" name="email" required>
+
+
+                <label for="cep">CEP:</label>
+                <input type="number" id="cep" onblur="preencherEndereco()" name="cep" required>
+
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" name="rua" required>
+
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" required>
+                <div class="cidade">
+                    <label for="cidade">Cidade:</label><label style="margin-left: 80%" for="uf">UF:</label>
+                    <br>
+                    <input type="text" id="cidade" name="cidade" required style="width: 85%">
+                    <input type="text" id="uf" name="uf" maxlength="2" required style="width: 11%">
+                </div>
+                <div class="cidade">
+                    <label for="complemento">Complemento:</label><label style="margin-left: 75%"
+                        for="numero">Numero:</label>
+                    <br>
+                    <input type="text" id="complemento" name="complemento" required style="width: 85%">
+                    <input type="number" id="numero" name="numero" required style="width: 11%">
+                </div>
+                <div class="btns">
+                    <button class="cancelar" onclick="limpar()">Limpar</button>
+                    <button class="cadastrar">Editar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="./scripts/editaMed.js"></script>
+    <script src="./scripts/preencherEnd.js"></script>
+</body>
+
+</html>

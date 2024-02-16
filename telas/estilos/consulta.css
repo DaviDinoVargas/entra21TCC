@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .instituticao {
     background-color:  #00564D;
     color: white;
@@ -15,7 +19,7 @@
 
 }
 .title{
-    font-size: 50px;
+    font-size: clamp(4em, 5em + 1vw, 1em);
     padding-top:5%;
     text-align: center;
     color: white;
@@ -23,26 +27,21 @@
 table{
     padding: 6%;
     font-size: 23px;
-
-
 }
 
 
 tr{
-    width: 160vh;
     border: none;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
 }
 td{
-    margin-right: 10%;
-    height: 6vh;
-    border-radius: 60px;
     background-color: white;
-
-
-
+    width: 180vh;
+    margin-right: 10%;
+    height: 7vh;
+    border-radius: 60px;
 }
 
 
@@ -69,12 +68,11 @@ td{
 
 
 }
-#pacientes-list{
+#-list{
     color:#4e4e4e;
-
 }
-.paciente-item {
 
+.-item {
     border: 1px solid #ffffff;
     padding: 10px;
     margin-bottom: 2%;

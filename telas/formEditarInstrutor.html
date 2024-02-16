@@ -44,7 +44,7 @@
 
 
                 <label for="cep">CEP:</label>
-                <input type="number" id="cep" name="cep" required>
+                <input type="number" onblur="preencherEndereco()" id="cep" name="cep" required>
 
                 <label for="rua">Rua:</label>
                 <input type="text" id="rua" name="rua" required>
@@ -73,6 +73,7 @@
     </section>
 
     <script src="./scripts/editaIns.js"></script>
+    <script src="./scripts/preencherEnd.js"></script>
 
 </body>
 

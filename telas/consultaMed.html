@@ -20,7 +20,7 @@
         <h1 class="title">Médicos</h1>
         <table>
             <tbody>
-                <tr id="pacientes-list"></tr>
+                <tr id="-list"></tr>
             </tbody>
         </table>
     </div>
@@ -60,12 +60,12 @@
             }
 
             function exibirMedicos(medicos) {
-                const medicosList = document.getElementById("pacientes-list");
+                const medicosList = document.getElementById("-list");
                 medicosList.innerHTML = "";
 
                 medicos.forEach(medico => {
                     const medicoItem = document.createElement("td");
-                    medicoItem.classList.add("medico-item");
+                    medicoItem.classList.add("-item");
 
                     medicoItem.innerHTML =` 
                         

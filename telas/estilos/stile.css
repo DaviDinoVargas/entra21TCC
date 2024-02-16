@@ -1,3 +1,33 @@
+@media screen and (max-width: 700px) {
+    body {
+      font-size: 80%;
+    }
+  
+    h1 {
+      font-size: 80%;
+    }
+  
+    .btn {
+      width: 80%;
+      height: 50px;
+      font-size: 78%;
+    }
+  
+    .texto {
+      font-size: 30px;
+    }
+  
+    .login {
+      width: 90%;
+      height: 10%;
+    }
+  
+    .login input {
+      height: 40%;
+      font-size: 14px;
+    }
+  }
+
 body{
     background-color:#11b189 ;
     font-family: 'Times New Roman', Times, serif;
@@ -14,18 +44,18 @@ h1{
 	font-size: 60px;
 }
 .area-login{
-    margin-top: 5%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    
 }
 .login{
+    box-shadow: 0px 6px rgba(59, 59, 59, 0.623);
     border-radius: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #00564D;
-    width: 40%;
+    width: 50%;
     padding: 4%;
     height: 300px;
 }
@@ -69,6 +99,7 @@ p{
 a{
     color: white;
     text-decoration: none;
+    display: inline;
 }
 .texto{
     color: aliceblue;

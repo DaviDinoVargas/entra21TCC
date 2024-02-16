@@ -44,7 +44,7 @@
 		  <input type="email" id="email" name="email" required>
 		
 		  <label for="cep">CEP:</label>
-		  <input type="number" id="cep" name="cep" required>
+		  <input type="number" id="cep" onblur="preencherEndereco()" name="cep" required>
 		
 		  <label for="rua">Rua:</label>
 		  <input type="text" id="rua" name="rua" required>
@@ -69,55 +69,7 @@
 		</form>
 		</div>
 	</section>
-	<script>
-
-
-// 		document.addEventListener("DOMContentLoaded", function () {
-    
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const idPaciente = urlParams.get('id_paciente');
-
-
-//     if (idPaciente) {
-
-//         fetch(`http://localhost:8080/auth/pacientes/${idPaciente}`)
-//             .then(response => response.json())
-//             .then(data => preencherFormulario(data))
-//             .catch(error => console.error("Error fetching patient data:", error));
-//     }
-
-//     function preencherFormulario(data) {
-        
-//         document.querySelector('.nome').value = data.nome_paciente;
-//         document.querySelector('input[name="nome_responsavel"]').value = data.nome_responsavel;
-//         document.querySelector('select[name="sexo"]').value = data.sexo;
-//   
-//     }
-// });
-
-	// document.addEventListener("onclick", function () {
-    //         carregarPacientes();
-
-    //         function carregarPacientes() {
-    //             fetch("http://localhost:8080/auth/pacientes")
-    //                 .then(response => response.json())
-    //                 .then(data => exibirPacientes(data));
-    //         }
-
-    //         function exibirPacientes(pacientes) {
-    //             pacientes.forEach(paciente => {
-
-    //                alert(`
-    //                     ${paciente.nome_paciente}
-	// 					${paciente.id_paciente}
-    //                     `)
-
-    //                 pacientesList.appendChild(pacienteItem);
-    //             });
-    //         }
-	// 	})
-
-	</script>
+	<script src="./scripts/preencherEnd.js"></script>
 	<script src="./scripts/editaPac.js"></script>
 
 </body>

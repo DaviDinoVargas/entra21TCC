@@ -20,7 +20,7 @@
         <h1 class="title">Instrutores</h1>
         <table>
             <tbody>
-                <tr id="instrutores-list"></tr>
+                <tr id="-list"></tr>
             </tbody>
         </table>
     </div>
@@ -60,12 +60,12 @@
             }
 
             function exibirMedicos(instrutor) {
-                const list = document.getElementById("instrutores-list");
+                const list = document.getElementById("-list");
                 list.innerHTML = "";
 
                 instrutor.forEach(instrutor => {
                     const Item = document.createElement("td");
-                    Item.classList.add("instrutor-item");
+                    Item.classList.add("-item");
 
                     Item.innerHTML =` 
                         

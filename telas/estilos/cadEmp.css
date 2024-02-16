@@ -1,4 +1,41 @@
 @charset "ISO-8859-1";
+@media screen and (max-width: 1297px) {
+	body {
+	  font-size: 80%;
+	}
+  
+	h1 {
+	  font-size: 24px;
+	}
+  
+	.btn {
+	  width: 80%;
+	  height: 50px;
+	  font-size: 108%;
+	}
+  
+	.texto {
+	  font-size: 30px;
+	}
+  
+	.login {
+	  width: 90%;
+	  padding: 20px;
+	}
+  
+	.login input {
+	  font-size: 14px;
+	}
+
+  }
+  @media screen and (max-width: 710px) {
+	.uf{
+		width: 5%;
+	}
+	.cidade{
+		width: 5%;
+	}
+  }
 
 body{
 	background-color: #11b189;
@@ -27,13 +64,19 @@ h1{
     flex-direction: column;
     align-items: center;
     background-color: #00564D;
-    width: 60%;
+    width: 80%;
     padding: 35px;
 }
 .login form{
     display: flex;
     width: 100%;
     flex-direction: column;
+}
+.cidade{
+	width: 85%
+}
+.uf{
+	width: 10%;
 }
 .login input{
     margin-top: 10px;
@@ -60,9 +103,7 @@ label{
 	margin-left: 3%;
 	font-size: 17px;
 }
-.cidade{
-	flex-direction: row;
-}
+
 a{
 	text-decoration: none;
 }

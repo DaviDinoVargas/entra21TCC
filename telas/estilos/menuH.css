@@ -6,6 +6,17 @@
 	gap: 3%;
 }
 
+@media screen and (max-width: 1034px) {
+	a{
+		margin-left: -3%;
+	}
+
+}
+
+
+a{
+	margin-left: 4.5%;
+}
 a:hover{
 	color: black;
 	transition: .3s;

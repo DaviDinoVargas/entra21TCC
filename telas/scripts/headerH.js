@@ -1,4 +1,4 @@
-const header = `<div>
+const header = `
 <header>
     <ul class="ul1">
         <a href="cadastro.html">
@@ -21,7 +21,7 @@ const header = `<div>
         </a>
     </ul>
 </header>
-</div>`
-const dataHeader = document.createElement("div");
+`
+const dataHeader = document.createElement("header");
 document.body.appendChild(dataHeader);
 dataHeader.innerHTML = header;

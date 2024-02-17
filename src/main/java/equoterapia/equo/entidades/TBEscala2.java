@@ -46,9 +46,6 @@ public class TBEscala2 {
     @Column(length = 20)
     private int somaDM2;
 
-    @OneToOne
-    private EscalaAvaliacao escalaAvaliacao2_id;
-
     @ManyToOne
     private Usuario usuario_id;
 
@@ -138,14 +135,6 @@ public class TBEscala2 {
 
 	public void setSomaDM2(int somaDM2) {
 		this.somaDM2 = somaDM2;
-	}
-
-	public EscalaAvaliacao getEscalaAvaliacao2_id() {
-		return escalaAvaliacao2_id;
-	}
-
-	public void setEscalaAvaliacao2_id(EscalaAvaliacao escalaAvaliacao2_id) {
-		this.escalaAvaliacao2_id = escalaAvaliacao2_id;
 	}
 
 	public Usuario getUsuario_id() {

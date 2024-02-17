@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import equoterapia.equo.entidades.Consulta;
 import equoterapia.equo.repositories.ConsultaRepository;
 import equoterapia.equo.services.ConsultaService;
-
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")

@@ -14,7 +14,7 @@ public class Cavalo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_cavalo;
+    private Long id_cavalo;
 
     @Column(length = 50)
     private String nome_cavalo;
@@ -29,15 +29,39 @@ public class Cavalo {
     private Usuario usuario_id;
 
 
-    public int getId() {
-        return id_cavalo;
-    }
+    
+    public Long getId_cavalo() {
+		return id_cavalo;
+	}
 
-    public void setId(int id) {
-        this.id_cavalo = id;
-    }
+	public void setId_cavalo(Long id_cavalo) {
+	}
 
-    public String getNome() {
+	public String getNome_cavalo() {
+		return nome_cavalo;
+	}
+
+	public void setNome_cavalo(String nome_cavalo) {
+		this.nome_cavalo = nome_cavalo;
+	}
+
+	public Integer getIdade_cavalo() {
+		return idade_cavalo;
+	}
+
+	public void setIdade_cavalo(Integer idade_cavalo) {
+		this.idade_cavalo = idade_cavalo;
+	}
+
+	public Usuario getUsuario_id() {
+		return usuario_id;
+	}
+
+	public void setUsuario_id(Usuario usuario_id) {
+		this.usuario_id = usuario_id;
+	}
+
+	public String getNome() {
         return nome_cavalo;
     }
 

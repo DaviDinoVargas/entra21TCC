@@ -32,7 +32,7 @@ public class CavaloService {
 	
 	public Cavalo alterar(Long idCavalo, Cavalo cavalo) {
 		Cavalo cv = consultar(idCavalo);
-		validaCampos(cavalo);
+		//validaCampos(cavalo);
 		cv.setNome(cavalo.getNome());
 		cv.setIdade(cavalo.getIdade());
 		cv.setRaca(cavalo.getRaca());

@@ -1,8 +1,12 @@
-
+*{
+	font-family: "Kanit", sans-serif;
+}
 body{
 	overflow-y: hidden;
+	
 }
 section{
+	
 	margin-left: 14%;
 	margin-top: 2%;
     display: flex;
@@ -60,6 +64,8 @@ button{
 .view{
 	color: white;
 	font-size: 18px;
+
+
 	border: none;
 	background-color: #11B189;
 	border-radius: 45px;
@@ -81,6 +87,7 @@ button{
 
 }
 .txt1{
+	
 	font-size: 19px;
 }
 

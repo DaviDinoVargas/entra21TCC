@@ -1,3 +1,6 @@
+*{
+	font-family: "Kanit", sans-serif;
+}
 body{
     overflow-x: hidden;
 }
@@ -40,33 +43,43 @@ td{
     background-color: white;
     width: 180vh;
     margin-right: 10%;
-    height: 7vh;
+    height: 6vh;
     border-radius: 60px;
 }
 
-
-.tdeditar{
+.tdverificar {
     position: absolute;
     background-color: #11B189;
-    width: 12%;
-    height: 4vh;
-    border-radius: 23px;
+    width: 10%;
+    height: 3.5vh;
+    border-radius: 19px;
     border: none;
-    left: 60%;
-    color:white;
+    left: 66%;
+    color: white;
 
 }
-.tdexcluir{
+
+.tdeditar {
+    position: absolute;
+    background-color: #11B189;
+    width: 10%;
+    height: 3.5vh;
+    border-radius: 19px;
+    border: none;
+    left: 55%;
+    color: white;
+
+}
+
+.tdexcluir {
     position: absolute;
     background-color: red;
-    width: 12%;
-    height: 4vh;
-    border-radius: 23px;
+    width: 10%;
+    height: 3.5vh;
+    border-radius: 19px;
     border: none;
-    left: 75%;
-    color:white;
-
-
+    left: 77%;
+    color: white;
 }
 #-list{
     color:#4e4e4e;

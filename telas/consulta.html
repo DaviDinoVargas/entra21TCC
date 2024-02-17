@@ -45,6 +45,7 @@
                             window.location.replace("consulta.html");
                         } else {
                             console.error('Erro ao excluir paciente.');
+                            alert("Não foi possível excluir. Verifique se este paciente está cadastrado em alguma consulta.")
                         }
                     });
             }
@@ -72,7 +73,8 @@
                         <td>${paciente.nome_paciente}</td>
                         <td><button class="tdeditar" onclick="editarPaciente(${paciente.id_paciente})">Editar</button></td>
                         <td><button class="tdexcluir" onclick="deletarPaciente(${paciente.id_paciente})">Deletar</button></td>
-                    `;
+                        <td><button class="tdverificar" onclick="#(${paciente.id_paciente})">Verificar</button></td>
+                        `;
 
                     pacientesList.appendChild(pacienteItem);
                 });

@@ -5,68 +5,75 @@
 	<meta charset="ISO-8859-1">
 	<title>EquoSoft</title>
 	<link rel="shortcut icon" href="./img/equo_LOGO.png">
-	<link rel="stylesheet" href="estilos/consulta.css">
+	<link rel="stylesheet" href="estilos/agenda.css">
 	<link rel="stylesheet" href="estilos/menu.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<script src="./scripts/header.js"></script>
 
-	<div class="instituicao">
+	<!-- <div class="instituicao">
 		<p>Instituição: XXXXX</p>
-	</div>
+	</div> -->
 	<div class="divtb">
-		<h1 class="title">Agenda</h1>
-		<table>
-			<tbody>
-				<tr id="consulta-list"></tr>
-			</tbody>
-		</table>
+		<!-- <h1 class="title">Agenda</h1> -->
+		<main id="-list" class="cards">
+
+		</main>
 	</div>
 
 	<script>
 		function editarConsulta(idConsulta) {
-			console.log("Editar consulta com ID: `${idConsulta}`");
+			const url = `formEditarConsulta.html?id=${encodeURIComponent(idConsulta)}`;
+            window.location.href = url;
 		}
 
 		function deletarConsulta(id) {
-			fetch(`http://localhost:8080/auth/consultas/${id}`, {
-				method: 'DELETE'
-			})
-				.then(response => {
-					if (response.status === 204) {
-						window.location.replace("agenda.html");
-					} else {
-						console.error('Erro ao excluir consulta.');
-					}
-				});
+			let confirma = confirm("Deseja Excluir esta Agenda?")
+            if (confirma) {
+                fetch(`http://localhost:8080/auth/consultas/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => {
+                        if (response.status === 204) {
+                            window.location.replace("agenda.html");
+                        } else {
+                            alert('Erro ao excluir consulta.');
+                        }
+                    });
+            }
 		}
 
 		document.addEventListener("DOMContentLoaded", function () {
 			carregarConsultas();
 
 			function carregarConsultas() {
-				fetch("http://localhost:8080/auth/consulta")
+				fetch("http://localhost:8080/auth/consultas")
 					.then(response => response.json())
 					.then(data => exibirConsultas(data));
 			}
 
 			function exibirConsultas(consulta) {
-				const consultalist = document.getElementById("consulta-list");
-				consultalist.innerHTML = "";
+				const list = document.getElementById("-list");
+				list.innerHTML = "";
 
 				consulta.forEach(consulta => {
-					const consultaItem = document.createElement("td");
-					consultaItem.classList.add("consulta-item");
+					const Item = document.createElement("section");
+					Item.classList.add("-item");
 
-					consultaItem.innerHTML = `
-                        ${consulta.nome}
-                        <button class="tdeditar" onclick="editarconsulta(${consulta.id_consulta})">Editar</button>
-                        <button class="tdexcluir" onclick="deletarconsulta(${consulta.id_consulta})">Deletar</button>
+					Item.innerHTML = `
+                        <h2>${consulta.paciente.nome_paciente}</h2>
+						<h4>${consulta.dataAvaliacao}</h4>
+						<h4>${consulta.hora}</h4>
+                        <button class="tdeditar" onclick="editarConsulta(${consulta.idConsulta})">Editar</button>
+						<button class="tdexcluir" onclick="deletarConsulta(${consulta.idConsulta})">Deletar</button>
                     `;
 
-					consultaList.appendChild(consultaItem);
+					list.appendChild(Item);
 				});
 			}
 		});

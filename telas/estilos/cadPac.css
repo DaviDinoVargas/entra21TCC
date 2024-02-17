@@ -1,3 +1,6 @@
+*{
+	font-family: "Kanit", sans-serif;
+}
 body {
   background-color: white;
   font-family: Arial, sans-serif;
@@ -94,13 +97,11 @@ select {
   flex-direction: row;
 }
 
-.UF {
-  width: 11.6%;
+.uf {
+  width: 15.6%;
   font-size: 16px;
 }
-.UF > option:hover{
-  background-color:  #11b189;
-}
+
 .btns {
   text-align: right;
 }

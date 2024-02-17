@@ -1,0 +1,129 @@
+*{
+	font-family: "Kanit", sans-serif;
+}
+body{
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.cards{
+    display: flex;
+    padding: 32px;
+}
+main.cards section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #11B189;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    max-height: 256px;
+    margin-left: 32px;
+    box-shadow: 0px 6px rgb(127, 127, 127);
+
+}
+main.cards section:first-child{
+    margin-left: 0;
+}
+main.cards section h2{
+    text-transform: uppercase;
+}
+main.cards section button{
+    margin-top: 5px;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    border-radius: 31px;
+    border: none;
+    background-color: #028174;
+    cursor: pointer;
+    font-size: 78%;
+    font-weight: 500;
+    width: 100%;
+}
+main.cards section button.tdexcluir{
+    background-color: red;
+}
+/* 
+
+.instituticao {
+    background-color:  #00564D;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    height: 10vh;
+  }
+.divtb{
+    background-color:  #00564D;
+    margin-left: 4%;
+    margin-top: 5%;
+    height: 100%;
+    border-radius: 45px 45px 0px 0px;
+     box-shadow: 0px 6px rgb(127, 127, 127);
+
+}
+.title{
+    font-size: clamp(4em, 5em + 1vw, 1em);
+    padding-top:5%;
+    text-align: center;
+    color: white;
+}
+table{
+    padding: 6%;
+    font-size: 23px;
+}
+
+
+tr{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+td{
+    background-color: white;
+    width: 180vh;
+    margin-right: 10%;
+    height: 7vh;
+    border-radius: 60px;
+}
+
+
+.tdeditar{
+    position: absolute;
+    background-color: #11B189;
+    width: 12%;
+    height: 4vh;
+    border-radius: 23px;
+    border: none;
+    left: 60%;
+    color:white;
+
+}
+.tdexcluir{
+    position: absolute;
+    background-color: red;
+    width: 12%;
+    height: 4vh;
+    border-radius: 23px;
+    border: none;
+    left: 75%;
+    color:white;
+
+
+}
+#-list{
+    color:#4e4e4e;
+}
+
+.-item {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin-bottom: 2%;
+
+} */

@@ -9,7 +9,7 @@ async function preencherDados(){
         let url = await fetch(`http://localhost:8080/auth/medicos/${id}`);
         let response = await url.json();
 
-        document.getElementById('nome').value = response.nome_medico;
+        document.getElementById('nome').value = response.nome;
         document.getElementById('cpf').value = response.cpf;
         document.getElementById('email').value = response.email_medico;
         document.getElementById('sexo').value = response.sexo;
@@ -45,7 +45,7 @@ function atualizar(){
     console.log("entrei aqui")
 
     const dados = {
-        nome_medico: Inome.value,
+        nome: Inome.value,
         sexo: Isexo.value,
         data_nascimento_med: Iidata.value,
         cpf: Icpf.value,

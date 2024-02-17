@@ -39,10 +39,10 @@ function cadastrar(){
         method: "POST",
         body: JSON.stringify(dados)
     })
-    .then(function (res) { console.log(res) })
+    .then(function (res) { console.log(res); alert("Novo Cadastrado feito com Sucesso!")
+})
     .catch(function (res) { console.log(res.data) })
     console.log(dados)
-    alert("Novo Cadastrado feito com Sucesso!")
     
 };
 formulario.addEventListener('submit', function (event){

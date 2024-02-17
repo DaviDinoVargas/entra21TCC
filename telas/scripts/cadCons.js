@@ -9,54 +9,47 @@ async function preenchePorCpf() {
     document.getElementById('id').value = response.id_paciente
 }
 
-async function buscaId() {
-    const Icpf = document.querySelector("#cpf");
-    let cpf = Icpf.value
-    await fetch(`http://localhost:8080/auth/pacientes/cpf/${cpf}`)
-        .then(data => {
+// async function buscaId() {
+//     const Icpf = document.querySelector("#cpf");
+//     let cpf = Icpf.value
+//     await fetch(`http://localhost:8080/auth/pacientes/cpf/${cpf}`)
+//         .then(data => {
 
-            console.log(data);
+//             console.log(data);
 
-            //const resultadoConsulta = document.getElementById('resultadoConsulta');
+//             //const resultadoConsulta = document.getElementById('resultadoConsulta');
 
-            if (data.id_paciente) {
-                console.log(`ID do paciente: ${data.id_paciente}`);
-                //localStorage.setItem('idPacEscala', data.id_paciente);
+//             if (data.id_paciente) {
+//                 console.log(`ID do paciente: ${data.id_paciente}`);
+//                 //localStorage.setItem('idPacEscala', data.id_paciente);
 
-            }
-        })
-}
+//             }
+//         })
+// }
 
 async function preenchePorNome() {
-    const Icpf = document.querySelector("#cpf");
-    let Ncpf = Icpf.value
+    const Inome = document.getElementById("medico");
+    let nome = Inome.value
 
-    let url = await fetch(`http://localhost:8080/auth/pacientes/cpf/${Ncpf}`)
+    let url = await fetch(`http://localhost:8080/auth/medicos/nome/${nome}`)
 
     let response = await url.json()
-    document.getElementById('nome').value = response.nome_paciente
-    document.getElementById('id').value = response.id_paciente
+    document.getElementById('idMed').value = response.id_medico
+}
+async function preenchePorNomeC() {
+    const Inome = document.getElementById("cavalo");
+    let nome = Inome.value
+
+    let url = await fetch(`http://localhost:8080/auth/cavalos/nome/${nome}`)
+
+    let response = await url.json()
+    document.getElementById('idCav').value = response.id_cavalo
 }
 
-async function buscaId() {
-    const Icpf = document.querySelector("#cpf");
-    let cpf = Icpf.value
-    await fetch(`http://localhost:8080/auth/pacientes/cpf/${cpf}`)
-        .then(data => {
 
-            console.log(data);
 
-            //const resultadoConsulta = document.getElementById('resultadoConsulta');
 
-            if (data.id_paciente) {
-                console.log(`ID do paciente: ${data.id_paciente}`);
-                //localStorage.setItem('idPacEscala', data.id_paciente);
-
-            }
-        })
-}
-
-document.querySelector('#qtd_medicos').addEventListener('input', function (e) {
+/*document.querySelector('#qtd_medicos').addEventListener('input', function (e) {
     const qtdMedicos = parseInt(e.target.value);
     const inputsMedicosDiv = document.getElementById('inputs_medicos');
     inputsMedicosDiv.innerHTML = '';
@@ -71,7 +64,7 @@ document.querySelector('#qtd_medicos').addEventListener('input', function (e) {
         inputsMedicosDiv.appendChild(input);
         inputsMedicosDiv.appendChild(document.createElement('br'));
     }
-});
+});*/
 
 document.querySelector('#qtd_instrutores').addEventListener('input', function (e) {
     const qtdInstrutores = parseInt(e.target.value);
@@ -91,12 +84,12 @@ document.querySelector('#qtd_instrutores').addEventListener('input', function (e
 });
 const formulario = document.querySelector("form");
 const Iid = document.querySelector("#id");
-const cavalo = document.querySelector("#idCavalo");
+const cavalo = document.querySelector("#idCav");
 const Ihora = document.querySelector("#hora")
 const Idata = document.querySelector("#idata")
 const Iencilhameno = document.querySelector(".encilhamento")
 const Isaude = document.querySelector(".condicao_saude")
-const Imedico = document.querySelector("#medico_1")
+const Imedico = document.querySelector("#idMed")
 const Iinstrutor = document.querySelector("#instrutor_1")
 const Icep = document.querySelector(".cep");
 const Irua = document.querySelector(".rua");
@@ -122,6 +115,12 @@ function salvar() {
         },
         paciente: {
             id_paciente: Iid.value
+        },
+        medico:{
+            id_medico: Imedico.value
+        },
+        cavalo: {
+            id_cavalo: cavalo.value
         }
 
     }

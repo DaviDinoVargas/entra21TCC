@@ -17,10 +17,10 @@ fetch("http://localhost:8080/auth/registroCavalo", {
     method: "POST",
     body: JSON.stringify(dados)
 })
-.then(function (res) { console.log(res) })
+.then(function (res) { console.log(res); alert("Cavalo Cadastrado com Sucesso!")})
 .catch(function (res) { console.log(res.data) })
 console.log(dados)
-alert("Cavalo Cadastrado com Sucesso!")
+
 Iraca.value= ""
 Iidade.value = ""
 Inome.value = ""

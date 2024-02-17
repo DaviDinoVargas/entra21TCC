@@ -17,66 +17,50 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import equoterapia.equo.entidades.Medico;
 import equoterapia.equo.entidades.Paciente;
-import equoterapia.equo.repositories.PacienteRepository;
-import equoterapia.equo.services.PacienteService;
+import equoterapia.equo.repositories.MedicoRepository;
+import equoterapia.equo.services.MedicoService;
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")
-public class PacienteController {
-	List<Paciente> paciente = new ArrayList<>();
+public class MedicoController {
+	List<Medico> medicos = new ArrayList<>();
+	
+	@Autowired
+	MedicoRepository repository;
 
 	@Autowired
-	PacienteRepository repository;
-
-	@Autowired
-	PacienteService service;
-
-	@GetMapping("/pacientes")
-	public ResponseEntity<?> getAll() {
+	MedicoService service;
+	
+	@GetMapping("/medicos")
+	public ResponseEntity<Object> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
-
-	@GetMapping("/pacientes/{id}")
+	@GetMapping("/medicos/{id}")
 	public ResponseEntity<Object> consultar(@PathVariable("id") Long id) {
 
-		Optional<Paciente> opt = repository.findById(id);
+		Optional<Medico> opt = repository.findById(id);
 		try {
-			Paciente comp = opt.get();
+			Medico comp = opt.get();
 			return ResponseEntity.status(HttpStatus.OK).body(comp);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Compromisso não encontrado");
 		}
 	}
-
-	@GetMapping("/pacientes/cpf/{cpf}")
-	public ResponseEntity<?> consultarC(@PathVariable("cpf") String cpf) {
-	    Optional<Paciente> opt = repository.findByCpf(cpf);
-	    try {
-			Paciente comp = opt.get();
-			return ResponseEntity.status(HttpStatus.OK).body(comp);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CPF não encontrado");
-		}
-
-
+	@PostMapping("/registromedico")
+	public ResponseEntity<?> registro(@RequestBody Medico medico) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(medico));
 	}
 
-	@PostMapping("/registroPaciente")
-	public ResponseEntity<?> registro(@RequestBody Paciente paciente) {
-
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(paciente));
+	@PutMapping("/medicos/{idMedico}")
+	public ResponseEntity<Object> alterar(@PathVariable("idMedico") Long idMedico, @RequestBody Medico medico) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idMedico, medico));
 	}
 
-	@PutMapping("/pacientes/{idPaciente}")
-	public ResponseEntity<Object> alterar(@PathVariable("idPaciente") Long idPaciente, @RequestBody Paciente paciente) {
-
-		return ResponseEntity.status(HttpStatus.OK).body(service.alterar(idPaciente, paciente));
-	}
-
-	@DeleteMapping("/pacientes/{id}")
-	public ResponseEntity<?> deletePaciente(@PathVariable("id") Long id) {
+	@DeleteMapping("/medico/{id}")
+	public ResponseEntity<Object> deletemedico(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}

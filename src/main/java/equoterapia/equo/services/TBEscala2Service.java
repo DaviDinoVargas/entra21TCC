@@ -41,6 +41,7 @@ public class TBEscala2Service {
 		escala.setOp2_3(tBEscala.getOp2_8());
 		escala.setComentarioDM2(tBEscala.getComentarioDM2());
 		escala.setSomaDM2(tBEscala.getSomaDM2());
+		escala.setCpf_paciente(tBEscala.getCpf_paciente());
 
 		return repo.save(escala);
 	}

@@ -16,7 +16,7 @@ public class LocalService {
 	LocalRepository repo;
 	
 	public Local salvar(Local local) {
-		validaCampos(local);	
+		//validaCampos(local);	
 		
 		return repo.save(local);
 	}

@@ -52,6 +52,10 @@ public class TBEscala3 {
 
     @ManyToOne
     private Usuario usuario;
+    
+    @Column(name = "cpfPaciente", length = 14)
+    private String cpfPaciente;
+    
 
     @Column(name = "escalaAvaliacao_id") 
     private int idEscalaAvaliacao;
@@ -168,4 +172,15 @@ public class TBEscala3 {
 	public void setOp3_8(int op3_8) {
 		this.op3_8 = op3_8;
 	}
+	
+
+	 public String getCpf_paciente() {
+			return cpfPaciente;
+		}
+
+		public void setCpf_paciente(String cpf_paciente) {
+			this.cpfPaciente = cpf_paciente;
+		}
+	
+	
 }

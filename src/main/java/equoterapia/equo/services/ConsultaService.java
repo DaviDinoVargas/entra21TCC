@@ -17,10 +17,10 @@ public class ConsultaService {
 	ConsultaRepository repo;
 	
 	public Consulta salvar(Consulta consulta) {
-		validaCampos(consulta);	
-		if (repo.findById((long) consulta.getIdConsulta()) != null) {
-			throw new RecursoJaExistente("Consulta já cadastrada");
-		}
+		//validaCampos(consulta);	
+		//if (repo.findById((long) consulta.getIdConsulta()) != null) {
+		//	throw new RecursoJaExistente("Consulta já cadastrada");
+		//}
 		return repo.save(consulta);
 	}
 	
@@ -46,20 +46,21 @@ public class ConsultaService {
 		repo.delete(end);
 	}
 	private void validaCampos(Consulta consulta) {
-		if(consulta.getCondicaoSaude().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
-		}
-		if(consulta.getHora() == null) {
-			throw new ValidaDadosException("O CEP deve ser informado");
-		}
-		if(consulta.getDataAvaliacao().equals("")) {
-			throw new ValidaDadosException("A CIDADE deve ser informado");
-		}
-		if(consulta.getEncilhamento().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
-		}
-		if(consulta.getGuia().equals("")) {
-			throw new ValidaDadosException("O UF deve ser informado");
-		}
+	    if (consulta.getCondicaoSaude() == null || consulta.getCondicaoSaude().isEmpty()) {
+	        throw new ValidaDadosException("A condição de saúde deve ser informada");
+	    }
+	    if (consulta.getHora() == null) {
+	        throw new ValidaDadosException("A hora deve ser informada");
+	    }
+	   // if (consulta.getDataAvaliacao() == null || consulta.getDataAvaliacao().isEmpty()) {
+	   //     throw new ValidaDadosException("A data de avaliação deve ser informada");
+	   // }
+	    if (consulta.getEncilhamento() == null || consulta.getEncilhamento().isEmpty()) {
+	        throw new ValidaDadosException("O encilhamento deve ser informado");
+	    }
+	    if (consulta.getGuia() == null || consulta.getGuia().isEmpty()) {
+	        throw new ValidaDadosException("A guia deve ser informada");
+	    }
 	}
-}
+
+	}

@@ -31,13 +31,18 @@ public class TBEscala1 {
     @Column
     private int op1_4;
 
-    @Column(length = 100)
+    @Column(name = "cpfPaciente", length = 14)
+    private String cpfPaciente;
+    
+   
+
+	@Column(length = 100)
     private String comentarioDM1;
 
     @Column
     private int somaDM1;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pac_escala", referencedColumnName = "id_paciente")
     private Paciente id_pac_escala;
 
@@ -117,6 +122,13 @@ public class TBEscala1 {
 		this.id_pac_escala = id_pac_escala;
 	}
 
+	 public String getCpf_paciente() {
+			return cpfPaciente;
+		}
+
+		public void setCpf_paciente(String cpf_paciente) {
+			this.cpfPaciente = cpf_paciente;
+		}
 	
 
 }

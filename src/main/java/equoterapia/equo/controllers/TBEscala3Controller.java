@@ -2,6 +2,7 @@ package equoterapia.equo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import equoterapia.equo.entidades.TBEscala2;
 import equoterapia.equo.entidades.TBEscala3;
 import equoterapia.equo.repositories.TBEscala3Repository;
 import equoterapia.equo.services.TBEscala3Service;
@@ -49,5 +51,16 @@ public class TBEscala3Controller {
 	public ResponseEntity<Object> deleteConsulta(@PathVariable("id") Long id) {
 		service.excluir(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+	
+	@GetMapping("/escala3/cpfPaciente/{cpfPaciente}")
+	public ResponseEntity<Object> consultar(@PathVariable("cpfPaciente") String cpfPaciente) {
+	    List<TBEscala3> resultados = repository.findByCpfPaciente(cpfPaciente);
+
+	    if (!resultados.isEmpty()) {
+	        return ResponseEntity.status(HttpStatus.OK).body(resultados);
+	    } else {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum resultado encontrado para o CPF fornecido");
+	    }
 	}
 }

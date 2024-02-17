@@ -47,6 +47,20 @@ public class Paciente {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_paciente_id", referencedColumnName = "id_endereco")
     private Endereco endereco_paciente_id;
+    
+    /*@OneToMany
+    @JoinColumn(name = "id_paciente") // Esta coluna está na tabela "evento".
+    private List<Consulta> consultas;
+
+    
+    
+	public List<Consulta> getConsultas() {
+		return consultas;
+	}
+
+	public void setConsultas(List<Consulta> consultas) {
+		this.consultas = consultas;
+	}*/
 
 	public Long getId_paciente() {
 		return id_paciente;

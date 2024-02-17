@@ -30,13 +30,10 @@ public class ConsultaService {
 		//if (repo.findById((long) consulta.getIdConsulta()) != null) {
 		//	throw new RecursoJaExistente("Consulta já cadastrada");
 		//}
+		/*Optional<Cavalo> cavalo = cavaloRepository.findById(consulta.getCavalo().getId_cavalo());
+		consulta.setCavalo(cavalo.get());*/
 		Optional<Paciente> paciente = pacienteRepository.findById(consulta.getPaciente().getId_paciente());
 		consulta.setPacientes(paciente.get());
-		Optional<Cavalo> cavalo = cavaloRepository.findById(consulta.getCavalo().getId_cavalo());
-	    consulta.setCavalo(cavalo.orElseThrow(() -> new RecursoNaoEncontrado("Cavalo não encontrado")));
-	if (consulta.getCavalo() == null || consulta.getCavalo().getId_cavalo() == null) {
-	        throw new ValidaDadosException("O cavalo deve ser informado");
-	    }
 		return repo.save(consulta);
 	}
 	

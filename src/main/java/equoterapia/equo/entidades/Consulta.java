@@ -55,9 +55,9 @@ public class Consulta {
     @JoinColumn(name = "paciente_consulta_id", referencedColumnName = "id_paciente")
     private Paciente paciente;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cavalo_consulta_id", referencedColumnName = "id_cavalo")
-    private Cavalo cavalo;
+    private Cavalo cavalo;*/
 
     public Paciente getPaciente() {
 		return paciente;
@@ -139,12 +139,12 @@ public class Consulta {
         this.usuario = usuario;
     }
     
-
+/*
     public Cavalo getCavalo() {
 		return cavalo;
 	}
 
 	public void setCavalo(Cavalo cavalo) {
 		this.cavalo = cavalo;
-	}
+	}*/
 }	

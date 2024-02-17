@@ -11,6 +11,5 @@ import equoterapia.equo.entidades.Paciente;
 
 @Repository
 public interface CavaloRepository extends JpaRepository<Cavalo, Long>{
-	Optional<Cavalo> findById(Long id);
 
 }

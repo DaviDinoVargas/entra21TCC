@@ -55,12 +55,26 @@ public class Consulta {
     @JoinColumn(name = "paciente_consulta_id", referencedColumnName = "id_paciente")
     private Paciente paciente;
     
-    /*@OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "medico_consulta_id", referencedColumnName = "id_medico")
+    private Medico medico;
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cavalo_consulta_id", referencedColumnName = "id_cavalo")
-    private Cavalo cavalo;*/
+    private Cavalo cavalo;
 
+    
+    
     public Paciente getPaciente() {
 		return paciente;
+	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
 	}
 
 	public void setPacientes(Paciente paciente) {
@@ -139,12 +153,11 @@ public class Consulta {
         this.usuario = usuario;
     }
     
-/*
     public Cavalo getCavalo() {
 		return cavalo;
 	}
 
 	public void setCavalo(Cavalo cavalo) {
 		this.cavalo = cavalo;
-	}*/
+	}
 }	

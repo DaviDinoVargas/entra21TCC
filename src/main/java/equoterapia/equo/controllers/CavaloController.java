@@ -2,6 +2,7 @@ package equoterapia.equo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import equoterapia.equo.entidades.Cavalo;
+import equoterapia.equo.entidades.Medico;
 import equoterapia.equo.repositories.CavaloRepository;
 import equoterapia.equo.services.CavaloService;
 
@@ -35,6 +37,16 @@ public class CavaloController {
 	@GetMapping("/cavalos")
 	public ResponseEntity<Object> getAll() {
 		return ResponseEntity.ok(repository.findAll());
+	}
+	@GetMapping("/cavalos/nome/{nome}")
+	public ResponseEntity<?> consultarC(@PathVariable("nome") String nome) {
+	    Optional<Cavalo> opt = repository.findByNome(nome);
+	    try {
+	    	Cavalo comp = opt.get();
+			return ResponseEntity.status(HttpStatus.OK).body(comp);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CPF não encontrado");
+		}
 	}
 
 	@PostMapping("/registroCavalo")

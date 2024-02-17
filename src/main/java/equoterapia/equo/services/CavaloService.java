@@ -34,7 +34,7 @@ public class CavaloService {
 		Cavalo cv = consultar(idCavalo);
 		//validaCampos(cavalo);
 		cv.setNome(cavalo.getNome());
-		cv.setIdade(cavalo.getIdade());
+		cv.setIdade_cavalo(cavalo.getIdade_cavalo());
 		cv.setRaca(cavalo.getRaca());
 		return repo.save(cv);
 	}
@@ -50,8 +50,5 @@ public class CavaloService {
 			throw new ValidaDadosException("O email deve ser informado");
 		}
 		
-		if(cavalo.getIdade() <= 0) {
-		    throw new ValidaDadosException("A idade deve ser informada e maior que zero");
-		}
 	}
 }

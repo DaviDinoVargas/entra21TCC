@@ -14,10 +14,10 @@ public class Cavalo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_cavalo;
+    private int id_cavalo;
 
     @Column(length = 50)
-    private String nome_cavalo;
+    private String nome;
 
     @Column
     private Integer idade_cavalo; 
@@ -28,21 +28,20 @@ public class Cavalo {
     @ManyToOne
     private Usuario usuario_id;
 
-
-    
-    public Long getId_cavalo() {
+	public int getId_cavalo() {
 		return id_cavalo;
 	}
 
-	public void setId_cavalo(Long id_cavalo) {
+	public void setId_cavalo(int id_cavalo) {
+		this.id_cavalo = id_cavalo;
 	}
 
-	public String getNome_cavalo() {
-		return nome_cavalo;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_cavalo(String nome_cavalo) {
-		this.nome_cavalo = nome_cavalo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Integer getIdade_cavalo() {
@@ -53,6 +52,14 @@ public class Cavalo {
 		this.idade_cavalo = idade_cavalo;
 	}
 
+	public String getRaca() {
+		return raca;
+	}
+
+	public void setRaca(String raca) {
+		this.raca = raca;
+	}
+
 	public Usuario getUsuario_id() {
 		return usuario_id;
 	}
@@ -61,36 +68,6 @@ public class Cavalo {
 		this.usuario_id = usuario_id;
 	}
 
-	public String getNome() {
-        return nome_cavalo;
-    }
 
-    public void setNome(String nome_cavalo) {
-        this.nome_cavalo = nome_cavalo;
-    }
-
-    public Integer getIdade() {
-        return idade_cavalo;
-    }
-
-    public void setIdade(Integer idade_cavalo) {
-        this.idade_cavalo = idade_cavalo;
-    }
-
-    public String getRaca() {
-        return raca;
-    }
-
-    public void setRaca(String raca) {
-        this.raca = raca;
-    }
-
-    public Usuario getUsuario() {
-        return usuario_id;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario_id = usuario;
-    }
 
 }

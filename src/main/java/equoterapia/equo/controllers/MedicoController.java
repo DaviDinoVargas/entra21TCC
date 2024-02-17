@@ -49,6 +49,16 @@ public class MedicoController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Compromisso não encontrado");
 		}
 	}
+	@GetMapping("/medicos/nome/{nome}")
+	public ResponseEntity<?> consultarC(@PathVariable("nome") String nome) {
+	    Optional<Medico> opt = repository.findByNome(nome);
+	    try {
+	    	Medico comp = opt.get();
+			return ResponseEntity.status(HttpStatus.OK).body(comp);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CPF não encontrado");
+		}
+	}
 	@PostMapping("/registromedico")
 	public ResponseEntity<?> registro(@RequestBody Medico medico) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(medico));

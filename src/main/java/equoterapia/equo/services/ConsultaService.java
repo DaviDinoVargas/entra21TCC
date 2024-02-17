@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 
 import equoterapia.equo.entidades.Cavalo;
 import equoterapia.equo.entidades.Consulta;
+import equoterapia.equo.entidades.Medico;
 import equoterapia.equo.entidades.Paciente;
 import equoterapia.equo.exceptions.RecursoNaoEncontrado;
 import equoterapia.equo.exceptions.ValidaDadosException;
 import equoterapia.equo.repositories.CavaloRepository;
 import equoterapia.equo.repositories.ConsultaRepository;
+import equoterapia.equo.repositories.MedicoRepository;
 import equoterapia.equo.repositories.PacienteRepository;
 
 @Service
@@ -23,6 +25,9 @@ public class ConsultaService {
 	PacienteRepository pacienteRepository;
 	
 	@Autowired
+	MedicoRepository medicoRepository;
+	
+	@Autowired
 	CavaloRepository cavaloRepository;
 	
 	public Consulta salvar(Consulta consulta) {
@@ -30,10 +35,13 @@ public class ConsultaService {
 		//if (repo.findById((long) consulta.getIdConsulta()) != null) {
 		//	throw new RecursoJaExistente("Consulta já cadastrada");
 		//}
-		/*Optional<Cavalo> cavalo = cavaloRepository.findById(consulta.getCavalo().getId_cavalo());
-		consulta.setCavalo(cavalo.get());*/
+		Optional<Cavalo> cavalo = cavaloRepository.findById((long) consulta.getCavalo().getId_cavalo());
+		consulta.setCavalo(cavalo.get());
 		Optional<Paciente> paciente = pacienteRepository.findById(consulta.getPaciente().getId_paciente());
 		consulta.setPacientes(paciente.get());
+		Optional<Medico> medico = medicoRepository.findById((long) consulta.getMedico().getId_medico());
+		consulta.setMedico(medico.get());
+		
 		return repo.save(consulta);
 	}
 	

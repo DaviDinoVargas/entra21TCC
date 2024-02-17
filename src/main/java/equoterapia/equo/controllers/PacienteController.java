@@ -59,8 +59,6 @@ public class PacienteController {
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CPF não encontrado");
 		}
-
-
 	}
 
 	@PostMapping("/registroPaciente")

@@ -27,12 +27,12 @@ public class MedicoService {
 		Optional<Medico> opt = repo.findById(id);
 		Medico cv = opt.orElseThrow(() -> new RecursoNaoEncontrado("Medico não encontrado."));
 		return cv;						
-	}
+	}/**/
 	
 	public Medico alterar(Long idMedico, Medico medico) {
 		Medico cv = consultar(idMedico);
 		/*validaCampos(medico);*/
-		cv.setNome_medico(medico.getNome_medico());
+		cv.setNome(medico.getNome());
 		cv.setCpf(medico.getCpf());
 		cv.setData_nascimento_med(medico.getData_nascimento_med());
 		cv.setEndereco_Medico_id(medico.getEndereco_Medico_id());

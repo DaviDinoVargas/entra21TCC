@@ -24,7 +24,7 @@ public class Medico {
     private int id_medico;
 
     @Column(length = 50)
-    private String nome_medico;
+    private String nome;
     
     @Temporal(TemporalType.DATE)
     private Date data_nascimento_med;
@@ -53,12 +53,13 @@ public class Medico {
 		this.id_medico = id_medico;
 	}
 
-	public String getNome_medico() {
-		return nome_medico;
+	
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_medico(String nome_medico) {
-		this.nome_medico = nome_medico;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Date getData_nascimento() {

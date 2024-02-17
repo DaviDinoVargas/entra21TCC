@@ -7,9 +7,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import equoterapia.equo.entidades.Cavalo;
+import equoterapia.equo.entidades.Medico;
 import equoterapia.equo.entidades.Paciente;
 
 @Repository
 public interface CavaloRepository extends JpaRepository<Cavalo, Long>{
+	Optional<Cavalo> findByNome(String nome);
 
 }

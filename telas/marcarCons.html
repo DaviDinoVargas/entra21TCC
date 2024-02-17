@@ -18,7 +18,7 @@
     <section class="area-cad">
         <div class="cad">
             <h1>Marcar consulta</h1>
-        <form method="">
+            <form method="post">
             <input type="number" id="id" readonly>
             <label for="nome">Nome do Paciente:</label>
             <input type="text" id="nome" class="nome" name="nome" required>
@@ -27,7 +27,7 @@
             <input class="cpf"  onblur="preenchePorCpf(), buscaId()"  type="text" id="cpf" name="cpf" placeholder="Ex: 123.456.789-00" required>
             
             <label for="cavalo">Cavalo:</label>
-            <input type="text" id="cavalo" name="cavalo"><br><br>
+            <input type="number" id="cavalo" name="cavalo"><br><br>
              
              <div class="dados">
                     <label for="hora" >Hora:</label><label for="data_nascimento" class="data">Data:</label>
@@ -67,7 +67,7 @@
             <div class="cidade">    
                     <label for="cidade">Cidade:</label><label style="margin-left: 80%" for="uf">UF:</label>
                         <br>
-                    <input class="cidade" type="text" name="cidade" required style="width: 85%">
+                    <input class="cidadeC" type="text" name="cidade" required style="width: 85%">
                     <input class="uf" type="text"  name="uf" maxlength="2" required style="width: 11%">
                </div>
                 <div class="cidade">    

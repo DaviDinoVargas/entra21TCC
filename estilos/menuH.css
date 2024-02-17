@@ -1,0 +1,28 @@
+
+.ul1{
+	margin-top: 2%;
+	display: flex;
+	justify-content: center;
+	gap: 3%;
+}
+
+a:hover{
+	color: black;
+	transition: .3s;
+}
+
+li{
+	display: inline;
+    text-decoration: none;
+	color: white;
+	font-size: 18px;
+}
+.logg{
+	background-color:#00564D;
+	width: 5%;
+	border-radius: 15px;
+	height: 3vh;
+}
+.logg li{
+	margin-left: 20%;
+}

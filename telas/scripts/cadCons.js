@@ -144,7 +144,7 @@ function salvar() {
             console.log(data);
             const id_consulta = data.idConsulta
             alert("Consulta Marcada")
-            window.location.href = `consData.html?id=${id_consulta}`;
+            window.location.href = `agenda.html`;
         })
         .catch(function (error) {
             console.error(error);

@@ -9,6 +9,8 @@ async function preencherDados() {
         let url = await fetch(`http://localhost:8080/auth/consulta/${id}`);
         let response = await url.json();
 
+        console.log(response)
+
         document.getElementById('nome').value = response.paciente.nome_paciente;
         document.getElementById('cpf').value = response.paciente.cpf;
 
@@ -16,8 +18,8 @@ async function preencherDados() {
 
         document.getElementById('hora').value = response.hora;
         document.getElementById('idata').value = response.dataAvaliacao;
-        // document.getElementById('encilhamento').value = response.encilhamento;
-        // document.getElementById('condicao_saude').value = response.condicaoSaude;
+        document.getElementById('encilhamento').value = response.encilhamento;
+        document.getElementById('condicao_saude').value = response.condicaoSaude;
 
         document.getElementById('medico').value = response.medico.nome;
 
@@ -38,7 +40,7 @@ function atualizar() {
     const cavalo = document.querySelector("#idCav");
     const Ihora = document.querySelector("#hora")
     const Idata = document.querySelector("#idata")
-    const Iencilhameno = document.querySelector(".encilhamento")
+    const Iencilhamento = document.querySelector(".encilhamento")
     const Isaude = document.querySelector(".condicao_saude")
     const Imedico = document.querySelector("#idMed")
     const Iinstrutor = document.querySelector("#instrutor_1")
@@ -51,7 +53,7 @@ function atualizar() {
     const dados = {
         hora: Ihora.value,
         dataAvaliacao: Idata.value,
-        encilhamento: Iencilhameno.value,
+        encilhamento: Iencilhamento.value,
         condicaoSaude: Isaude.value,
         local: {
             cep: Icep.value,
@@ -73,12 +75,12 @@ function atualizar() {
     }
     console.log(dados)
 
-    fetch("http://localhost:8080/auth/registroConsultas", {
+    fetch(`http://localhost:8080/auth/consultas/${id}`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(dados)
     })
         .then(function (res) {
@@ -101,5 +103,5 @@ function atualizar() {
 formulario.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    salvar();
+    atualizar();
 })

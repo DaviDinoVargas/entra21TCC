@@ -24,7 +24,7 @@ public class Consulta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idConsulta;
+    private Long idConsulta;
 
     @Temporal(TemporalType.DATE)
     private Date dataAvaliacao;
@@ -81,15 +81,15 @@ public class Consulta {
 		this.paciente = paciente;
 	}
 
-	public int getIdConsulta() {
-        return idConsulta;
-    }
+    public Long getIdConsulta() {
+		return idConsulta;
+	}
 
-    public void setIdConsulta(int idConsulta) {
-        this.idConsulta = idConsulta;
-    }
+	public void setIdConsulta(Long idConsulta) {
+		this.idConsulta = idConsulta;
+	}
 
-    public Date getDataAvaliacao() {
+	public Date getDataAvaliacao() {
         return dataAvaliacao;
     }
 

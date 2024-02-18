@@ -17,7 +17,7 @@ public class TBEscala3Service {
 	TBEscala3Repository repo;
 	
 	public TBEscala3 salvar(TBEscala3 tBEscala) {
-		validaCampos(tBEscala);	
+		//validaCampos(tBEscala);	
 		
 		return repo.save(tBEscala);
 	}
@@ -34,8 +34,14 @@ public class TBEscala3Service {
 		escala.setOp3_1(tBEscala.getOp3_1());
 		escala.setOp3_2(tBEscala.getOp3_2());
 		escala.setOp3_3(tBEscala.getOp3_3());
+		escala.setOp3_3(tBEscala.getOp3_4());
+		escala.setOp3_3(tBEscala.getOp3_5());
+		escala.setOp3_3(tBEscala.getOp3_6());
+		escala.setOp3_3(tBEscala.getOp3_7());
+		escala.setOp3_3(tBEscala.getOp3_8());
 		escala.setComentarioDM3(tBEscala.getComentarioDM3());
 		escala.setSomaDM3(tBEscala.getSomaDM3());
+		escala.setCpf_paciente(tBEscala.getCpf_paciente());
 
 		return repo.save(escala);
 	}

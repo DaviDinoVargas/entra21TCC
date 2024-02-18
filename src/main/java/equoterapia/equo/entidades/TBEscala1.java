@@ -1,10 +1,12 @@
 package equoterapia.equo.entidades;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -17,33 +19,36 @@ public class TBEscala1 {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idTBEscala1;
 
-    @Column(length = 10)
+    @Column
     private int op1_1;
 
-    @Column(length = 10)
+    @Column
     private int op1_2;
 
-    @Column(length = 10)
+    @Column
     private int op1_3;
 
-    @Column(length = 10)
+    @Column
     private int op1_4;
 
-    @Column(length = 100)
+    @Column(name = "cpfPaciente", length = 14)
+    private String cpfPaciente;
+    
+   
+
+	@Column(length = 100)
     private String comentarioDM1;
 
-    @Column(length = 20)
+    @Column
     private int somaDM1;
-
-    @OneToOne
-    private EscalaAvaliacao escalaAvaliacao;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pac_escala", referencedColumnName = "id_paciente")
+    private Paciente id_pac_escala;
 
     @ManyToOne
     private Usuario usuario;
-
-    @Column(name = "escalaAvaliacao_id") 
-    private int idEscalaAvaliacao;
-
+    
     public int getIdTBEscala1() {
         return idTBEscala1;
     }
@@ -100,14 +105,6 @@ public class TBEscala1 {
         this.somaDM1 = somaDM1;
     }
 
-    public int getIdEscalaAvaliacao() {
-        return idEscalaAvaliacao;
-    }
-
-    public void setIdEscalaAvaliacao(int idEscalaAvaliacao) {
-        this.idEscalaAvaliacao = idEscalaAvaliacao;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -116,11 +113,22 @@ public class TBEscala1 {
         this.usuario = usuario;
     }
 
-    public EscalaAvaliacao getEscalaAvaliacao() {
-        return escalaAvaliacao;
-    }
 
-    public void setEscalaAvaliacao(EscalaAvaliacao escalaAvaliacao) {
-        this.escalaAvaliacao = escalaAvaliacao;
-    }
+	public Paciente getId_pac_escala() {
+		return id_pac_escala;
+	}
+
+	public void setId_pac_escala(Paciente id_pac_escala) {
+		this.id_pac_escala = id_pac_escala;
+	}
+
+	 public String getCpf_paciente() {
+			return cpfPaciente;
+		}
+
+		public void setCpf_paciente(String cpf_paciente) {
+			this.cpfPaciente = cpf_paciente;
+		}
+	
+
 }

@@ -46,7 +46,11 @@ public class TBEscala2 {
 
     @Column(length = 20)
     private int somaDM2;
-
+    
+    @Column(name = "cpfPaciente", length = 14)
+    private String cpfPaciente;
+    
+   
     @OneToOne
     private EscalaAvaliacao escalaAvaliacao;
 
@@ -167,4 +171,14 @@ public class TBEscala2 {
     public void setEscalaAvaliacao(EscalaAvaliacao escalaAvaliacao) {
         this.escalaAvaliacao = escalaAvaliacao;
     }
+    
+
+	 public String getCpf_paciente() {
+			return cpfPaciente;
+		}
+
+		public void setCpf_paciente(String cpf_paciente) {
+			this.cpfPaciente = cpf_paciente;
+		}
+	
 }

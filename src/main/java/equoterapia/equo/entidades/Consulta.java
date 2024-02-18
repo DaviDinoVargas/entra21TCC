@@ -61,8 +61,8 @@ public class Consulta {
 		return paciente;
 	}
 
-	public void setPacientes(Paciente pacientes) {
-		this.paciente = pacientes;
+	public void setPacientes(Paciente paciente) {
+		this.paciente = paciente;
 	}
 
 	public int getIdConsulta() {

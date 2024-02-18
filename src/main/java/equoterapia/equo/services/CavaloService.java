@@ -17,10 +17,10 @@ public class CavaloService {
 	CavaloRepository repo;
 	
 	public Cavalo salvar(Cavalo cavalo) {
-		validaCampos(cavalo);	
-		if (repo.findById((long) cavalo.getId()) != null) {
-			throw new RecursoJaExistente("Contato já cadastrado para esse email");
-		}	
+		//validaCampos(cavalo);	
+		/*if (repo.findById((long) cavalo.getId()) != null) {
+			throw new RecursoJaExistente("Cavalo já cadastrado para esse email");
+		}	*/
 		return repo.save(cavalo);
 	}
 	

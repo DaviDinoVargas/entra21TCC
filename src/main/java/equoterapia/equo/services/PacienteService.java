@@ -16,7 +16,7 @@ public class PacienteService {
 	PacienteRepository repo;
 	
 	public Paciente salvar(Paciente paciente) {
-		validaCampos(paciente);	
+		//validaCampos(paciente);	
 		/*if (repo.findByCpf(paciente.getCpf()) != null) {
 			throw new RecursoJaExistente("Paciente já cadastrado para esse cpf");
 		}	*/
@@ -31,11 +31,11 @@ public class PacienteService {
 	
 	public Paciente alterar(Long idPaciente, Paciente paciente) {
 		Paciente pc = consultar(idPaciente);
-		validaCampos(paciente);
-		pc.setNome(paciente.getNome());
-		pc.setIdade(paciente.getIdade());
+		//validaCampos(paciente);
+		pc.setNome_paciente(paciente.getNome_paciente());
+		pc.setIdade_paciente(paciente.getIdade_paciente());
 		pc.setCpf(paciente.getCpf());
-		pc.setEmail(paciente.getEmail());
+		pc.setEmail_paciente(paciente.getEmail_paciente());
 		pc.setSexo(paciente.getSexo());
 		return repo.save(pc);
 	}
@@ -44,10 +44,10 @@ public class PacienteService {
 		repo.delete(pc);
 	}
 	private void validaCampos(Paciente paciente) {
-		if(paciente.getNome().equals("")) {
+		if(paciente.getNome_paciente().equals("")) {
 			throw new ValidaDadosException("O nome deve ser informado");
 		}
-		if(paciente.getEmail().equals("")) {
+		if(paciente.getEmail_paciente().equals("")) {
 			throw new ValidaDadosException("O email deve ser informado");
 		}
 		if(paciente.getCpf().equals("")) {
@@ -56,7 +56,7 @@ public class PacienteService {
 		if(paciente.getSexo().equals("")) {
 			throw new ValidaDadosException("O sexo deve ser informado");
 		}
-		if(paciente.getIdade() <= 0) {
+		if(paciente.getIdade_paciente() <= 0) {
 		    throw new ValidaDadosException("A idade deve ser informada e maior que zero");
 		}
 	}

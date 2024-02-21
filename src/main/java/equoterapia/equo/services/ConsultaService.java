@@ -57,9 +57,9 @@ public class ConsultaService {
 		cons.setCondicaoSaude(consulta.getCondicaoSaude());
 		cons.setDataAvaliacao(consulta.getDataAvaliacao());
 		cons.setEncilhamento(consulta.getEncilhamento());
-		cons.setCavalo(consulta.getCavalo());
+		//cons.setCavalo(consulta.getCavalo());
 		cons.setLocal(consulta.getLocal());
-		cons.setMedico(consulta.getMedico());
+		//cons.setMedico(consulta.getMedico());
 		cons.setHora(consulta.getHora());
 
 		return repo.save(cons);

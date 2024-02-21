@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="estilos/cadPac.css">
 <link rel="stylesheet" href="estilos/menu.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
@@ -20,16 +24,16 @@
 			<h1>Cadastro de Pacientes</h1>
 		<form method="">
 		 <label for="nome">Nome:</label>
-		  <input type="text" value="teste" class="nome" name="nome" required>
+		  <input type="text" class="nome" name="nome" required>
 		
 		  <label for="nome_responsavel">Nome do Responsável:</label>
-		  <input type="text" value="teste" class="nome_responsavel"  name="nome_responsavel"><br><br>
+		  <input type="text" class="nome_responsavel"  name="nome_responsavel"><br><br>
 		   
 		   <div class="dados">
 		  		<label for="sexo">Sexo:</label><label for="data_nascimento" class="data">Data de Nascimento:</label>
 		  		<br>
 				  <select class="sexo" name="sexo">
-					<option value="" selected disabled>Selecione o Sexo</option>
+					<option selected disabled>Selecione o Sexo</option>
 					<option value="masculino">Masculino</option>
 					<option value="feminino">Feminino</option>
 				</select>
@@ -41,26 +45,26 @@
 		  <input class="cpf"  type="text" name="cpf" placeholder="Ex: 123.456.789-00" required>
 			
 		  <label for="email">E-mail:</label>
-		  <input class="email" value="teste" type="email" name="email" required>
+		  <input class="email" type="email" name="email" required>
 		
 		  <label for="cep">CEP:</label>
 		  <input class="cep" maxlength="8" onblur="preencherEndereco()" type="number" name="cep" required>
 		
 		  <label for="rua">Rua:</label>
-		  <input class="rua" value="teste" type="text" name="rua" required>
+		  <input class="rua" type="text" name="rua" required>
 		
 		  <label for="bairro">Bairro:</label>
-		  <input class="bairro" value="teste" type="text" name="bairro" required>
+		  <input class="bairro" type="text" name="bairro" required>
 		  <div class="cidade">	
                	<label for="cidade">Cidade:</label><label style="margin-left: 80%" for="uf">UF:</label>
                 	<br>
-                	<input class="cidadeC" value="teste"  type="text" name="cidade" required style="width: 85%">
-                	<input class="uf" type="text"  name="uf" maxlength="2" required style="width: 20%">
+                	<input class="cidadeC"  type="text" name="cidade" required style="width: 88%">
+                	<input class="uf" type="text"  name="uf" maxlength="2" required style="width: 11%">
            </div>
             <div class="cidade">	
                	<label for="complemento">Complemento:</label><label style="margin-left: 75%" for="numero">Numero:</label>
                 	<br>
-                	<input class="complemento" value="teste" type="text" required style="width: 85%">
+                	<input class="complemento" type="text" required style="width: 88%">
                 	<input class="numero" type="number" name="numero" required style="width: 11%">
            </div>
 			<div class="btns">

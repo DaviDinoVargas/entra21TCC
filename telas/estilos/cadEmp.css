@@ -1,4 +1,9 @@
-@charset "ISO-8859-1";
+*{
+	color: white;
+	font-family: "Kanit", sans-serif;
+
+}
+
 @media screen and (max-width: 1297px) {
 	body {
 	  font-size: 80%;
@@ -97,6 +102,7 @@ h1{
 	width: 80px;
 	background-color: #0AA67F;
 	border-radius: 10px;
+	border: none;
 }
 label{
 	margin-top: 2%;

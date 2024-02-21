@@ -66,12 +66,16 @@
 					Item.classList.add("-item");
 
 					Item.innerHTML = `
+					<div class="texto">
                         <h2>${consulta.paciente.nome_paciente}</h2>
 						<h4>${consulta.dataAvaliacao}</h4>
 						<h4>${consulta.hora}</h4>
+					</div>
+					<div class="botoes">
                         <button class="tdeditar" onclick="editarConsulta(${consulta.idConsulta})">Editar</button>
 						<button class="tdexcluir" onclick="deletarConsulta(${consulta.idConsulta})">Deletar</button>
-                    `;
+                    </div>
+						`;
 
 					list.appendChild(Item);
 				});

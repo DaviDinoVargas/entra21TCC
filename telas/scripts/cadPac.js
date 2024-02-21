@@ -41,7 +41,8 @@ function cadastrar(){
         method: "POST",
         body: JSON.stringify(dados)
     })
-    .then(function (res) { console.log(res); alert("Cadastro Realizado com Sucesso!")})
+    .then(function (res) { console.log(res); alert("Cadastro Realizado com Sucesso!") ;
+    window.location.href = "consulta.html"})
     .catch(function (res) { console.log(res.data) })
     console.log(dados)
 

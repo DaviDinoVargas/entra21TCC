@@ -8,29 +8,34 @@ body{
 
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-
+.texto{
+    margin-right: 1%;
+}
 main.cards{
+    flex-direction: column;
     display: flex;
     padding: 32px;
 }
+
 main.cards section{
+    justify-content: space-between;
+    color: #3d3d3d;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
-    background-color: #11B189;
-    padding: 1rem 1.5rem;
+    background-color: #e8e8e8;
+    padding: 1rem 2.5rem;
     border-radius: 25px;
     max-height: 256px;
-    margin-left: 32px;
-    box-shadow: 0px 6px rgb(127, 127, 127);
+    box-shadow: 0px 6px rgb(194, 194, 194);
+    margin-top: 5%;
 
 }
 main.cards section:first-child{
-    margin-left: 0;
-}
+    margin-top: 0;
+} 
 main.cards section h2{
     text-transform: uppercase;
 }
@@ -38,9 +43,10 @@ main.cards section button{
     margin-top: 5px;
     padding: 0.5rem 1rem;
     text-transform: uppercase;
-    border-radius: 31px;
+    color: white;
+    border-radius: 30px;
     border: none;
-    background-color: #028174;
+    background-color: #11b189;
     cursor: pointer;
     font-size: 78%;
     font-weight: 500;

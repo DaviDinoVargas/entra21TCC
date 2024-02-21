@@ -1,3 +1,6 @@
+*{
+	font-family: "Kanit", sans-serif;
+}
 
 .ul1{
 	margin-top: 2%;
@@ -30,9 +33,9 @@ li{
 }
 .logg{
 	background-color:#00564D;
-	width: 5%;
+	width: 6%;
 	border-radius: 15px;
-	height: 3vh;
+	height: 4vh;
 }
 .logg li{
 	margin-left: 20%;

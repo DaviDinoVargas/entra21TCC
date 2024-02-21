@@ -84,10 +84,13 @@ function atualizar() {
         method: "PUT",
         body: JSON.stringify(dados)
     })
-    .then(function (res) { console.log(res) })
-    .catch(function (res) { console.log(res.data) })
+    .then(function (res) { console.log(res); alert("Paciente atualizado com Sucesso!") 
+    window.location.href = "consulta.html" })
+    .catch(function (res) { console.log(res.data);
+          
+        })
     console.log(dados)
-    alert("Paciente atualizado com Sucesso!")
+   
 
 };
 

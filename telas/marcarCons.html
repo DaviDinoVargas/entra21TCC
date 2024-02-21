@@ -49,13 +49,15 @@
              <input type="hidden" id="idMed" readonly>
 
             <div class="medicos">
-                <label for="qtd_medicos">Médicos:</label>
+                <label for="qtd_medicos">Médicos:</label><br>
                 <input type="text" onblur="preenchePorNome()" name="qtd_medicos" id="medico">
             </div>
 
             <div class="instrutores">
-                <label for="qtd_instrutores">Quantidade de Instrutores:</label>
-                <input type="number" name="qtd_instrutores" id="qtd_instrutores">
+                <label for="qtd_instrutores">Instrutores:</label><br>
+                <input type="text" onblur="preenchePorNome()" name="instrutor" id="instrutor">
+
+                <!-- <input type="number" name="qtd_instrutores" id="qtd_instrutores"> -->
             </div>
 
             <div id="inputs_medicos"></div>

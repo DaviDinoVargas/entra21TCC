@@ -27,6 +27,8 @@ nav.menu-lateral {
 nav.menu-lateral:hover {
     width: 13%;
     overflow: hidden;
+    border-top-right-radius: 10px;
+
 }
 
 .btn-expandir {
@@ -83,4 +85,38 @@ ul li.item-menu a .icon>i {
 
 .home {
     overflow: hidden;
+}
+@media screen and (min-device-width: 685px) and (max-device-width: 1023px) {
+    nav.menu-lateral {
+        width: 7%;
+        height: 100%;
+        background-color: #11b189;
+        padding: 40px 0 40px 1%;
+        overflow: hidden;
+        transition: .45s;
+        border-top-right-radius: 10px;
+    
+    }
+    nav.menu-lateral:hover {
+        width: 18%;
+        overflow: hidden;
+        box-shadow: 21px 0px 6px -9px rgba(0,0,0,0.1);
+    }
+    
+    .btn-expandir {
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    ul li.item-menu {
+       align-items: center;
+    }
+    
+    ul li.item-menu a .icon>i {
+        font-size: 30px;
+        margin-left: 10px;
+    }
+    .btn-expandir>i {
+        font-size: 45px;
+    }
 }

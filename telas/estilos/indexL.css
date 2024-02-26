@@ -1,5 +1,14 @@
+.instituticao {
+	color: aliceblue;
+	text-align: end;
+	background-color: #00564D;
+	width: 100%;
+	height: 7%;
+}
+
 body {
 	overflow-y: hidden;
+	margin: 0;
 }
 
 section {
@@ -13,13 +22,8 @@ section {
 	flex-direction: row;
 }
 
-.instituticao {
-	background-color: #00564D;
-	color: white;
-	text-align: right;
-	padding: 10px;
-	height: 10vh;
-}
+
+
 
 .cards {
 
@@ -27,8 +31,8 @@ section {
 	border: none;
 	background-color: #e8e8e8;
 	border-radius: 45px;
-	width: 250px;
-	height: 180px;
+	width: 30vh;
+	height: 25vh;
 	padding: 10%;
 	box-shadow: 0px 6px rgb(194, 194, 194);
 	cursor: pointer;
@@ -37,7 +41,6 @@ section {
 
 .allCards {
 
-	margin-top: 3%;
 	margin-left: 6.5%;
 	display: flex;
 	flex-direction: row;
@@ -67,21 +70,21 @@ section {
 	cursor: pointer;
 	border: none;
 	border-radius: 45px;
-	width: 410px;
-	height: 282px;
-	padding: 35px;
+	width: 57.34265734265734vh;
+	height: 39.44055944055944vh;
+	padding: 4.295104895104895vh;
 	box-shadow: 0px 6px rgb(127, 127, 127);
 
 }
 
 .view {
 	color: white;
-	margin-top: 18%;
+	margin-top: 5.8%;
 	background-color: #11b189;
 }
 
 .view2 {
-	margin-top: 11%;
+	margin-top: 9%;
 	background-color: #00564D;
 }
 
@@ -99,14 +102,15 @@ section {
 	cursor: pointer;
 	margin-left: 6%;
 	margin-right: 2%;
-	margin-top: 4.5%;
+	margin-top: 1.5%;
+
 	background-color: #e8e8e8;
 	border: none;
 
 	border-radius: 45px;
-	width: 250px;
+	width: 30vh;
 	/* mesma largura dos outros cards */
-	height: 610px;
+	height: 83.5vh;
 	/* altura equivalente a 3 cards */
 	padding: 35px;
 	box-shadow: 0px 6px rgb(194, 194, 194);
@@ -116,7 +120,7 @@ section {
 a {
 	color: #3d3d3d;
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 110%;
 }
 
 a .icon>i {
@@ -124,3 +128,183 @@ a .icon>i {
 	font-size: 25px;
 	margin-left: 10px;
 }
+
+/*tablet*/
+@media screen and (min-device-width: 685px) and (max-device-width: 1023px) {
+
+	body {
+		overflow-y: visible;
+		margin-right: -10%;
+		margin-left: -10%;
+	}
+
+	section {
+		margin-top: 15%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.allCards {
+
+		flex-direction: row;
+		margin-right: 0px;
+		margin-left: 6.5%;
+	}
+
+	.cards {
+
+		width: 27vh;
+		height: 23vh;
+
+	}
+
+	.buttom {
+
+		color: white;
+		cursor: pointer;
+		margin-left: 6%;
+		margin-top: 1.5%;
+		margin-right: -5.5%;
+
+		background-color: #e8e8e8;
+		border: none;
+
+		border-radius: 45px;
+		width: 90vh;
+		/* mesma largura dos outros cards */
+		height: 83.5vh;
+		/* altura equivalente a 3 cards */
+		box-shadow: 0px 6px rgb(194, 194, 194);
+
+	}
+
+	.view,
+	.view2 {
+		cursor: pointer;
+		border: none;
+		border-radius: 45px;
+		width: 40vh;
+		height: 30vh;
+		padding: 4.295104895104895vh;
+		box-shadow: 0px 6px rgb(127, 127, 127);
+	}
+
+	.teste {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		flex-direction: row;
+		margin-right: 0px;
+		margin-left: 11.5%;
+
+	}
+
+	.view {
+		margin-right: 5%;
+	}
+
+	.view2 {
+		margin-top: 5.8%;
+		background-color: #00564D;
+	}
+
+}
+
+@media screen and (max-device-width: 684px) {
+	body {
+		overflow-y: visible;
+		margin-right: -50%;
+		margin-left: -7%;
+	}
+
+	section {
+		margin-top: 15%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.allCards {
+	
+		flex-direction: row;
+		margin-right: 2%;
+		margin-left: 6.5%;
+	}
+
+	.cards {
+		font-size: 80%;
+		width: 29vh;
+		height: 23vh;
+
+	}
+	
+	.buttom {
+
+		color: white;
+		cursor: pointer;
+		margin-left: 6%;
+		margin-top: 1.5%;
+		margin-right: -5.5%;
+
+		background-color: #e8e8e8;
+		border: none;
+
+		border-radius: 45px;
+		width: 90vh;
+		/* mesma largura dos outros cards */
+		height: 83.5vh;
+		/* altura equivalente a 3 cards */
+		box-shadow: 0px 6px rgb(194, 194, 194);
+
+	}
+
+	.view,
+	.view2 {
+		cursor: pointer;
+		border: none;
+		border-radius: 45px;
+		width: 40vh;
+		height: 30vh;
+		padding: 4.295104895104895vh;
+		box-shadow: 0px 6px rgb(127, 127, 127);
+	}
+
+	.teste {
+		justify-content: space-evenly;
+		align-items: center;
+		text-align: center;
+		flex-direction: row;
+		margin-right: 0px;
+		margin-left: 11.5%;
+
+	}
+
+	.view {
+		margin-right: 5%;
+	}
+
+	.view2 {
+		margin-top: 5.8%;
+		background-color: #00564D;
+	}
+	.testebtn, .txt1{
+
+		font-size: 260%;
+		font-weight: 300;
+	}
+	.buttom, .txt1 {
+		font-size: 90%;
+	}
+		
+	a {
+		font-size: 3vh;
+	}
+	a .icon > i {
+		font-size: 130%;
+	}
+}
+
+

@@ -9,14 +9,6 @@
 	gap: 3%;
 }
 
-@media screen and (max-width: 1034px) {
-	a{
-		margin-left: -3%;
-	}
-
-}
-
-
 a{
 	margin-left: 4.5%;
 }
@@ -39,4 +31,10 @@ li{
 }
 .logg li{
 	margin-left: 20%;
+}
+@media screen and(min-width: 768px) and (max-width: 1023px) {
+	a{
+		color: #00564D;
+	}
+
 }

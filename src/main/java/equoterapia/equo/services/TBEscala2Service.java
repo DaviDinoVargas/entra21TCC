@@ -17,7 +17,7 @@ public class TBEscala2Service {
 	TBEscala2Repository repo;
 	
 	public TBEscala2 salvar(TBEscala2 tBEscala) {
-		validaCampos(tBEscala);	
+		//validaCampos(tBEscala);	
 		
 		return repo.save(tBEscala);
 	}
@@ -31,11 +31,17 @@ public class TBEscala2Service {
 	public TBEscala2 alterar(Long idTBEscala, TBEscala2 tBEscala) {
 		TBEscala2 escala = consultar(idTBEscala);
 		validaCampos(tBEscala);
-		escala.setOp2_21(tBEscala.getOp2_21());
-		escala.setOp2_22(tBEscala.getOp2_22());
-		escala.setOp2_23(tBEscala.getOp2_23());
+		escala.setOp2_1(tBEscala.getOp2_1());
+		escala.setOp2_2(tBEscala.getOp2_2());
+		escala.setOp2_3(tBEscala.getOp2_3());
+		escala.setOp2_3(tBEscala.getOp2_4());
+		escala.setOp2_3(tBEscala.getOp2_5());
+		escala.setOp2_3(tBEscala.getOp2_6());
+		escala.setOp2_3(tBEscala.getOp2_7());
+		escala.setOp2_3(tBEscala.getOp2_8());
 		escala.setComentarioDM2(tBEscala.getComentarioDM2());
 		escala.setSomaDM2(tBEscala.getSomaDM2());
+		escala.setCpf_paciente(tBEscala.getCpf_paciente());
 
 		return repo.save(escala);
 	}
@@ -44,13 +50,13 @@ public class TBEscala2Service {
 		repo.delete(end);
 	}
 	private void validaCampos(TBEscala2 tBEscala) {
-		if(tBEscala.getOp2_21() < 0 || tBEscala.getOp2_21() > 4) {
+		if(tBEscala.getOp2_1() < 0 || tBEscala.getOp2_1() > 4) {
 			throw new ValidaDadosException("A Avaliação é somente de 0 a 4");
 		}
-		if(tBEscala.getOp2_22() < 0 || tBEscala.getOp2_22() > 4) {
+		if(tBEscala.getOp2_2() < 0 || tBEscala.getOp2_2() > 4) {
 			throw new ValidaDadosException("A Avaliação é somente de 0 a 4");
 		}
-		if(tBEscala.getOp2_23() < 0 || tBEscala.getOp2_23() > 4) {
+		if(tBEscala.getOp2_3() < 0 || tBEscala.getOp2_3() > 4) {
 			throw new ValidaDadosException("A Avaliação é somente de 0 a 4");
 		}
 		if(tBEscala.getComentarioDM2().equals("")) {

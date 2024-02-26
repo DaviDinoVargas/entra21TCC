@@ -2,7 +2,8 @@ package equoterapia.equo.entidades;
 
 import java.sql.Date;
 import java.time.LocalTime;
-import java.util.List;
+
+import org.hibernate.annotations.ForeignKey;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,7 +13,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -51,8 +51,11 @@ public class Consulta {
     @ManyToOne
     private Usuario usuario;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paciente_consulta_id", referencedColumnName = "id_paciente")
+    */
+    @ManyToOne
+    @JoinColumn(name="paciente_id", nullable = false)
     private Paciente paciente;
     
     @OneToOne(cascade = CascadeType.ALL)
@@ -62,11 +65,14 @@ public class Consulta {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cavalo_consulta_id", referencedColumnName = "id_cavalo")
     private Cavalo cavalo;
-
-    
-    
-    public Paciente getPaciente() {
+ 
+	
+	public Paciente getPaciente() {
 		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 
 	public Medico getMedico() {
@@ -75,10 +81,6 @@ public class Consulta {
 
 	public void setMedico(Medico medico) {
 		this.medico = medico;
-	}
-
-	public void setPacientes(Paciente paciente) {
-		this.paciente = paciente;
 	}
 
     public Long getIdConsulta() {

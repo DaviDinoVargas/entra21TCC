@@ -37,7 +37,7 @@ public class ConsultaService {
 		//}
 		Optional<Cavalo> cavalo = cavaloRepository.findById((long) consulta.getCavalo().getId_cavalo());
 		consulta.setCavalo(cavalo.get());
-		Optional<Paciente> paciente = pacienteRepository.findById(consulta.getPaciente().getPaciente_id());
+		Optional<Paciente> paciente = pacienteRepository.findById(consulta.getPaciente().getId_paciente());
 		consulta.setPaciente(paciente.get());
 		Optional<Medico> medico = medicoRepository.findById((long) consulta.getMedico().getId_medico());
 		consulta.setMedico(medico.get());

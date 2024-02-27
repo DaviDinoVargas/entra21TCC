@@ -55,7 +55,7 @@ public class Consulta {
     @JoinColumn(name = "paciente_consulta_id", referencedColumnName = "id_paciente")
     */
     @ManyToOne
-    @JoinColumn(name="paciente_id", nullable = false)
+    @JoinColumn(name="paciente")
     private Paciente paciente;
     
     @OneToOne(cascade = CascadeType.ALL)
@@ -67,6 +67,7 @@ public class Consulta {
     private Cavalo cavalo;
  
 	
+
 	public Paciente getPaciente() {
 		return paciente;
 	}

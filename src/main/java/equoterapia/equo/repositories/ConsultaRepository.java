@@ -10,5 +10,5 @@ import equoterapia.equo.entidades.Paciente;
 
 @Repository
 public interface ConsultaRepository extends JpaRepository<Consulta, Long>{
-	List<Consulta> findByPacienteId(Paciente paciente);
+	List<Consulta> findByPaciente(Paciente paciente);
 }

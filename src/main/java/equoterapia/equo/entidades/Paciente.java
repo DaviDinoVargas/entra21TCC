@@ -1,13 +1,11 @@
 package equoterapia.equo.entidades;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-
-import org.hibernate.annotations.Cascade;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +23,7 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long paciente_id;
+    private Long id_paciente;
 
     @Temporal(TemporalType.DATE)
     private Date data_nascimento;
@@ -53,26 +51,25 @@ public class Paciente {
     @JoinColumn(name = "endereco_paciente_id", referencedColumnName = "id_endereco")
     private Endereco endereco_paciente_id;
     
-    @OneToMany(mappedBy="paciente", orphanRemoval = true) // Esta coluna está na tabela "evento".
-    private List<Consulta> tb_consulta;
+    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
+    private List<Consulta> tb_consultaList;
     
 	
 	
-	
-	public List<Consulta> getTb_consulta() {
-		return tb_consulta;
+	public List<Consulta> getTb_consultaList() {
+		return tb_consultaList;
 	}
 
-	public void setTb_consulta(List<Consulta> tb_consulta) {
-		this.tb_consulta = tb_consulta;
+	public void setTb_consultaList(List<Consulta> tb_consultaList) {
+		this.tb_consultaList = tb_consultaList;
 	}
 
-	public Long getPaciente_id() {
-		return paciente_id;
+	public Long getId_paciente() {
+		return id_paciente;
 	}
 
-	public void setPaciente_id(Long paciente_id) {
-		this.paciente_id = paciente_id;
+	public void setId_paciente(Long id_paciente) {
+		this.id_paciente = id_paciente;
 	}
 
 	public Date getData_nascimento() {

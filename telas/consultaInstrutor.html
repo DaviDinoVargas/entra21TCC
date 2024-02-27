@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>EquoSoft</title>
+    <link rel="shortcut icon" href="./img/equo_LOGO.png">
+    <link rel="stylesheet" href="estilos/consulta.css">
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <script src="./scripts/header.js"></script>
+
+    <div class="instituticao">
+        <p>Instituição: XXXXX</p>
+    </div>
+    <div class="divtb">
+        <h1 class="title">Instrutores</h1>
+        <table>
+            <tbody>
+                <tr id="instrutores-list"></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function editarInstrutor(idIns) {
+            const url = `formEditarInstrutor.html?id=${encodeURIComponent(idIns)}`;
+            window.location.href = url;
+
+            //console.log(`Editar paciente com ID: ${idPaciente}`);
+        }
+
+        function deletarInstrutor(id) {
+            // Implemente a lógica de exclusão conforme necessário
+            let confirma = confirm("Deseja Excluir este Instrutor?")
+            if (confirma) {
+                fetch(`http://localhost:8080/auth/instrutor/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => {
+                        if (response.status === 204) {
+                            window.location.replace("consultaInstrutor.html");
+                        } else {
+                            console.error('Erro ao excluir Instrutor.');
+                        }
+                    });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            carregarMedicos();
+
+            function carregarMedicos() {
+                fetch("http://localhost:8080/auth/instrutor")
+                    .then(response => response.json())
+                    .then(data => exibirMedicos(data));
+            }
+
+            function exibirMedicos(instrutor) {
+                const list = document.getElementById("instrutores-list");
+                list.innerHTML = "";
+
+                instrutor.forEach(instrutor => {
+                    const Item = document.createElement("td");
+                    Item.classList.add("instrutor-item");
+
+                    Item.innerHTML =` 
+                        
+                        <td>${instrutor.nome_instrutor}</td>
+                        <td><button class="tdeditar" onclick="editarInstrutor(${instrutor.id_instrutor})">Editar</button></td>
+                        <td><button class="tdexcluir" onclick="deletarInstrutor(${instrutor.id_instrutor})">Deletar</button></td>
+                    `;
+
+                    list.appendChild(Item);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

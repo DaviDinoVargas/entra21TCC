@@ -1,0 +1,19 @@
+
+.ul1{
+	margin-top: 2%;
+	display: flex;
+	justify-content: center;
+	gap: 3%;
+}
+
+a:hover{
+	color: black;
+	transition: .3s;
+}
+
+li{
+	display: inline;
+    text-decoration: none;
+	color: white;
+	font-size: 18px;
+}

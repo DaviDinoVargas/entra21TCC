@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Registro</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h1>Valores Registrados</h1>
+
+    <div id="valoresRegistrados">
+      
+    </div>
+
+    <canvas id="graficoLinhas"></canvas>
+
+    <script>
+        function carregarValoresRegistrados() {
+            const url1 = 'http://localhost:8080/auth/escala1';
+            const url2 = 'http://localhost:8080/auth/escala2';
+            const url3 = 'http://localhost:8080/auth/escala3';
+
+            function carregarDados(url) {
+                return fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Erro HTTP! Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar valores:', error);
+                    });
+            }
+
+            const promessas = [carregarDados(url1), carregarDados(url2), carregarDados(url3)];
+
+            Promise.all(promessas)
+                .then(resultados => {
+                    const valoresRegistradosDiv = document.getElementById('valoresRegistrados');
+                    valoresRegistradosDiv.innerHTML = '';
+
+                    resultados.forEach((data, dataIndex) => {
+                        console.log(`Dados do conjunto ${dataIndex + 1}:`, data);
+
+                        data.reverse();
+                        const ultimosDoisRegistros = data.slice(0, 2);
+
+                        ultimosDoisRegistros.forEach(item => {
+                            for (const key in item) {
+                                if (item.hasOwnProperty(key) && ['somaDM1', 'somaDM2', 'somaDM3', 'comentarioDM1', 'comentarioDM2', 'comentarioDM3'].includes(key)) {
+                                    valoresRegistradosDiv.innerHTML += `<p><strong>${key}:</strong> ${item[key]}</p>`;
+                                }
+                            }
+                            valoresRegistradosDiv.innerHTML += '<hr>';
+                        });
+                    });
+
+                    if (resultados.length > 0) {
+                        criarGraficoLinhas(resultados);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar valores:', error);
+                });
+        }
+
+        function criarGraficoLinhas(resultados) {
+    console.log('Resultados para o gráfico:', resultados);
+
+    var ctx = document.getElementById('graficoLinhas').getContext('2d');
+
+    var labels = resultados[0].map((_, index) => index + 1);
+
+    var opcoes = ['somaDM1', 'somaDM2', 'somaDM3'];
+
+    var datasets = opcoes.map((opcao, opcaoIndex) => {
+        var valoresOpcao = resultados.map(data => data.map(item => item[opcao]));
+
+       
+        var ultimosValores = valoresOpcao.map(opcao => opcao.slice(-5).reverse());
+
+        return {
+            label: `Opção ${opcaoIndex + 1}`,
+            data: ultimosValores[opcaoIndex],
+            borderColor: ['steelblue', 'green', 'orange'][opcaoIndex],
+            borderWidth: 2,
+            fill: false,
+        };
+    });
+
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: datasets,
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+        document.addEventListener('DOMContentLoaded', carregarValoresRegistrados);
+    </script>
+</body>
+
+</html>

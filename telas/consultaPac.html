@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>EquoSoft</title>
+    <link rel="shortcut icon" href="./img/equo_LOGO.png">
+    <link rel="stylesheet" href="estilos/consulta.css">
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script src="./scripts/header.js"></script>
+
+    <div class="instituticao">
+        <p>Instituição: XXXXX</p>
+    </div>
+    <div class="divtb">
+        <h1 class="title">Pacientes</h1>
+        <table>
+            <tbody>
+                <tr id="-list"></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function editarPaciente(idPaciente) {
+            const url = `formEditarPaciente.html?id=${encodeURIComponent(idPaciente)}`;
+            window.location.href = url;
+
+            
+
+            //console.log(`Editar paciente com ID: ${idPaciente}`);
+        }
+
+        function deletarPaciente(id) {
+            // Implemente a lógica de exclusão conforme necessário
+            let confirma = confirm("Deseja Excluir este paciente?")
+            if (confirma) {
+                fetch(`http://localhost:8080/auth/pacientes/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => {
+                        if (response.status === 204) {
+                            window.location.replace("consulta.html");
+                        } else {
+                            console.error('Erro ao excluir paciente.');
+                            alert("Não foi possível excluir. Verifique se este paciente está cadastrado em alguma consulta.")
+                        }
+                        
+                    });
+                    
+            }
+            
+        }
+        function verificarPaciente(idPaciente) {
+                        const url = `./escalas copy/newpac.html?id=${encodeURIComponent(idPaciente)}`;
+                        window.location.href = url;
+                    }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            carregarPacientes();
+
+            function carregarPacientes() {
+                fetch("http://localhost:8080/auth/pacientes")
+                    .then(response => response.json())
+                    .then(data => exibirPacientes(data));
+            }
+
+            function exibirPacientes(pacientes) {
+                const pacientesList = document.getElementById("-list");
+                pacientesList.innerHTML = "";
+
+                pacientes.forEach(paciente => {
+                    const pacienteItem = document.createElement("td");
+                    pacienteItem.classList.add("-item");
+
+                    pacienteItem.innerHTML =` 
+                        
+                        <td>${paciente.nome_paciente}</td>
+                        <td><button class="tdeditar" onclick="editarPaciente(${paciente.id_paciente})">Editar</button></td>
+                        <td><button class="tdexcluir" onclick="deletarPaciente(${paciente.id_paciente})">Deletar</button></td>
+                        <td><button class="tdverificar" onclick="verificarPaciente(${paciente.id_paciente})">Verificar</button></td>
+                        `;
+                        
+                       
+
+                    pacientesList.appendChild(pacienteItem);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

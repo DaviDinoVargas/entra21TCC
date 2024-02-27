@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Registro</title>
+</head>
+<body>
+    <h1>Valores Registrados</h1>
+
+    <div id="valoresRegistrados">
+        <!-- Os valores serão exibidos aqui -->
+    </div>
+
+    <script>
+        function carregarValoresRegistrados() {
+            const url = 'http://localhost:8080/auth/escala1';
+
+            fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const valoresRegistradosDiv = document.getElementById('valoresRegistrados');
+                valoresRegistradosDiv.innerHTML = ''; // Limpa a div antes de adicionar os novos registros
+
+                // Inverte a ordem dos dados
+                data.reverse();
+
+                // Seleciona apenas os dois últimos registros
+                const ultimosDoisRegistros = data.slice(0, 2);
+
+                // Itera sobre cada objeto nos dois últimos registros
+                ultimosDoisRegistros.forEach(item => {
+                    // Exibe os valores na div 'valoresRegistrados'
+                    valoresRegistradosDiv.innerHTML += `
+                        <p><strong>Opção 1:</strong> ${item.op1_1}</p>
+                        <p><strong>Opção 2:</strong> ${item.op1_2}</p>
+                        <p><strong>Opção 3:</strong> ${item.op1_3}</p>
+                        <p><strong>Opção 4:</strong> ${item.op1_4}</p>
+                        <p><strong>Comentário DM1:</strong> ${item.comentarioDM1}</p>
+                        <hr> <!-- Adicionei uma linha horizontal para separar os registros -->
+                    `;
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao carregar valores:', error);
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', carregarValoresRegistrados);
+    </script>
+</body>
+</html>

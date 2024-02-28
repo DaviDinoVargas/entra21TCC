@@ -58,12 +58,12 @@ public class Consulta {
     @JoinColumn(name="paciente")
     private Paciente paciente;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "medico_consulta_id", referencedColumnName = "id_medico")
+    @ManyToOne
+    @JoinColumn(name="medico")
     private Medico medico;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cavalo_consulta_id", referencedColumnName = "id_cavalo")
+    @ManyToOne
+    @JoinColumn(name = "cavalo")
     private Cavalo cavalo;
  
 	

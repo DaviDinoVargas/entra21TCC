@@ -29,20 +29,21 @@ public class LocalService {
 	
 	public Local alterar(Long idLocal, Local local) {
 		Local lc = consultar(idLocal);
-		validaCampos(local);
+		//validaCampos(local);
 		lc.setUf(local.getUf());
 		lc.setCep(local.getCep());
 		lc.setCidade(local.getCidade());
 		lc.setRua(local.getRua());
 		lc.setNumero(local.getNumero());
-		lc.setCnpj(local.getCnpj());
+		lc.setBairro(local.getBairro());		
+		lc.setComplemento(local.getComplemento());
 		return repo.save(lc);
 	}
 	public void excluir(Long id) {
 		Local lc = consultar(id);
 		repo.delete(lc);
 	}
-	private void validaCampos(Local local) {
+	/*private void validaCampos(Local local) {
 		if(local.getUf().equals("")) {
 			throw new ValidaDadosException("O UF deve ser informado");
 		}
@@ -61,5 +62,5 @@ public class LocalService {
 		if(local.getNumero() <= 0) {
 		    throw new ValidaDadosException("O Numero deve ser informada e ser maior que zero");
 		}
-	}
+	}*/
 }

@@ -27,20 +27,42 @@ public class Local {
     private Integer cep; 
 
     @Column(length = 70)
+    private String bairro;
+    
+    @Column(length = 70)
     private String rua;
 
     @Column(length = 10)
     private int numero;  
     
-    @Column( length = 18)
-    private String cnpj;
+    /*@Column( length = 18)
+    private String cnpj;*/
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")  
     private Usuario usuario;
     
+    @Column(length = 70)
+    private String complemento;
 
-    public int getId_local() {
+    
+    public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public int getId_local() {
 		return id_local;
 	}
 
@@ -96,12 +118,6 @@ public class Local {
         this.usuario = usuario;
     }
 
-	public String getCnpj() {
-		return cnpj;
-	}
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
     
 }

@@ -1,11 +1,13 @@
 package equoterapia.equo.entidades;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -51,8 +53,9 @@ public class Paciente {
     @JoinColumn(name = "endereco_paciente_id", referencedColumnName = "id_endereco")
     private Endereco endereco_paciente_id;
     
-    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
-    private List<Consulta> tb_consultaList;
+    @JsonBackReference
+    @OneToMany(mappedBy = "paciente")
+    private List<Consulta> tb_consultaList = new ArrayList<>();
     
 	
 	

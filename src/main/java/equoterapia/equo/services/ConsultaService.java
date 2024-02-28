@@ -53,7 +53,7 @@ public class ConsultaService {
 	
 	public Consulta alterar(Long idConsulta, Consulta consulta) {
 		Consulta cons = consultar(idConsulta);
-		validaCampos(consulta);
+		//validaCampos(consulta);
 		cons.setCondicaoSaude(consulta.getCondicaoSaude());
 		cons.setDataAvaliacao(consulta.getDataAvaliacao());
 		cons.setEncilhamento(consulta.getEncilhamento());

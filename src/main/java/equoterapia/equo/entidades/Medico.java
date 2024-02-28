@@ -1,6 +1,10 @@
 package equoterapia.equo.entidades;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -10,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -38,6 +43,11 @@ public class Medico {
     @Column(length = 50)
     private String email_medico;
     
+    @JsonBackReference
+    @OneToMany(mappedBy = "medico")
+    private List<Consulta> tb_consultaList = new ArrayList<>();
+    
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_medico_id", referencedColumnName = "id_endereco")
     private Endereco endereco_Medico_id;
@@ -54,6 +64,14 @@ public class Medico {
 	}
 
 	
+	public List<Consulta> getTb_consultaList() {
+		return tb_consultaList;
+	}
+
+	public void setTb_consultaList(List<Consulta> tb_consultaList) {
+		this.tb_consultaList = tb_consultaList;
+	}
+
 	public String getNome() {
 		return nome;
 	}

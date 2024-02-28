@@ -1,11 +1,17 @@
 package equoterapia.equo.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,7 +30,12 @@ public class Cavalo {
 
     @Column(length = 50)
     private String raca;
-
+    
+    @JsonBackReference
+    @OneToMany(mappedBy = "cavalo")
+    private List<Consulta> tb_consultaList = new ArrayList<>();
+    
+    
     @ManyToOne
     private Usuario usuario_id;
 
@@ -58,6 +69,14 @@ public class Cavalo {
 
 	public void setRaca(String raca) {
 		this.raca = raca;
+	}
+
+	public List<Consulta> getTb_consultaList() {
+		return tb_consultaList;
+	}
+
+	public void setTb_consultaList(List<Consulta> tb_consultaList) {
+		this.tb_consultaList = tb_consultaList;
 	}
 
 	public Usuario getUsuario_id() {

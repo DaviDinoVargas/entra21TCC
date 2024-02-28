@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+#formPage3 {
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: left;
+    color: #00564D;
+    margin-bottom: 15px;
+    display: block;
+}
+
+textarea {
+    border: 1px solid #00564D;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    background-color: #0AA67F;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0c752f;
+}

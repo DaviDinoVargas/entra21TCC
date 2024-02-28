@@ -66,7 +66,7 @@ async function preenchePorNomeC() {
     }
 });*/
 
-document.querySelector('#qtd_instrutores').addEventListener('input', function (e) {
+/*document.querySelector('#qtd_instrutores').addEventListener('input', function (e) {
     const qtdInstrutores = parseInt(e.target.value);
     const inputsInstrutoresDiv = document.getElementById('inputs_instrutores');
     inputsInstrutoresDiv.innerHTML = '';
@@ -81,7 +81,7 @@ document.querySelector('#qtd_instrutores').addEventListener('input', function (e
         inputsInstrutoresDiv.appendChild(input);
         inputsInstrutoresDiv.appendChild(document.createElement('br'));
     }
-});
+});*/
 const formulario = document.querySelector("form");
 const Iid = document.querySelector("#id");
 const cavalo = document.querySelector("#idCav");
@@ -110,6 +110,8 @@ function salvar() {
             cep: Icep.value,
             rua: Irua.value,
             cidade: Icidade.value,
+            bairro: Ibairro.value,
+            complemento: Icomplemento.value,
             uf: Iuf.value,
             numero: Inumero.value,
         },

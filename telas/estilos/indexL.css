@@ -212,7 +212,7 @@ a .icon>i {
 
 }
 
-@media screen and (max-device-width: 684px) {
+@media screen and (max-device-width: 684px) and (min-device-width: 361px) {
 	body {
 		overflow-y: visible;
 		margin-right: -50%;
@@ -230,30 +230,27 @@ a .icon>i {
 	.allCards {
 	
 		flex-direction: row;
-		margin-right: 2%;
+		margin-right: 4%;
 		margin-left: 6.5%;
 	}
 
 	.cards {
 		font-size: 80%;
-		width: 29vh;
+		width: 25vh;
 		height: 23vh;
-
 	}
 	
 	.buttom {
 
 		color: white;
 		cursor: pointer;
-		margin-left: 6%;
 		margin-top: 1.5%;
-		margin-right: -5.5%;
-
 		background-color: #e8e8e8;
+		margin-right: -2.5%;
 		border: none;
 
 		border-radius: 45px;
-		width: 90vh;
+		width: 80vh;
 		/* mesma largura dos outros cards */
 		height: 83.5vh;
 		/* altura equivalente a 3 cards */
@@ -278,7 +275,7 @@ a .icon>i {
 		text-align: center;
 		flex-direction: row;
 		margin-right: 0px;
-		margin-left: 11.5%;
+		margin-left: 9%;
 
 	}
 
@@ -307,4 +304,94 @@ a .icon>i {
 	}
 }
 
+@media screen and (max-device-width: 360px) {
+	body {
+		overflow-y: visible;
+		margin-right: -50%;
+		margin-left: -25%;
+	}
+
+	section {
+		margin-top: 15%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.allCards {
+	
+		flex-direction: row;
+		margin-right: 4%;
+		margin-left: 6.5%;
+	}
+
+	.cards {
+		font-size: 80%;
+		width: 21vh;
+		height: 21vh;
+	}
+	
+	.buttom {
+
+		color: white;
+		cursor: pointer;
+		margin-top: 1.5%;
+		background-color: #e8e8e8;
+		border: none;
+
+		border-radius: 45px;
+		width: 100%;
+		/* mesma largura dos outros cards */
+		height: 83.5vh;
+		/* altura equivalente a 3 cards */
+		box-shadow: 0px 6px rgb(194, 194, 194);
+
+	}
+
+	.view,
+	.view2 {
+		cursor: pointer;
+		border: none;
+		border-radius: 45px;
+		width: 40vh;
+		height: 30vh;
+		padding: 4.295104895104895vh;
+		box-shadow: 0px 6px rgb(127, 127, 127);
+	}
+
+	.teste {
+		justify-content: space-evenly;
+		align-items: center;
+		text-align: center;
+		flex-direction: row;
+		margin-right: 0px;
+		margin-left: 9%;
+
+	}
+
+	.view {
+		margin-right: 5%;
+	}
+
+	.view2 {
+		margin-top: 5.8%;
+		background-color: #00564D;
+	}
+	.testebtn, .txt1{
+
+		font-size: 260%;
+		font-weight: 300;
+	}
+	.buttom, .txt1 {
+		font-size: 90%;
+	}
+		
+	a {
+		font-size: 2.5vh;
+	}
+	a .icon > i {
+		font-size: 115%;
+	}
+}
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Testes</title>
+  <link rel="stylesheet" href="./css/new.css">
+  <link rel="stylesheet" href="./estilos/menu.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <script src="./scripts/header.js"></script>
+ 
+  <div class="info-container">
+    <h3>Informações do Paciente</h3>
+    <p>Nome do Paciente: <span id="patientName"></span></p>
+    <p>CPF do Paciente: <span id="patientCPF"></span></p>
+  </div>
+  <div id="engloba">
+  <div class="container">
+    <div id="patientDetails"></div>
+  </div>
+    <div id="myChartContainer">
+      <canvas id="myChart" width="500" height="500"></canvas>
+    </div>
+  </div>
+  <script>
+    function fetchData(patientId) {
+      const cpfPacEscala = localStorage.getItem('cpfPacEscala');
+      const urlPaciente = `http://localhost:8080/auth/pacientes/cpf/${cpfPacEscala}`;
+      const urlEscala1 = `http://localhost:8080/auth/escala1/cpfPaciente/${cpfPacEscala}`;
+      const urlEscala2 = `http://localhost:8080/auth/escala2/cpfPaciente/${cpfPacEscala}`;
+      const urlEscala3 = `http://localhost:8080/auth/escala3/cpfPaciente/${cpfPacEscala}`;
+
+     
+      fetchAndDisplayData(urlEscala1, urlEscala2, urlEscala3);
+    }
+
+    function fetchAndDisplayData(url1, url2, url3) {
+     
+      const fetchPromises = [
+        fetch(url1),
+        fetch(url2),
+        fetch(url3),
+      ];
+
+      Promise.all(fetchPromises)
+        .then(responses => Promise.all(responses.map(response => response.json())))
+        .then(dataArray => {
+          const [data1, data2, data3] = dataArray;
+         
+          if (Array.isArray(data1) && data1.length >= 3 &&
+              Array.isArray(data2) && data2.length >= 3 &&
+              Array.isArray(data3) && data3.length >= 3) {
+
+            const cpfPacEscala = localStorage.getItem('cpfPacEscala');
+            const urlPaciente = `http://localhost:8080/auth/pacientes/cpf/${cpfPacEscala}`;
+
+            fetch(urlPaciente)
+              .then(response => response.json())
+              .then(pacienteData => {
+               
+                const firstEntry = data1[0];
+                const secondLatestEntry = data1[data1.length - 2];
+                const latestEntry = data1[data1.length - 1];
+                displayDetails(firstEntry, secondLatestEntry, latestEntry, pacienteData);
+
+                
+                const firstEntryDM2 = data2[0];
+                const secondLatestEntryDM2 = data2[data2.length - 2];
+                const latestEntryDM2 = data2[data2.length - 1];
+                displayDetailsDM2DM3(firstEntryDM2, secondLatestEntryDM2, latestEntryDM2, "DM2");
+
+                
+                const firstEntryDM3 = data3[0];
+                const secondLatestEntryDM3 = data3[data3.length - 2];
+                const latestEntryDM3 = data3[data3.length - 1];
+                displayDetailsDM2DM3(firstEntryDM3, secondLatestEntryDM3, latestEntryDM3, "DM3");
+              })
+              .catch(error => {
+                console.error('Erro ao obter dados do paciente:', error);
+                displayError('Erro ao obter dados do paciente. Por favor, tente novamente.');
+              });
+          } else {
+           
+            displayDetailsNA(data1);
+          }
+        })
+        .catch(error => {
+          console.error(`Erro ao obter dados das escalas:`, error);
+        });
+    }
+
+    function displayDetails(firstEntry, secondLatestEntry, latestEntry, pacienteData) {
+      const patientNameSpan = document.getElementById('patientName');
+      const patientCPFSpan = document.getElementById('patientCPF');
+
+      patientNameSpan.textContent = pacienteData.nome_paciente;
+      patientCPFSpan.textContent = pacienteData.cpf;
+
+      const patientDetailsContainer = document.getElementById('patientDetails');
+
+      patientDetailsContainer.innerHTML = `
+        <h3>Detalhes do Paciente</h3>
+        <hr>
+        <p>Soma da Escala (DM1): ${firstEntry ? firstEntry.somaDM1 : ''}</p>
+        <p>Comentario da Escala (DM1): ${firstEntry ? firstEntry.comentarioDM1 : ''}</p>
+        <hr>
+        <p>Soma da Escala (DM1): ${secondLatestEntry ? secondLatestEntry.somaDM1 : ''}</p>
+        <p>Comentario da Escala (DM1): ${secondLatestEntry ? secondLatestEntry.comentarioDM1 : ''}</p>
+        <hr>
+        <p>Soma da Escala (DM1): ${latestEntry ? latestEntry.somaDM1 : ''}</p>
+        <p>Comentario da Escala (DM1): ${latestEntry ? latestEntry.comentarioDM1 : ''}</p>
+        <hr>
+      `;
+    }
+
+    function displayDetailsDM2DM3(firstEntry, secondLatestEntry, latestEntry, scaleType) {
+      const patientDetailsContainer = document.getElementById('patientDetails');
+
+     
+      patientDetailsContainer.innerHTML += `
+        <hr>
+        <p>Soma da Escala (${scaleType}): ${firstEntry ? firstEntry[`soma${scaleType}`] : ''}</p>
+        <p>Comentario da Escala (${scaleType}): ${firstEntry ? firstEntry[`comentario${scaleType}`] : ''}</p>
+        <hr>
+        <p>Soma da Escala (${scaleType}): ${secondLatestEntry ? secondLatestEntry[`soma${scaleType}`] : ''}</p>
+        <p>Comentario da Escala (${scaleType}): ${secondLatestEntry ? secondLatestEntry[`comentario${scaleType}`] : ''}</p>
+        <hr>
+        <p>Soma da Escala (${scaleType}): ${latestEntry ? latestEntry[`soma${scaleType}`] : ''}</p>
+        <p>Comentario da Escala (${scaleType}): ${latestEntry ? latestEntry[`comentario${scaleType}`] : ''}</p>
+        <hr>
+      `;
+    }
+
+    function displayDetailsNA(data) {
+      const patientDetailsContainer = document.getElementById('patientDetails');
+      if (data && data.length > 0) {
+       
+        patientDetailsContainer.innerHTML = data.map(entry => `
+          <p>Soma da Escala: ${entry.somaDM1}</p>
+          <p>Comentario da Escala: ${entry.comentarioDM1}</p>
+          <hr>
+        `).join('');
+      } else {
+       
+        patientDetailsContainer.innerHTML = `<p>Dados indisponíveis. N/A</p>`;
+      }
+    }
+
+    function displayError(errorMessage) {
+      const patientDetailsContainer = document.getElementById('patientDetails');
+      patientDetailsContainer.innerHTML = `<p>${errorMessage}</p>`;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const patientId = urlParams.get('id');
+
+    fetchData(patientId);
+  </script>
+  <script src="./graph.js"></script>
+</body>
+</html>

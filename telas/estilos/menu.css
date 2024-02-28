@@ -9,6 +9,28 @@
 body {
     height: 100vh;
 }
+button{
+
+    background-color: #11b18900;
+    border: none;
+}
+
+.sidebar {
+    width: 0;
+    height: -100%;
+    background-color: #4e4e4e;
+    overflow-x: hidden;
+    transition:  0.5;
+    position: fixed;
+    z-index: 1;
+    }
+    
+    .show-sidebar{
+    width: 250px;
+    }
+    main{
+        color: black;
+    }
 
 nav.menu-lateral {
     width: 5%;
@@ -25,7 +47,7 @@ nav.menu-lateral {
 }
 
 nav.menu-lateral:hover {
-    width: 13%;
+    width: 17%;
     overflow: hidden;
     border-top-right-radius: 10px;
 
@@ -118,5 +140,42 @@ ul li.item-menu a .icon>i {
     }
     .btn-expandir>i {
         font-size: 45px;
+    }
+}
+@media screen and (max-device-width: 684px) and (min-device-width: 361) {
+    nav.menu-lateral {
+        width: 7%;
+        height: 100%;
+        background-color: #11b189;
+        transition: .45s;
+        border-top-right-radius: 10px;
+
+    
+    }
+    nav.menu-lateral:hover {
+        width: 23%;
+        box-shadow: 21px 0px 6px -9px rgba(0,0,0,0.1);
+    }
+
+
+    ul li.item-menu {
+        padding: 10%;
+        padding-left: 0;
+    }
+    ul li.item-menu a{
+        font-size: 35px;
+        margin-left: 10px;
+    }
+    ul li.item-menu a .icon>i {
+        font-size: 45px;
+        margin-left: 10px;
+    }
+    .btn-expandir>i {
+        font-size: 45px;
+    }
+}
+@media screen and (max-device-width: 360px) {
+    .menu-lateral{
+        display: none;
     }
 }

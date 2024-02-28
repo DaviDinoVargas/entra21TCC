@@ -47,6 +47,8 @@ function atualizar() {
     const Icep = document.querySelector(".cep");
     const Irua = document.querySelector(".rua");
     const Icidade = document.querySelector(".cidadeC");
+    const Ibairro = document.querySelector(".bairro")
+    const Icomplemento = document.querySelector(".complemento")
     const Iuf = document.querySelector(".uf");
     const Inumero = document.querySelector(".numero");
 
@@ -59,6 +61,8 @@ function atualizar() {
             cep: Icep.value,
             rua: Irua.value,
             cidade: Icidade.value,
+            bairro: Ibairro.value,
+            complemento: Icomplemento.value,
             uf: Iuf.value,
             numero: Inumero.value
         },

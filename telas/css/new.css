@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.info-container {
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #0AA67F;
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+#engloba {
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+}
+
+.container,
+.myChartContainer {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.container {
+    border-radius: 10px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    color: #4e4e4e;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column; /* Adjust if needed */
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#patientDetails {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+#myChartContainer {
+    border-radius: 10px;
+    font-family: "Kanit", sans-serif;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,65 @@
+body {
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+#formPage1 {
+  width: 600px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Adicionado para centralizar o texto */
+}
+
+h2 {
+  color: #00564D;
+}
+
+label {
+    align-items: center;
+  display: flex;
+  align-items: row; /* Alinha verticalmente ao centro */
+  border: none;
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #00564D;
+  margin-bottom: 10px;
+}
+
+label input {
+      align-items: center;
+ text-align: center;
+ display:row;
+  border: 1px solid #00564D;
+  margin-left: 10px; /* Espaço entre o input e o número */
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  background-color: #0AA67F;
+  color: #fff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px; /* Espaço entre os inputs e o botão */
+}
+
+button:hover {
+  background-color: #0c752f;
+}

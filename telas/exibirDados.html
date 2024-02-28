@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Registro</title>
+</head>
+
+<body>
+    <h1>Valores Registrados</h1>
+
+    <div id="valoresRegistrados">
+        <!-- Os valores serão exibidos aqui -->
+    </div>
+
+    <script>
+        function carregarValoresRegistrados() {
+            const url1 = 'http://localhost:8080/auth/escala1';
+            const url2 = 'http://localhost:8080/auth/escala2';
+            const url3 = 'http://localhost:8080/auth/escala3';
+
+            // Função para carregar dados de uma URL específica
+            function carregarDados(url) {
+                return fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Erro HTTP! Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar valores:', error);
+                    });
+            }
+
+            // Array para armazenar as promessas de carregamento de dados
+            const promessas = [carregarDados(url1), carregarDados(url2), carregarDados(url3)];
+
+            // Executa todas as promessas em paralelo
+            Promise.all(promessas)
+                .then(resultados => {
+                    const valoresRegistradosDiv = document.getElementById('valoresRegistrados');
+                    valoresRegistradosDiv.innerHTML = ''; // Limpa a div antes de adicionar os novos registros
+
+                    // Itera sobre os resultados de cada URL
+                    resultados.forEach(data => {
+                        // Inverte a ordem dos dados
+                        data.reverse();
+
+                        // Seleciona apenas os dois últimos registros
+                        const ultimosDoisRegistros = data.slice(0, 2);
+
+                        // Itera sobre cada objeto nos dois últimos registros
+                        ultimosDoisRegistros.forEach(item => {
+                            // Exibe dinamicamente todas as propriedades do objeto
+                            for (const key in item) {
+                                if (item.hasOwnProperty(key)) {
+                                    // Verificar se a chave está entre os itens desejados
+                                    if (['somaDM1', 'somaDM2', 'somaDM3', 'comentarioDM1', 'comentarioDM2', 'comentarioDM3'].includes(key)) {
+                                        valoresRegistradosDiv.innerHTML += `
+                <p><strong>${key}:</strong> ${item[key]}</p>
+            `;
+                                    }
+                                }
+                            }
+                            valoresRegistradosDiv.innerHTML += '<hr>'; // Adicionei uma linha horizontal para separar os registros
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar valores:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarValoresRegistrados);
+    </script>
+</body>
+
+</html>
